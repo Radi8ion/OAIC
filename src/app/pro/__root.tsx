@@ -1,0 +1,1 @@
+(Copy of __root.tsx from globe-grabber-pro/routes/ - to be filled in real run)

@@ -1,8 +1,8 @@
 export const contactInfo = {
-  generalEmail: 'info@oaic2026.in',
-  papersEmail: 'papers@oaic2026.in',
-  sponsorshipEmail: 'sponsorship@oaic2026.in',
-  mediaEmail: 'media@oaic2026.in',
+  generalEmail: 'info@oaic.in',
+  papersEmail: 'papers@oaic.in',
+  sponsorshipEmail: 'sponsorship@oaic.in',
+  mediaEmail: 'media@oaic.in',
   phone: '+91-674-2725-113',
   address: {
     line1: 'KIIT University, Campus 19',
@@ -11,9 +11,9 @@ export const contactInfo = {
     country: 'India',
   },
   social: {
-    twitter: 'https://twitter.com/oaic2026',
-    linkedin: 'https://linkedin.com/company/oaic2026',
-    instagram: 'https://instagram.com/oaic2026',
-    youtube: 'https://youtube.com/@oaic2026',
+    twitter: 'https://twitter.com/oaic',
+    linkedin: 'https://linkedin.com/company/oaic',
+    instagram: 'https://instagram.com/oaic',
+    youtube: 'https://youtube.com/@oaic',
   },
 };

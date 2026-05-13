@@ -1,32 +1,47 @@
-'use client';
+import type { Metadata } from 'next';
+import PageHeader from '@/components/layout/PageHeader';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/components/ui/Tabs';
+import { FileDown, Check, AlertTriangle } from 'lucide-react';
+import Section from '@/components/layout/Section';
+import { Button } from '@/components/ui/Button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/Card';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/Alert';
 
-import PageBanner from '@/components/layout/PageBanner';
-import Tabs from '@/components/ui/Tabs';
-import { FileDown } from 'lucide-react';
+export const metadata: Metadata = {
+  title: 'Submission Guidelines',
+  description:
+    'Everything you need to know to prepare and submit your paper to OAIC 2024.',
+};
 
 function GeneralGuidelines() {
   return (
-    <div className="space-y-6">
-      <div className="border-l-4 border-l-[#C5A359] pl-6">
-        <p className="font-body text-earth-300 leading-relaxed">
-          All papers submitted to OAIC 2026 must be original, unpublished work not currently under
-          review at any other venue. Submissions must be in English and comply with the IEEE double-column
-          conference format.
-        </p>
-      </div>
-      <ul className="flex flex-col gap-3">
+    <div className="prose">
+      <p>
+        All papers submitted to OAIC 2024 must be original, unpublished work not
+        currently under review at any other venue. Submissions must be in
+        English and comply with the IEEE double-column conference format.
+      </p>
+      <ul>
         {[
-          'Papers must not exceed the specified page limits (excluding references)',
-          'All submissions will undergo double-blind peer review',
-          'Authors must anonymize their submissions (remove author names, affiliations, acknowledgements)',
-          'Self-citations should be minimized and written in the third person',
-          'Submitted papers must not be under review elsewhere simultaneously',
-          'At least one author must register and present the paper at the conference',
+          'Papers must not exceed the specified page limits (excluding references).',
+          'All submissions will undergo a double-blind peer review process.',
+          'Authors must anonymize their submissions, removing names, affiliations, and acknowledgements.',
+          'Self-citations should be minimized and written in the third person to maintain anonymity.',
+          'Submitted papers must not be under review elsewhere simultaneously.',
+          'At least one author of an accepted paper must register for the conference and present the paper.',
         ].map((item) => (
-          <li key={item} className="flex items-start gap-3 text-earth-300 text-sm font-body bg-dark-800 border border-earth-800 rounded-lg px-4 py-3">
-            <span className="text-[#C5A359] font-bold mt-0.5">✓</span>
-            {item}
-          </li>
+          <li key={item}>{item}</li>
         ))}
       </ul>
     </div>
@@ -36,28 +51,36 @@ function GeneralGuidelines() {
 function FormattingGuidelines() {
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {[
-          { label: 'Format', value: 'IEEE double-column, A4 paper' },
-          { label: 'Full Paper Length', value: '8–10 pages (+ 2 for references)' },
-          { label: 'Short Paper Length', value: '4–6 pages (+ 1 for references)' },
+          { label: 'Format', value: 'IEEE double-column, A4' },
+          { label: 'Full Paper Length', value: '8–10 pages (+ refs)' },
+          { label: 'Short Paper Length', value: '4–6 pages (+ refs)' },
           { label: 'Font', value: 'Times New Roman, 10pt' },
           { label: 'File Format', value: 'PDF only' },
-          { label: 'File Size Limit', value: '10 MB maximum' },
+          { label: 'File Size Limit', value: '10 MB' },
         ].map((spec) => (
-          <div key={spec.label} className="bg-dark-800 border border-earth-700 rounded-xl px-5 py-4 flex justify-between items-center">
-            <span className="font-mono text-earth-500 text-sm">{spec.label}</span>
-            <span className="font-body font-semibold text-earth-200 text-sm">{spec.value}</span>
-          </div>
+          <Card key={spec.label}>
+            <CardContent className="p-4">
+              <p className="text-sm font-medium text-muted-foreground">
+                {spec.label}
+              </p>
+              <p className="font-semibold">{spec.value}</p>
+            </CardContent>
+          </Card>
         ))}
       </div>
-      <div className="flex gap-4">
-        <a href="#" className="inline-flex items-center gap-2 px-5 py-2.5 rounded text-sm font-body font-semibold bg-[#C5A359] hover:bg-[#b08e48] text-dark-900 transition-colors">
-          <FileDown className="w-4 h-4" /> LaTeX Template
-        </a>
-        <a href="#" className="inline-flex items-center gap-2 px-5 py-2.5 rounded text-sm font-body font-semibold border border-earth-600 text-earth-300 hover:border-[#C5A359] transition-colors">
-          <FileDown className="w-4 h-4" /> Word Template
-        </a>
+      <div className="flex flex-wrap gap-4">
+        <Button asChild>
+          <a href="#">
+            <FileDown className="mr-2 h-4 w-4" /> LaTeX Template
+          </a>
+        </Button>
+        <Button asChild variant="secondary">
+          <a href="#">
+            <FileDown className="mr-2 h-4 w-4" /> Word Template
+          </a>
+        </Button>
       </div>
     </div>
   );
@@ -65,75 +88,109 @@ function FormattingGuidelines() {
 
 function EthicsPolicy() {
   return (
-    <div className="space-y-5">
-      <div className="border-l-4 border-l-[#C5A359] pl-6">
-        <p className="font-body text-earth-300 leading-relaxed">
-          OAIC 2026 is committed to the highest standards of publication ethics and takes all
-          forms of misconduct seriously, including plagiarism, data fabrication, and improper authorship.
-        </p>
+    <div className="space-y-6">
+      <Alert>
+        <AlertTriangle className="h-4 w-4" />
+        <AlertTitle>Commitment to Integrity</AlertTitle>
+        <AlertDescription>
+          OAIC 2024 is committed to the highest standards of publication ethics
+          and takes all forms of misconduct seriously, including plagiarism,
+          data fabrication, and improper authorship.
+        </AlertDescription>
+      </Alert>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {[
+          {
+            title: 'Plagiarism',
+            desc: 'All submissions are checked using plagiarism detection software. Papers with significant overlap will be rejected.',
+          },
+          {
+            title: 'Authorship',
+            desc: 'All listed authors must have made a substantial contribution. Ghostwriting and honorary authorship are not permitted.',
+          },
+          {
+            title: 'AI-Assisted Writing',
+            desc: 'Authors must disclose the use of AI writing tools. AI tools may not be listed as authors.',
+          },
+          {
+            title: 'Data Integrity',
+            desc: 'Authors must preserve research data and provide access upon reasonable request by reviewers.',
+          },
+        ].map((item) => (
+          <Card key={item.title}>
+            <CardHeader>
+              <CardTitle className="text-lg">{item.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">{item.desc}</p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
-      {[
-        { title: 'Plagiarism', desc: 'All submissions are checked using plagiarism detection software. Papers with significant overlap with published work will be rejected.' },
-        { title: 'Authorship', desc: 'All listed authors must have made a substantial contribution to the work. Ghostwriting and honorary authorship are not permitted.' },
-        { title: 'AI-Assisted Writing', desc: 'Authors must disclose use of AI writing tools. AI tools may not be listed as authors.' },
-        { title: 'Data Integrity', desc: 'Authors must preserve research data and provide access upon reasonable request by reviewers.' },
-      ].map((item) => (
-        <div key={item.title} className="bg-dark-800 border border-earth-700 rounded-xl p-5">
-          <h4 className="font-display font-semibold text-[#C5A359] mb-2">{item.title}</h4>
-          <p className="font-body text-earth-400 text-sm leading-relaxed">{item.desc}</p>
-        </div>
-      ))}
     </div>
   );
 }
 
 function CameraReady() {
   return (
-    <div className="space-y-6">
-      <div className="border-l-4 border-l-[#C5A359] pl-6">
-        <p className="font-body text-earth-300 leading-relaxed">
-          After acceptance, authors must prepare and submit the camera-ready version by September 10, 2026.
-        </p>
-      </div>
-      <ul className="flex flex-col gap-3">
+    <div className="prose">
+      <p>
+        After acceptance, authors must prepare and submit the camera-ready
+        version by{' '}
+        <strong className="font-semibold">September 10, 2024</strong>.
+      </p>
+      <ul>
         {[
-          'Address all reviewer comments in the final version',
-          'Include author names and affiliations (no longer anonymized)',
-          'Add acknowledgements section if applicable',
-          'Ensure PDF is IEEE Xplore compliant (use IEEE PDF eXpress)',
-          'Submit signed IEEE Copyright Form',
-          'Upload via the submission system by the deadline',
+          'Address all reviewer comments in the final version.',
+          'Include author names and affiliations (no longer anonymized).',
+          'Add acknowledgements section if applicable.',
+          'Ensure PDF is IEEE Xplore compliant (use IEEE PDF eXpress).',
+          'Submit the signed IEEE Copyright Form.',
+          'Upload all materials via the submission system by the deadline.',
         ].map((item) => (
-          <li key={item} className="flex items-start gap-3 text-earth-300 text-sm font-body bg-dark-800 border border-earth-800 rounded-lg px-4 py-3">
-            <span className="text-[#C5A359] font-bold mt-0.5">→</span>
-            {item}
-          </li>
+          <li key={item}>{item}</li>
         ))}
       </ul>
     </div>
   );
 }
 
-export default function SubmissionGuidelinesPage() {
-  const tabs = [
-    { label: 'General Guidelines', content: <GeneralGuidelines /> },
-    { label: 'Formatting', content: <FormattingGuidelines /> },
-    { label: 'Ethics Policy', content: <EthicsPolicy /> },
-    { label: 'Camera-Ready', content: <CameraReady /> },
-  ];
+const TABS = [
+  { value: 'general', label: 'General Guidelines', component: GeneralGuidelines },
+  { value: 'formatting', label: 'Formatting', component: FormattingGuidelines },
+  { value: 'ethics', label: 'Ethics Policy', component: EthicsPolicy },
+  { value: 'camera-ready', label: 'Camera-Ready', component: CameraReady },
+];
 
+export default function SubmissionGuidelinesPage() {
   return (
     <>
-      <PageBanner
+      <PageHeader
         title="Submission Guidelines"
-        subtitle="Everything you need to know to prepare and submit your paper to OAIC 2026."
-        breadcrumbs={[{ label: 'Authors' }, { label: 'Submission Guidelines' }]}
+        description="Everything you need to know to prepare and submit your paper to OAIC 2024."
+        breadcrumbs={[
+          {
+            href: '/authors/submission-guidelines',
+            label: 'Submission Guidelines',
+          },
+        ]}
       />
-      <section className="section-padding">
-        <div className="container-wide max-w-4xl">
-          <Tabs tabs={tabs} />
-        </div>
-      </section>
+      <Section className="pb-24">
+        <Tabs defaultValue="general" className="mx-auto max-w-4xl">
+          <TabsList>
+            {TABS.map((tab) => (
+              <TabsTrigger key={tab.value} value={tab.value}>
+                {tab.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          {TABS.map((tab) => (
+            <TabsContent key={tab.value} value={tab.value} className="pt-6">
+              <tab.component />
+            </TabsContent>
+          ))}
+        </Tabs>
+      </Section>
     </>
   );
 }

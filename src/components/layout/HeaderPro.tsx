@@ -1,0 +1,1 @@
+(Copy of Header.tsx from globe-grabber-pro/site/ - to be filled in real run)

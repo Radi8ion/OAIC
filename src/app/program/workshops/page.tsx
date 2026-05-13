@@ -1,30 +1,31 @@
 import type { Metadata } from 'next';
-import PageBanner from '@/components/layout/PageBanner';
+import PageHeader from '@/components/layout/PageHeader';
 import WorkshopCard from '@/components/sections/WorkshopCard';
 import { workshops } from '@/data/program';
-import SectionHeading from '@/components/ui/SectionHeading';
+import Section from '@/components/layout/Section';
+import SectionHeader from '@/components/layout/SectionHeader';
 
 export const metadata: Metadata = {
   title: 'Workshops',
-  description: 'Co-located workshops at OAIC 2026 covering hands-on AI topics.',
+  description:
+    'Co-located workshops at OAIC 2024 covering hands-on AI topics.',
 };
 
 export default function WorkshopsPage() {
   return (
     <>
-      <PageBanner
+      <PageHeader
         title="Workshops"
-        subtitle="Intensive, focused workshops on cutting-edge AI topics, co-located with the main conference."
-        breadcrumbs={[{ label: 'Program' }, { label: 'Workshops' }]}
+        description="Intensive, focused workshops on cutting-edge AI topics, co-located with the main conference."
+        breadcrumbs={[{ href: '/program/workshops', label: 'Workshops' }]}
       />
-      <section className="section-padding">
-        <div className="container-wide">
-          <SectionHeading title="Co-located Workshops" subtitle="Hands-on sessions led by experts in their fields." />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {workshops.map((w) => <WorkshopCard key={w.id} workshop={w} />)}
-          </div>
+      <Section>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {workshops.map((w) => (
+            <WorkshopCard key={w.id} workshop={w} />
+          ))}
         </div>
-      </section>
+      </Section>
     </>
   );
 }

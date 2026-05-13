@@ -22,7 +22,7 @@ export interface CommitteeMember {
   name: string;
   role: string;
   institution: string;
-  photoUrl?: string;
+  image?: string;
 }
 
 export interface ScheduleSlot {

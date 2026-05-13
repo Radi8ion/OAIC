@@ -1,30 +1,32 @@
 import type { Metadata } from 'next';
-import PageBanner from '@/components/layout/PageBanner';
+import PageHeader from '@/components/layout/PageHeader';
 import CommitteeMemberCard from '@/components/sections/CommitteeMemberCard';
 import { organizingCommittee } from '@/data/committees';
+import Section from '@/components/layout/Section';
+import SectionHeader from '@/components/layout/SectionHeader';
 
 export const metadata: Metadata = {
   title: 'Organizing Committee',
-  description: 'Meet the organizing committee of OAIC 2026.',
+  description: 'Meet the organizing committee of OAIC 2024.',
 };
 
 export default function OrganizingCommitteePage() {
   return (
     <>
-      <PageBanner
+      <PageHeader
         title="Organizing Committee"
-        subtitle="The dedicated team working to make OAIC 2026 a world-class conference."
-        breadcrumbs={[{ label: 'Committees' }, { label: 'Organizing Committee' }]}
+        description="The dedicated team working to make OAIC 2024 a world-class conference."
+        breadcrumbs={[
+          { href: '/committees/organizing', label: 'Organizing Committee' },
+        ]}
       />
-      <section className="section-padding">
-        <div className="container-wide">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-            {organizingCommittee.map((member) => (
-              <CommitteeMemberCard key={member.name} member={member} />
-            ))}
-          </div>
+      <Section>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {organizingCommittee.map((member) => (
+            <CommitteeMemberCard key={member.name} member={member} />
+          ))}
         </div>
-      </section>
+      </Section>
     </>
   );
 }
