@@ -24,7 +24,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/Alert';
 export const metadata: Metadata = {
   title: 'Visa Information',
   description:
-    'Visa requirements and application guide for attending OAIC 2024 in Bhubaneswar, India.',
+    'Visa requirements and application guide for attending OAIC 2026 in Bhubaneswar, India.',
 };
 
 const visaCategories = [
@@ -68,7 +68,7 @@ export default function VisaPage() {
     <>
       <PageHeader
         title="Visa Information"
-        description="Planning your travel to OAIC 2024 in Bhubaneswar, India."
+        description="Planning your travel to OAIC 2026 in Bhubaneswar, India."
         breadcrumbs={[{ href: '/travel/visa', label: 'Visa Information' }]}
       />
       <Section className="pb-24">

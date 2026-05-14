@@ -16,7 +16,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/Alert';
 export const metadata: Metadata = {
   title: 'Important Dates',
   description:
-    'Key deadlines for paper submission, notification, camera-ready, and registration for OAIC 2024.',
+    'Key deadlines for paper submission, notification, camera-ready, and registration for OAIC 2026.',
 };
 
 
@@ -25,7 +25,7 @@ export default function ImportantDatesPage() {
     <>
       <PageHeader
         title="Important Dates"
-        description="Plan ahead — these deadlines are firm. Mark them in your calendar."
+        description="Plan ahead - these deadlines are firm. Mark them in your calendar."
         breadcrumbs={[
           { href: '/authors/important-dates', label: 'Important Dates' },
         ]}
@@ -71,7 +71,7 @@ export default function ImportantDatesPage() {
                                 >
                                   {date.date}
                                 </time>
-<Badge className="w-24 justify-center">
+                                <Badge className="w-24 justify-center">
                                   {date.status.charAt(0).toUpperCase() +
                                     date.status.slice(1)}
                                 </Badge>

@@ -6,7 +6,7 @@ import Section from '@/components/layout/Section';
 
 export const metadata: Metadata = {
   title: 'Industry Forums & Exhibition Committee',
-  description: 'OAIC 2024 Industry Forums and Exhibition Committee.',
+  description: 'OAIC 2026 Industry Forums and Exhibition Committee.',
 };
 
 export default function IndustryForumsCommitteePage() {

@@ -9,7 +9,7 @@ import {
   Card,
   CardDescription,
   CardContent,
-  
+
   CardHeader,
   CardTitle,
 } from '@/components/ui/Card';
@@ -17,7 +17,7 @@ import {
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Contact the OAIC 2024 organizing committee for general inquiries, papers, sponsorship, and media.',
+    'Contact the OAIC 2026 organizing committee for general inquiries, papers, sponsorship, and media.',
 };
 
 const contactCategories = [
@@ -49,7 +49,7 @@ export default function ContactPage() {
     <>
       <PageHeader
         title="Contact Us"
-        description="We'd love to hear from you. Reach out for any questions about OAIC 2024."
+        description="We'd love to hear from you. Reach out for any questions about OAIC 2026."
         breadcrumbs={[{ href: '/about/contact', label: 'Contact Us' }]}
       />
 

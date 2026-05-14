@@ -6,7 +6,7 @@ import Section from '@/components/layout/Section';
 
 export const metadata: Metadata = {
   title: 'Operations Committee',
-  description: 'OAIC 2024 Operations Committee.',
+  description: 'OAIC 2026 Operations Committee.',
 };
 
 export default function OperationsCommitteePage() {

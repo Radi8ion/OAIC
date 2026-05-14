@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/Button';
 import { importantDates as dates } from '@/data/dates';
 
 export const metadata: Metadata = {
-  title: 'IEEE GLOBECOM 2026 — Macau S.A.R., China',
-  description: 'IEEE GLOBECOM 2026 is a flagship conference of the IEEE Communications Society, gathering top experts to drive innovation in communications technology. Join us in Macau, 7-11 December 2026.',
+  title: '1st Odisha AI Conference (OAIC) 2026 - Bhubaneswar, India',
+  description: 'The 2026 1st Odisha AI Conference (OAIC) is a premier platform for exchanging ideas and presenting research findings in AI. Join us in Bhubaneswar, India, December 19-20, 2026.',
 };
 
 export default function HomePage() {
@@ -21,7 +21,7 @@ export default function HomePage() {
           <div className="border border-accent-cyan p-8 relative">
             <h2 className="text-2xl md:text-3xl font-bold text-primary-900 mb-2">News and Announcements</h2>
             <Link href="/authors/call-for-papers" className="text-lg text-accent-cyan hover:underline font-semibold">
-              IEEE GLOBECOM 2026 Call for Papers Announced
+              OAIC 2026 Call for Papers Announced
             </Link>
           </div>
         </div>
@@ -33,8 +33,8 @@ export default function HomePage() {
           <div className="relative flex flex-col md:flex-row">
             {/* Image and Title Block */}
             <div className="relative w-full md:w-3/5 h-[400px]">
-              <div 
-                className="absolute inset-0 bg-cover bg-center" 
+              <div
+                className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: "url('/dates-image.jpg')" }}
               >
                 <div className="absolute inset-0 bg-black/40" />
@@ -74,15 +74,18 @@ export default function HomePage() {
             <div className="absolute top-0 left-0 w-1/2 h-1/3 border-t-2 border-l-2 border-accent-orange pointer-events-none" />
             {/* Bottom Right Bracket */}
             <div className="absolute bottom-0 right-0 w-1/2 h-1/3 border-b-2 border-r-2 border-accent-orange pointer-events-none" />
-            
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-6">Welcome to IEEE GLOBECOM 2026!</h2>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-6">Welcome to OAIC 2026!</h2>
+            <p className="text-lg text-gray-700 leading-relaxed text-justify md:text-left mb-4">
+              The <strong>2026 1st Odisha AI Conference (OAIC)</strong> will serve as a premier platform for exchanging ideas, presenting research findings, and fostering collaborations that address real-world challenges through AI-driven solutions.
+            </p>
             <p className="text-lg text-gray-700 leading-relaxed text-justify md:text-left">
-              IEEE Global Communications Conference (GLOBECOM), a flagship IEEE Communications Society event, gathers top experts to drive innovation and advance nearly every aspect of communications technology. Each year, thousands of the most groundbreaking contributions are selected for this conference program. This premier event features technical papers, tutorials, workshops, and industry sessions designed to push the boundaries of telecommunications technologies, systems, and infrastructure. GLOBECOM continues to shape the future of high-speed, seamless, and cost-effective global telecommunications services globally for all.
+              OAIC focuses on both theoretical developments and practical applications of AI across diverse domains, emphasizing ethical AI, sustainable development, and the integration of AI with emerging technologies to drive societal and economic transformation.
             </p>
           </div>
         </div>
       </section>
-      
+
       {/* Destination & Travel Info */}
       <section className="section-padding bg-white pt-0">
         <div className="container-wide max-w-5xl mx-auto">
@@ -93,19 +96,19 @@ export default function HomePage() {
             <div className="absolute top-0 right-0 w-1/2 h-1/3 border-t-2 border-r-2 border-accent-orange pointer-events-none" />
 
             <div className="w-full md:w-1/2">
-<Image 
-                    src="/destination-macau.jpg" 
-                    alt="Night skyline of Macau"
-                    className="w-full shadow-md"
-                    width={800}
-                    height={450}
-                    priority
-                  />
+              <Image
+                src="/destination-bhubaneswar.jpg"
+                alt="Bhubaneswar"
+                className="w-full shadow-md"
+                width={800}
+                height={450}
+                priority
+              />
             </div>
             <div className="w-full md:w-1/2 pt-4">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-2">The Destination</h2>
-              <p className="text-xl text-primary-800 mb-8">Macau S.A.R., China</p>
-              
+              <p className="text-xl text-primary-800 mb-8">ITER, Siksha &apos;O&apos; Anusandhan, Bhubaneswar, Odisha, India</p>
+
               <h3 className="text-2xl font-bold text-primary-900 mb-4">Travel Information</h3>
               <div className="flex gap-4">
                 <Button as={Link} href="/travel/attractions" className="bg-accent-cyan hover:bg-blue-400 text-white rounded-none border-none">

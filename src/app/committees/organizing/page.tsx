@@ -6,7 +6,7 @@ import Section from '@/components/layout/Section';
 
 export const metadata: Metadata = {
   title: 'Organizing Committee',
-  description: 'Meet the organizing committee of OAIC 2024.',
+  description: 'Meet the organizing committee of OAIC 2026.',
 };
 
 export default function OrganizingCommitteePage() {
@@ -14,7 +14,7 @@ export default function OrganizingCommitteePage() {
     <>
       <PageHeader
         title="Organizing Committee"
-        description="The dedicated team working to make OAIC 2024 a world-class conference."
+        description="The dedicated team working to make OAIC 2026 a world-class conference."
         breadcrumbs={[
           { href: '/committees/organizing', label: 'Organizing Committee' },
         ]}

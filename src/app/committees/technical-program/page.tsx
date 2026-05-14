@@ -7,7 +7,7 @@ import Section from '@/components/layout/Section';
 export const metadata: Metadata = {
   title: 'Technical Program Committee',
   description:
-    'Meet the technical program committee responsible for reviewing submissions to OAIC 2024.',
+    'Meet the technical program committee responsible for reviewing submissions to OAIC 2026.',
 };
 
 export default function TechnicalProgramCommitteePage() {
@@ -15,7 +15,7 @@ export default function TechnicalProgramCommitteePage() {
     <>
       <PageHeader
         title="Technical Program Committee"
-        description="Leading experts who review and curate the OAIC 2024 research program."
+        description="Leading experts who review and curate the OAIC 2026 research program."
         breadcrumbs={[
           {
             href: '/committees/technical-program',

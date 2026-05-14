@@ -20,10 +20,13 @@ export default function Navbar() {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, []);
 
-// Removed effect that set state synchronously on pathname change, as per React best practices. (Reset should be handled via explicit handlers on navigation.)
+  // Removed effect that set state synchronously on pathname change, as per React best practices. (Reset should be handled via explicit handlers on navigation.)
 
 
   const handleMouseEnter = (label: string) => {
@@ -44,7 +47,7 @@ export default function Navbar() {
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      
+
       {/* Top Bar */}
       <div className="bg-primary-800 text-white text-xs py-1">
         <div className="container-wide flex justify-between items-center">
@@ -74,8 +77,8 @@ export default function Navbar() {
         role="banner"
       >
         <div className="container-wide flex items-center justify-between py-4">
-          <Link href="/" className="flex items-center gap-3" aria-label="IEEE GLOBECOM 2026 - Home">
-            <Image src="/logo.svg" alt="IEEE GLOBECOM 2026 Logo" className="h-12" width={160} height={48} priority />
+          <Link href="/" className="flex items-center gap-3" aria-label="OAIC 2026 - Home">
+            <Image src="/images/logo.png" alt="OAIC 2026 Logo" className="h-12" width={160} height={48} priority />
           </Link>
 
           <nav className="hidden lg:flex items-center" aria-label="Primary navigation">
@@ -123,9 +126,9 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2">
             <form className="relative hidden md:block">
-              <input 
-                type="search" 
-                placeholder="Search" 
+              <input
+                type="search"
+                placeholder="Search"
                 className="pl-4 pr-10 py-2 text-sm border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
               />
               <button type="submit" className="absolute right-0 top-0 h-full px-3 text-gray-500 hover:text-primary-600">
@@ -142,9 +145,9 @@ export default function Navbar() {
           </div>
         </div>
       </header>
-      
+
       {/* Mobile Drawer */}
-      <div 
+      <div
         className={cn(
           "fixed inset-0 z-50 lg:hidden",
           mobileOpen ? "block" : "hidden"
@@ -154,7 +157,7 @@ export default function Navbar() {
         <div className="relative flex flex-col w-full max-w-xs h-full bg-white shadow-xl">
           <div className="flex items-center justify-between px-4 py-3 border-b">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.svg" alt="IEEE GLOBECOM 2026 Logo" className="h-10" width={120} height={40} />
+              <Image src="/images/logo.png" alt="OAIC 2026 Logo" className="h-10" width={120} height={400} />
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 text-gray-500" aria-label="Close menu">
               <X className="w-6 h-6" />
@@ -195,7 +198,7 @@ function MobileNavItem({ item, pathname }: { item: NavItem; pathname: string }) 
         onClick={() => setOpen(!open)}
         className={cn(
           'w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium',
-           isActive ? 'text-primary-700 bg-primary-100' : 'text-gray-700 hover:bg-gray-100'
+          isActive ? 'text-primary-700 bg-primary-100' : 'text-gray-700 hover:bg-gray-100'
         )}
       >
         <span>{item.label}</span>

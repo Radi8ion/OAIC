@@ -7,7 +7,7 @@ import SectionHeader from '@/components/layout/SectionHeader';
 import {
   Card,
   CardContent,
-  
+
   CardHeader,
   CardTitle,
 } from '@/components/ui/Card';
@@ -17,7 +17,7 @@ import { FileText, Check } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Call for Papers',
   description:
-    'OAIC 2024 invites original research contributions across all areas of artificial intelligence.',
+    'OAIC 2026 invites original research contributions across all areas of artificial intelligence.',
 };
 
 export default function CallForPapersPage() {
@@ -25,7 +25,7 @@ export default function CallForPapersPage() {
     <>
       <PageHeader
         title="Call for Papers"
-        description="OAIC 2024 invites original, unpublished research contributions across all areas of artificial intelligence."
+        description="OAIC 2026 invites original, unpublished research contributions across all areas of artificial intelligence."
         breadcrumbs={[
           { href: '/authors/call-for-papers', label: 'Call for Papers' },
         ]}

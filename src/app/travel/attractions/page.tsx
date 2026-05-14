@@ -15,13 +15,13 @@ import {
 export const metadata: Metadata = {
   title: 'Tourist Attractions',
   description:
-    "Explore Odisha's magnificent heritage, nature, and culture while attending OAIC 2024.",
+    "Explore Odisha's magnificent heritage, nature, and culture while attending OAIC 2026.",
 };
 
 const cuisine = [
   {
     name: 'Dalma',
-    desc: 'The quintessential Odishan comfort dish — lentils slow-cooked with seasonal vegetables.',
+    desc: 'The quintessential Odishan comfort dish - lentils slow-cooked with seasonal vegetables.',
   },
   {
     name: 'Pakhala Bhata',
@@ -29,7 +29,7 @@ const cuisine = [
   },
   {
     name: 'Chhena Poda',
-    desc: "Odisha's signature dessert — a caramelized cottage cheese cake.",
+    desc: "Odisha's signature dessert - a caramelized cottage cheese cake.",
   },
   {
     name: 'Rasagola',
