@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: 'Tourist Attractions',
   description:
-    "Explore Odisha's magnificent heritage, nature, and culture while attending OAIC 2024.",
+    "Explore Odisha's magnificent heritage, nature, and culture while attending OAIC 2026.",
 };
 
 const cuisine = [

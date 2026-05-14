@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/Button';
 import { importantDates as dates } from '@/data/dates';
 
 export const metadata: Metadata = {
-  title: 'IEEE GLOBECOM 2026 — Macau S.A.R., China',
-  description: 'IEEE GLOBECOM 2026 is a flagship conference of the IEEE Communications Society, gathering top experts to drive innovation in communications technology. Join us in Macau, 7-11 December 2026.',
+  title: 'OAIC 2026 — Bhubaneswar, Odisha, India',
+  description: 'OAIC 2026 is the inaugural Odisha AI Conference, gathering top experts to drive innovation in Artificial Intelligence. Join us in Bhubaneswar, 15-17 October 2026.',
 };
 
 export default function HomePage() {
@@ -21,7 +21,7 @@ export default function HomePage() {
           <div className="border border-accent-cyan p-8 relative">
             <h2 className="text-2xl md:text-3xl font-bold text-primary-900 mb-2">News and Announcements</h2>
             <Link href="/authors/call-for-papers" className="text-lg text-accent-cyan hover:underline font-semibold">
-              IEEE GLOBECOM 2026 Call for Papers Announced
+              OAIC 2026 Call for Papers Announced
             </Link>
           </div>
         </div>
@@ -32,15 +32,15 @@ export default function HomePage() {
         <div className="container-wide">
           <div className="relative flex flex-col md:flex-row">
             {/* Image and Title Block */}
-            <div className="relative w-full md:w-3/5 h-[400px]">
+            <div className="relative w-full md:w-3/5 h-[250px] md:h-[400px]">
               <div 
                 className="absolute inset-0 bg-cover bg-center" 
-                style={{ backgroundImage: "url('/dates-image.jpg')" }}
+                style={{ backgroundImage: "url('/images/dates-image.jpg')" }}
               >
                 <div className="absolute inset-0 bg-black/40" />
               </div>
-              <div className="absolute top-0 left-0 bg-primary-900 text-white p-8 h-full flex items-center shadow-lg max-w-[280px]">
-                <h2 className="text-3xl font-bold">Important Dates</h2>
+              <div className="absolute top-0 left-0 bg-primary-900 text-white p-6 md:p-8 h-full flex items-center shadow-lg max-w-[200px] md:max-w-[280px]">
+                <h2 className="text-2xl md:text-3xl font-bold">Important Dates</h2>
               </div>
             </div>
 
@@ -75,9 +75,9 @@ export default function HomePage() {
             {/* Bottom Right Bracket */}
             <div className="absolute bottom-0 right-0 w-1/2 h-1/3 border-b-2 border-r-2 border-accent-orange pointer-events-none" />
             
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-6">Welcome to IEEE GLOBECOM 2026!</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-6">Welcome to OAIC 2026!</h2>
             <p className="text-lg text-gray-700 leading-relaxed text-justify md:text-left">
-              IEEE Global Communications Conference (GLOBECOM), a flagship IEEE Communications Society event, gathers top experts to drive innovation and advance nearly every aspect of communications technology. Each year, thousands of the most groundbreaking contributions are selected for this conference program. This premier event features technical papers, tutorials, workshops, and industry sessions designed to push the boundaries of telecommunications technologies, systems, and infrastructure. GLOBECOM continues to shape the future of high-speed, seamless, and cost-effective global telecommunications services globally for all.
+              The 1st Odisha AI Conference (OAIC) is a premier event designed to gather top experts, researchers, and industry leaders to drive innovation and advance Artificial Intelligence. Our mission is to explore the boundaries of AI, from fundamental research to real-world applications that shape the future. Join us in the historic city of Bhubaneswar for three days of insightful sessions, workshops, and networking opportunities.
             </p>
           </div>
         </div>
@@ -93,25 +93,25 @@ export default function HomePage() {
             <div className="absolute top-0 right-0 w-1/2 h-1/3 border-t-2 border-r-2 border-accent-orange pointer-events-none" />
 
             <div className="w-full md:w-1/2">
-<Image 
-                    src="/destination-macau.jpg" 
-                    alt="Night skyline of Macau"
-                    className="w-full shadow-md"
-                    width={800}
-                    height={450}
-                    priority
-                  />
+              <Image 
+                src="/images/destination-odisha.jpg" 
+                alt="Bhubaneswar, Odisha"
+                className="w-full shadow-md"
+                width={800}
+                height={450}
+                priority
+              />
             </div>
             <div className="w-full md:w-1/2 pt-4">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-2">The Destination</h2>
-              <p className="text-xl text-primary-800 mb-8">Macau S.A.R., China</p>
+              <p className="text-xl text-primary-800 mb-8">Bhubaneswar, Odisha, India</p>
               
               <h3 className="text-2xl font-bold text-primary-900 mb-4">Travel Information</h3>
-              <div className="flex gap-4">
-                <Button as={Link} href="/travel/attractions" className="bg-accent-cyan hover:bg-blue-400 text-white rounded-none border-none">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Button as={Link} href="/travel/attractions" className="w-full sm:w-auto bg-accent-cyan hover:bg-blue-400 text-white rounded-none border-none text-center">
                   Hotel & Travel
                 </Button>
-                <Button as={Link} href="/travel/visa" className="bg-accent-cyan hover:bg-blue-400 text-white rounded-none border-none">
+                <Button as={Link} href="/travel/visa" className="w-full sm:w-auto bg-accent-cyan hover:bg-blue-400 text-white rounded-none border-none text-center">
                   Visa Information
                 </Button>
               </div>

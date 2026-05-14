@@ -8,6 +8,7 @@ import { ChevronDown, Menu, X, Search } from 'lucide-react';
 import { navConfig } from '@/data/nav';
 import { cn } from '@/lib/cn';
 import type { NavItem } from '@/types';
+import { Button } from '@/components/ui/Button';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -49,19 +50,13 @@ export default function Navbar() {
       <div className="bg-primary-800 text-white text-xs py-1">
         <div className="container-wide flex justify-between items-center">
           <div className="flex items-center gap-x-6">
-            <Link href="https://www.ieee.org" className="hover:underline">IEEE.org</Link>
-            <Link href="https://www.comsoc.org" className="hover:underline">IEEE ComSoc</Link>
-            <Link href="https://dl.ieee.org/Xplore/home.jsp" className="hover:underline">IEEE Xplore</Link>
+            <span className="font-semibold">OAIC 2026</span>
+            <span className="hidden md:inline">1st Odisha AI Conference</span>
           </div>
           <div className="flex items-center gap-x-4">
-            <span>More Sites</span>
+            <Link href="/about/contact" className="hover:underline">Contact</Link>
             <div className="h-4 w-px bg-primary-700" />
-            <Link href="https://www.comsoc.org" target="_blank" rel="noopener noreferrer">
-              <Image src="/comsoc-logo.png" alt="IEEE ComSoc" className="h-6" width={100} height={24} />
-            </Link>
-            <Link href="https://www.ieee.org" target="_blank" rel="noopener noreferrer">
-              <Image src="/ieee-logo.png" alt="IEEE" className="h-6" width={80} height={24} />
-            </Link>
+            <Link href="/registration/fees" className="hover:underline font-bold text-accent-cyan">Register Now</Link>
           </div>
         </div>
       </div>
@@ -74,8 +69,8 @@ export default function Navbar() {
         role="banner"
       >
         <div className="container-wide flex items-center justify-between py-4">
-          <Link href="/" className="flex items-center gap-3" aria-label="IEEE GLOBECOM 2026 - Home">
-            <Image src="/logo.svg" alt="IEEE GLOBECOM 2026 Logo" className="h-12" width={160} height={48} priority />
+          <Link href="/" className="flex items-center gap-3" aria-label="OAIC 2026 - Home">
+            <div className="text-3xl font-bold text-primary-900 tracking-tighter">OAIC 2026</div>
           </Link>
 
           <nav className="hidden lg:flex items-center" aria-label="Primary navigation">
@@ -154,17 +149,22 @@ export default function Navbar() {
         <div className="relative flex flex-col w-full max-w-xs h-full bg-white shadow-xl">
           <div className="flex items-center justify-between px-4 py-3 border-b">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.svg" alt="IEEE GLOBECOM 2026 Logo" className="h-10" width={120} height={40} />
+              <div className="text-2xl font-bold text-primary-900 tracking-tighter">OAIC 2026</div>
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 text-gray-500" aria-label="Close menu">
               <X className="w-6 h-6" />
             </button>
           </div>
-          <nav className="flex-1 px-2 py-4 space-y-1">
+          <nav className="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
             {navConfig.map((item) => (
               <MobileNavItem key={item.label} item={item} pathname={pathname} />
             ))}
           </nav>
+          <div className="p-4 border-t">
+            <Button as={Link} href="/registration/fees" className="w-full bg-accent-cyan hover:bg-blue-400 text-white rounded-none border-none py-3 shadow-sm text-center font-bold">
+              Register Now
+            </Button>
+          </div>
         </div>
       </div>
     </>

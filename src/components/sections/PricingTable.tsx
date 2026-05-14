@@ -69,8 +69,8 @@ export default function PricingTable() {
           </Card>
         </TabsContent>
       ))}
-      <div className="mt-8 text-center">
-        <Button size="lg">Register Now</Button>
+      <div className="mt-8 text-center px-4">
+        <Button size="lg" className="w-full sm:w-auto">Register Now</Button>
       </div>
     </Tabs>
   );
