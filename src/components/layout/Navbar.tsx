@@ -272,7 +272,7 @@ export default function Navbar() {
         <div className="fixed inset-0 bg-black/30" onClick={() => setMobileOpen(false)} />
         <div className="relative flex flex-col w-full max-w-xs h-full bg-white shadow-xl">
           <div className="flex items-center justify-between px-4 py-3 border-b">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
               <Image src="/images/logo.png" alt="OAIC 2026 Logo" className="h-10" width={120} height={400} />
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 text-gray-500" aria-label="Close menu">
@@ -281,7 +281,7 @@ export default function Navbar() {
           </div>
           <nav className="flex-1 px-2 py-4 space-y-1">
             {navConfig.map((item) => (
-              <MobileNavItem key={item.label} item={item} pathname={pathname} />
+              <MobileNavItem key={item.label} item={item} pathname={pathname} onClose={() => setMobileOpen(false)} />
             ))}
           </nav>
         </div>
@@ -290,7 +290,7 @@ export default function Navbar() {
   );
 }
 
-function MobileNavItem({ item, pathname }: { item: NavItem; pathname: string }) {
+function MobileNavItem({ item, pathname, onClose }: { item: NavItem; pathname: string; onClose: () => void }) {
   const [open, setOpen] = useState(false);
   const isActive = item.children?.some((c) => c.href && pathname.startsWith(c.href)) || (item.href && pathname.startsWith(item.href));
 
@@ -298,6 +298,7 @@ function MobileNavItem({ item, pathname }: { item: NavItem; pathname: string }) 
     return (
       <Link
         href={item.href!}
+        onClick={onClose}
         className={cn(
           'block px-3 py-2 rounded-md text-base font-medium',
           isActive ? 'text-primary-700 bg-primary-100' : 'text-gray-700 hover:bg-gray-100'
@@ -326,6 +327,7 @@ function MobileNavItem({ item, pathname }: { item: NavItem; pathname: string }) 
             <Link
               key={child.label}
               href={child.href!}
+              onClick={onClose}
               className={cn(
                 'block px-3 py-2 rounded-md text-sm',
                 pathname === child.href ? 'text-primary-600' : 'text-gray-600 hover:bg-gray-100'
