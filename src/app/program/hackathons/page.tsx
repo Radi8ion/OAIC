@@ -92,22 +92,22 @@ export default function HackathonsPage() {
           className="mb-8"
         />
         <div className="mx-2 sm:mx-6 md:mx-10 lg:mx-16">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {timeline.map((step) => (
-              <Card key={step.label} glowOnHover={false} className="bg-white border border-primary-100 border-l-4 border-l-primary-600 shadow-sm transition-shadow duration-200 hover:shadow-md">
-                <CardHeader>
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100">
-                    <step.icon className="h-6 w-6 text-primary-600" />
-                  </div>
-                  <CardTitle>{step.label}</CardTitle>
-                  <CardDescription>{step.date}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>{step.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {timeline.map((step) => (
+            <Card key={step.label} glowOnHover={false} className="bg-white border border-primary-100 border-l-4 border-l-primary-600 shadow-sm transition-shadow duration-200 hover:shadow-md">
+              <CardHeader className="p-3 sm:p-6">
+                <div className="mb-2 sm:mb-4 flex h-8 w-8 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-primary-100">
+                  <step.icon className="h-4 w-4 sm:h-6 sm:w-6 text-primary-600" />
+                </div>
+                <CardTitle className="text-sm sm:text-base">{step.label}</CardTitle>
+                <CardDescription className="text-xs sm:text-sm">{step.date}</CardDescription>
+              </CardHeader>
+              <CardContent className="p-3 sm:p-6 pt-0">
+                <p className="text-xs sm:text-sm">{step.desc}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
         </div>
       </Section>
 
@@ -118,24 +118,24 @@ export default function HackathonsPage() {
           className="mb-8"
         />
         <div className="mx-2 sm:mx-6 md:mx-10 lg:mx-16">
-          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
-            {prizes.map((prize) => (
-              <Card
-                key={prize.rank}
-                glowOnHover={false} className="text-center bg-white border border-primary-100 border-l-4 border-l-primary-950 shadow-sm transition-shadow duration-200 hover:shadow-md"
-              >
-                <CardHeader>
-                  <CardTitle className="text-xl">{prize.rank}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="font-mono text-4xl font-bold text-primary-500">
-                    {prize.amount}
-                  </p>
-                  <p className="mt-2 text-gray-600">{prize.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
+          {prizes.map((prize) => (
+            <Card
+              key={prize.rank}
+              glowOnHover={false} className="text-center bg-white border border-primary-100 border-l-4 border-l-primary-950 shadow-sm transition-shadow duration-200 hover:shadow-md"
+            >
+              <CardHeader className="p-3 sm:p-6">
+                <CardTitle className="text-base sm:text-xl">{prize.rank}</CardTitle>
+              </CardHeader>
+              <CardContent className="p-3 sm:p-6 pt-0">
+                <p className="font-mono text-2xl sm:text-4xl font-bold text-primary-500">
+                  {prize.amount}
+                </p>
+                <p className="mt-2 text-xs sm:text-base text-gray-600">{prize.desc}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
         </div>
       </Section>
 
