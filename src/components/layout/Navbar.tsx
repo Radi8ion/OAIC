@@ -239,45 +239,34 @@ export default function Navbar() {
               </button>
             </form>
             <button
-              className="lg:hidden p-2 rounded-md text-white hover:bg-primary-800 transition-colors"
-              onClick={() => setMobileOpen(true)}
-              aria-label="Open navigation menu"
+              className={cn(
+                "lg:hidden p-2 rounded-md transition-colors",
+                scrolled ? "text-white hover:bg-primary-800" : "text-[#154066] hover:bg-primary-200"
+              )}
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
             >
-              <Menu className="w-6 h-6" />
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
-      </header>
 
-      {/* Mobile Drawer */}
-      <div
-        className={cn(
-          "fixed inset-0 z-50 lg:hidden",
-          mobileOpen ? "block" : "hidden"
-        )}
-      >
-        <div className="fixed inset-0 bg-black/30" onClick={() => setMobileOpen(false)} />
-        <div className="relative flex flex-col w-full max-w-xs h-full bg-white shadow-xl">
-          <div className="flex items-center justify-between px-4 py-3 border-b">
-            <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-              <Image src="/images/logo.png" alt="OAIC 2026 Logo" className="h-10" width={120} height={400} />
-            </Link>
-            <button onClick={() => setMobileOpen(false)} className="p-2 text-gray-500" aria-label="Close menu">
-              <X className="w-6 h-6" />
-            </button>
+        {/* Mobile Dropdown */}
+        {mobileOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-200 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            <nav className="px-4 py-4 space-y-1">
+              {navConfig.map((item) => (
+                <MobileNavItem key={item.label} item={item} pathname={pathname} closeMenu={() => setMobileOpen(false)} />
+              ))}
+            </nav>
           </div>
-          <nav className="flex-1 px-2 py-4 space-y-1">
-            {navConfig.map((item) => (
-              <MobileNavItem key={item.label} item={item} pathname={pathname} onClose={() => setMobileOpen(false)} />
-            ))}
-          </nav>
-        </div>
-      </div>
+        )}
+      </header>
     </>
   );
 }
 
-function MobileNavItem({ item, pathname, onClose }: { item: NavItem; pathname: string; onClose: () => void }) {
+function MobileNavItem({ item, pathname, closeMenu }: { item: NavItem; pathname: string; closeMenu: () => void }) {
   const [open, setOpen] = useState(false);
   const isActive = item.children?.some((c) => c.href && pathname.startsWith(c.href)) || (item.href && pathname.startsWith(item.href));
 
@@ -285,7 +274,7 @@ function MobileNavItem({ item, pathname, onClose }: { item: NavItem; pathname: s
     return (
       <Link
         href={item.href!}
-        onClick={onClose}
+        onClick={closeMenu}
         className={cn(
           'block px-3 py-2 rounded-md text-base font-medium',
           isActive ? 'text-primary-700 bg-primary-100' : 'text-gray-700 hover:bg-gray-100'
@@ -314,7 +303,7 @@ function MobileNavItem({ item, pathname, onClose }: { item: NavItem; pathname: s
             <Link
               key={child.label}
               href={child.href!}
-              onClick={onClose}
+              onClick={closeMenu}
               className={cn(
                 'block px-3 py-2 rounded-md text-sm',
                 pathname === child.href ? 'text-primary-600' : 'text-gray-600 hover:bg-gray-100'
