@@ -143,6 +143,21 @@ export default function Navbar() {
                   height={16}
                 />
               </Link>
+              <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
+              <Link
+                href="https://site.ieee.org/bhubaneswar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-80 hover:opacity-100 transition-opacity duration-200"
+              >
+                <Image
+                  src="/images/sponsors/ieeebbs.png"
+                  alt="IEEEBBS"
+                  className="h-8 w-auto object-contain brightness-0 invert"
+                  width={80}
+                  height={15}
+                />
+              </Link>
 
             </div>
           </div>

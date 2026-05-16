@@ -42,22 +42,17 @@ export const topics: Topic[] = [
 export const submissionTypes = [
   {
     type: 'Full Paper',
-    pages: '8–10 pages',
-    description: 'Original, unpublished research contributions.',
+    pages: '6 pages',
+    description: 'Original, unpublished research contributions. (There would be additional charges for pages exceeding 6).',
   },
-  {
-    type: 'Short Paper',
-    pages: '4–6 pages',
-    description: 'Concise research or work-in-progress.',
-  },
-  {
-    type: 'Industry Paper',
-    pages: '4–6 pages',
-    description: 'Applied AI research from industry practitioners.',
-  },
-  {
-    type: 'Demo / Poster',
-    pages: '2–4 pages',
-    description: 'Live demonstrations and poster presentations.',
-  },
+  // {
+  //   type: 'Industry Paper',
+  //   pages: '4–6 pages',
+  //   description: 'Applied AI research from industry practitioners.',
+  // },
+  // {
+  //   type: 'Demo / Poster',
+  //   pages: '2–4 pages',
+  //   description: 'Live demonstrations and poster presentations.',
+  // },
 ];

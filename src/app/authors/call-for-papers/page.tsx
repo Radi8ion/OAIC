@@ -66,7 +66,15 @@ export default function CallForPapersPage() {
             title="Submission Types"
             subtitle="Choose the format that best fits your contribution."
           />
-          <div className="mb-12 mt-8 md:mb-16 md:mt-10 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4 px-4 md:px-0">
+          <div className={`mb-12 mt-8 md:mb-16 md:mt-10 grid gap-5 sm:gap-6 px-4 md:px-0 ${
+            submissionTypes.length === 1 
+              ? 'grid-cols-1 max-w-sm mx-auto' 
+              : submissionTypes.length === 2
+              ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto'
+              : submissionTypes.length === 3
+              ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto'
+              : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+          }`}>
             {submissionTypes.map((type) => (
               <div
                 key={type.type}

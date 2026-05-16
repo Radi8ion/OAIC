@@ -17,7 +17,6 @@ import {
 const dayLabels: Record<number, string> = {
   1: 'Day 1',
   2: 'Day 2',
-  3: 'Day 3',
 };
 
 
@@ -27,8 +26,8 @@ export default function ScheduleGrid() {
     <Tabs defaultValue="Day 1">
       {/* Tabs aligned with card list */}
       <div className="mx-2 sm:mx-6 md:mx-10 lg:mx-16 mb-6">
-        <TabsList className="grid w-full grid-cols-3">
-          {[1, 2, 3].map((day) => (
+        <TabsList className="grid w-full grid-cols-2">
+          {[1, 2].map((day) => (
             <TabsTrigger key={day} value={`Day ${day}`}>
               {dayLabels[day]}
             </TabsTrigger>
@@ -36,7 +35,7 @@ export default function ScheduleGrid() {
         </TabsList>
       </div>
 
-      {[1, 2, 3].map((day) => {
+      {[1, 2].map((day) => {
         const daySlots = schedule.filter((s) => s.day === day);
         return (
           <TabsContent key={day} value={`Day ${day}`}>

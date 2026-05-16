@@ -26,17 +26,6 @@ export const schedule: ScheduleSlot[] = [
   { day: 2, time: '16:00–16:30', title: 'Coffee Break', type: 'break' },
   { day: 2, time: '16:30–18:00', title: 'Hackathon - Ideation Presentations', type: 'workshop', room: 'Main Hall' },
   { day: 2, time: '19:00–21:30', title: 'Conference Banquet Dinner', type: 'social', room: 'Grand Ballroom' },
-
-  // Day 3 - October 17
-  { day: 3, time: '09:00–10:00', title: 'Keynote: Reinforcement Learning at Scale', type: 'keynote', room: 'Main Hall', speaker: 'Dr. Siddharth Panda' },
-  { day: 3, time: '10:00–10:30', title: 'Coffee Break', type: 'break' },
-  { day: 3, time: '10:30–12:00', title: 'Technical Session 5: Ethics & Governance', type: 'panel', room: 'Hall A' },
-  { day: 3, time: '10:30–12:00', title: 'Industry Forum: AI Startup Ecosystem', type: 'panel', room: 'Hall B' },
-  { day: 3, time: '12:00–13:30', title: 'Lunch Break', type: 'break' },
-  { day: 3, time: '13:30–15:00', title: 'Hackathon Final Demos & Judging', type: 'workshop', room: 'Main Hall' },
-  { day: 3, time: '15:00–15:30', title: 'Coffee Break', type: 'break' },
-  { day: 3, time: '15:30–16:30', title: 'Awards Ceremony & Best Paper Announcement', type: 'social', room: 'Main Hall' },
-  { day: 3, time: '16:30–17:00', title: 'Closing Ceremony & Valediction', type: 'social', room: 'Main Hall' },
 ];
 
 export const workshops: Workshop[] = [
