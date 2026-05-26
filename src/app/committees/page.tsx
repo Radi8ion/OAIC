@@ -32,10 +32,10 @@ export const metadata: Metadata = {
 export default function CommitteesPage() {
   const sections = [
     { id: 'patron', title: 'Patron', members: patrons },
-    { id: 'advisory', title: 'Advisory Board', members: advisoryBoard },
     { id: 'general', title: 'General Chairs', members: generalChairs },
     { id: 'vice-general', title: 'Vice General Chairs', members: viceGeneralChairs },
     { id: 'organizing', title: 'Organizing Chairs', members: organizingChairs },
+    { id: 'advisory', title: 'Advisory Board', members: advisoryBoard },
     { id: 'finance', title: 'Finance Chair', members: financeChairs },
     { id: 'program-co', title: 'Program Co-Chairs', members: programCoChairs },
     { id: 'tpc-chairs', title: 'Technical Program Chairs', members: technicalProgramChairs },

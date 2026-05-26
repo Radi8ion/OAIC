@@ -4,7 +4,7 @@ import Image from 'next/image';
 import HeroSection from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/Button';
 import { importantDates as dates } from '@/data/dates';
-import { GraduationCap, Award, Globe, Building2 } from 'lucide-react';
+import { Award, Globe, Building2 } from 'lucide-react';
 
 
 export const metadata: Metadata = {
@@ -162,33 +162,21 @@ export default function HomePage() {
             <div className="w-full lg:w-[55%] pt-2 md:pt-4 z-10">
               <h2 className="text-2xl md:text-4xl font-bold text-primary-900 mb-2">About SIKSHA &apos;O&apos; ANUSANDHAN</h2>
               <p className="text-md md:text-lg text-primary-800 mb-6 font-semibold">
-                ITER, Siksha &apos;O&apos; Anusandhan, Bhubaneswar, Odisha, India
+               Siksha &apos;O&apos; Anusandhan, Bhubaneswar, Odisha, India
               </p>
 
-              <div className="space-y-6">
-                <p className="text-base text-gray-700 leading-relaxed text-justify">
-                  Siksha &apos;O&apos; Anusandhan (SOA), Bhubaneswar, declared under Section 3 of the UGC Act, 1956, is a leading university in India offering professional programmes in disciplines such as Science, Engineering, Medicine, Dental Sciences, Nursing, Pharmaceutical Sciences, Biotechnology, Management, Law, Hotel Management, and Agricultural Sciences.
+                <p className="text-base text-gray-700 leading-relaxed text-justify mb-6">
+                  Siksha &apos;O&apos; Anusandhan (SOA), Bhubaneswar, declared under Section 3 of the UGC Act, 1956, is a leading university in India offering professional programmes in disciplines such as Science, Engineering, Medicine, Dental Sciences, Nursing, Pharmaceutical Sciences, Biotechnology, Management, Law, Hotel Management, and Agricultural Sciences. The university provides a vibrant environment for teaching, research, and development through its undergraduate and postgraduate programmes.
                 </p>
 
                 <div className="space-y-4">
-                  <div className="flex gap-4 items-start">
-                    <div className="bg-primary-100 p-2 rounded-lg text-primary-800 shrink-0 mt-1">
-                      <GraduationCap className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Academic & Research Environment</h4>
-                      <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                        The university provides a vibrant environment for teaching, research, and development through its undergraduate and postgraduate programmes.
-                      </p>
-                    </div>
-                  </div>
 
                   <div className="flex gap-4 items-start">
                     <div className="bg-primary-100 p-2 rounded-lg text-primary-800 shrink-0 mt-1">
                       <Globe className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Global & National Recognition</h4>
+                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Recognition</h4>
                       <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                         SOA is accredited with the prestigious NAAC &apos;A++&apos; grade (3rd Cycle) and ranked Internationally by QS and THE World University Rankings.
                       </p>
@@ -200,7 +188,7 @@ export default function HomePage() {
                       <Award className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Outstanding NIRF 2025 Rankings</h4>
+                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Rankings</h4>
                       <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                         Secured 15th position in the University category, along with strong rankings in Engineering, Medical, Dental, Law, Research, and Management.
                       </p>
@@ -212,7 +200,7 @@ export default function HomePage() {
                       <Building2 className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Graded Autonomy & Excellence</h4>
+                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Excellence</h4>
                       <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                         Granted UGC Category-I Graded Autonomy and ranked 3rd nationally in the Swachh Campus rankings, reflecting its commitment to excellence in education, research, and innovation.
                       </p>
@@ -222,7 +210,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
       </section>
     </>
   );

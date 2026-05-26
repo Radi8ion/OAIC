@@ -66,7 +66,7 @@ export default function CallForPapersPage() {
             title="Submission Types"
             subtitle="Choose the format that best fits your contribution."
           />
-          <div className="mb-12 mt-8 md:mb-16 md:mt-10 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4 px-4 md:px-0">
+          <div className="mb-12 mt-8 md:mb-16 md:mt-10 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-2 max-w-3xl mx-auto px-4 md:px-0">
             {submissionTypes.map((type) => (
               <div
                 key={type.type}
@@ -89,8 +89,8 @@ export default function CallForPapersPage() {
           </div>
 
           <div className="text-center pb-8">
-            <Button as="a" href="#" className="bg-primary-600 hover:bg-primary-500 text-white text-lg px-8 py-6 shadow-md transition-transform hover:-translate-y-1 rounded-md border-none font-bold">
-              Submission Portal (To be announced)
+            <Button as="a" href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vTjM1MzYxP2M9MzUzNjE%3D" target="_blank" rel="noopener noreferrer" className="bg-primary-600 hover:bg-primary-500 text-white text-lg px-8 py-6 shadow-md transition-transform hover:-translate-y-1 rounded-md border-none font-bold">
+              Submit Your Paper
             </Button>
           </div>
         </div>

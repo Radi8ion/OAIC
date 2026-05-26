@@ -13,12 +13,12 @@ The application is structured into key categories to provide attendees, authors,
 - **🏠 Home / Landing Page (`/`)**: Includes an animated Hero section with particle effects, a live countdown timer, scrolling key dates ticker, stats bar, speaker teasers, venue highlights, and patron grids.
 - **📝 Authors Section**:
   - **Important Dates (`/authors/important-dates`)**: A dynamic timeline/table tracking submission and registration deadlines.
-  - **Call for Papers (`/authors/call-for-papers`)**: Expandable card-based layouts categorizing research tracks and topics of interest.
-  - **Call for Industry Workshop Proposals (`/authors/call-for-workshop-proposals`)**: Structure, format, and download links for workshop applications.
-  - **Call for Poster Presentations (`/authors/call-for-posters`)**: Formats and guidelines for visual poster sessions.
-  - **Submission Guidelines (`/authors/submission-guidelines`)**: Interactive tabbed guide detailing formatting templates (LaTeX, Word), page limits, and ethical submission policies.
+  - **Call for Papers (`/authors/call-for-papers`)**: Research tracks and topics of interest. Links directly to the EDAS portal for submissions (Full Papers are limited to 6 pages maximum).
+  - **Call for Industry Workshop Proposals (`/authors/call-for-workshop-proposals`)**: Structure and guidelines for 3-hour workshop sessions, with direct email submission link to `im.aic@soa.ac.in`.
+  - **Call for Poster Presentations (`/authors/call-for-posters`)**: Guidelines and direct EDAS portal link for poster abstract submissions.
+  - **Submission Guidelines (`/authors/submission-guidelines`)**: Interactive tabbed guide detailing formatting templates, a prominent Anonymization Requirement banner (double-blind review), a 6-page limit for full papers, and detailed extra-page fee structures (₹1000 for Indian / $100 for international authors).
 - **👥 Committees Section**:
-  - Grid-based layouts showcasing members, roles, and institutional affiliations for the **Organizing**, **Technical Program**, **Operations**, and **Industry Forums** Committees.
+  - Grid-based layouts showcasing members, roles, and institutional affiliations, featuring the **Advisory Board** positioned directly under the **Organizing Chairs**.
 - **📅 Program Section**:
   - **At a Glance (`/program/at-a-glance`)**: Tabbed day-by-day interactive schedule grids detailing sessions, slots, and rooms.
   - **Workshops (`/program/workshops`)** & **Hackathons (`/program/hackathons`)**: Detailed outlines of co-located events, timelines, and prize tiers.

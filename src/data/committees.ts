@@ -5,8 +5,6 @@ export const patrons: CommitteeMember[] = [
 ];
 
 export const advisoryBoard: CommitteeMember[] = [
-  { name: 'Ganapati Panda', role: 'Advisory Board', institution: 'CV Raman Global University' },
-  { name: 'Banshidhar Majhi', role: 'Advisory Board', institution: 'CV Raman Global University' },
   { name: 'Ashwini Nanda', role: 'Advisory Board', institution: '' },
   { name: 'Ajay Mohanty', role: 'Advisory Board', institution: 'Deloitte, USA' },
   { name: 'Durga Mishra', role: 'Advisory Board', institution: 'NJIT, USA' },
@@ -14,7 +12,9 @@ export const advisoryBoard: CommitteeMember[] = [
   { name: 'KS Nataraj', role: 'Advisory Board', institution: 'IIT BBSR' },
   { name: 'Satish Panda', role: 'Advisory Board', institution: 'IIT BBSR' },
   { name: 'Sujata Chakraborty', role: 'Advisory Board', institution: 'CUTM, BBSR' },
-  { name: 'Chinmay Chakraborty', role: 'Advisory Board', institution: 'KIIT University' }
+  { name: 'Chinmay Chakraborty', role: 'Advisory Board', institution: 'KIIT University' },
+  { name: 'Ganapati Panda', role: 'Advisory Board', institution: 'CV Raman Global University' },
+  { name: 'Banshidhar Majhi', role: 'Advisory Board', institution: 'CV Raman Global University' }
 ];
 
 export const generalChairs: CommitteeMember[] = [

@@ -22,6 +22,16 @@ function GeneralGuidelines() {
   return (
     <div className="space-y-6 mt-4 md:mt-0">
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 md:p-8">
+        <Alert className="bg-amber-50 border-none border-l-4 border-l-amber-500 rounded-r-lg shadow-sm text-amber-950 p-5 mb-6 flex items-start">
+          <AlertTriangle className="h-5 w-5 md:h-6 md:w-6 text-amber-600 shrink-0 mt-1" />
+          <div className="ml-3">
+            <AlertTitle className="font-bold text-lg md:text-xl text-amber-900">Anonymization Requirement</AlertTitle>
+            <AlertDescription className="text-base md:text-lg mt-2 leading-relaxed font-semibold">
+              Authors must anonymize their submissions, removing names, affiliations, and acknowledgements to ensure a fair double-blind peer review process.
+            </AlertDescription>
+          </div>
+        </Alert>
+
         <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6 md:mb-8">
           All papers submitted to OAIC 2026 must be original, unpublished work not
           currently under review at any other venue. Submissions must be in
@@ -30,8 +40,8 @@ function GeneralGuidelines() {
         <ul className="space-y-5">
           {[
             'Papers must not exceed the specified page limits (excluding references).',
+            'Additional pages (beyond the 6-page limit) will be charged at ₹1000 per page for Indian authors and $100 per page for international authors.',
             'All submissions will undergo a blind peer review process.',
-            'Authors must anonymize their submissions, removing names, affiliations, and acknowledgements.',
             'Self-citations should be minimized and written in the third person to maintain anonymity.',
             'Submitted papers must not be under review elsewhere simultaneously.',
             'At least one author of an accepted paper must register for the conference and present the paper.',
@@ -56,7 +66,6 @@ function FormattingGuidelines() {
         {[
           { label: 'Format', value: 'IEEE double-column, A4' },
           { label: 'Full Paper Length', value: '6 pages (+ refs)' },
-          { label: 'Short Paper Length', value: '4–6 pages (+ refs)' },
           { label: 'Font', value: 'Times New Roman, 10pt' },
           { label: 'File Format', value: 'PDF only' },
           { label: 'File Size Limit', value: '10 MB' },

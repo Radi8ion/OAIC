@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const submissionInstructions = [
   'Submit a 2–4 page Article',
   'IEEE double-column format required',
-  'Submission portal to be announced',
+  'Submit via the EDAS portal',
   'Include "Poster:" prefix in the title',
   'Accepted posters receive participation certificate',
   'Best Poster Award presented at closing ceremony',
@@ -79,7 +79,7 @@ export default function CallForPostersPage() {
               <div>
                 <h4 className="text-lg font-bold text-primary-950 mb-2">Title & Portal</h4>
                 <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                  Ensure you include the <strong>&quot;Poster:&quot;</strong> prefix in your submission title. The submission portal details will be announced soon.
+                  Ensure you include the <strong>&quot;Poster:&quot;</strong> prefix in your submission title. Submissions are processed via the EDAS portal.
                 </p>
               </div>
             </div>
@@ -121,11 +121,8 @@ export default function CallForPostersPage() {
           </Alert>
 
           <div className="mt-12 text-center flex justify-center items-center gap-6">
-            <Button as="a" href="#" className="bg-primary-600 hover:bg-primary-500 text-white text-lg px-8 py-6 shadow-md transition-transform hover:-translate-y-1 rounded-md border-none font-bold">
+            <Button as="a" href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vTjM1MzYxP2M9MzUzNjE%3D" target="_blank" rel="noopener noreferrer" className="bg-primary-600 hover:bg-primary-500 text-white text-lg px-8 py-6 shadow-md transition-transform hover:-translate-y-1 rounded-md border-none font-bold">
               Submit Poster Abstract
-            </Button>
-            <Button as="a" href="#" className="bg-primary-600 hover:bg-primary-500 text-white text-lg px-8 py-6 shadow-md transition-transform hover:-translate-y-1 rounded-md border-none font-bold">
-              Abstract format
             </Button>
           </div>
         </div>

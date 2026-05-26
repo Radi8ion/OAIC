@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/PageHeader';
 import {
   Calendar,
-  FileDown,
   Check,
 
 } from 'lucide-react';
@@ -30,7 +29,7 @@ const proposalTopics = [
 const keyDates = [
   { date: 'June 30, 2026', event: 'Workshop Proposal Deadline' },
   { date: 'July 20, 2026', event: 'Acceptance Notification' },
-  { date: 'October 15–17, 2026', event: 'Workshop Days' },
+  { date: 'December 19-20, 2026', event: 'Workshop Days' },
 ];
 
 export default function WorkshopProposalsPage() {
@@ -49,9 +48,9 @@ export default function WorkshopProposalsPage() {
       <Section className="pb-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 bg-primary-50 border-none border-l-4 border-l-primary-600 rounded-r-xl p-8 shadow-sm">
-            <h3 className="text-2xl font-bold text-primary-900 mb-4">What is a Workshop?</h3>
+            <h3 className="text-2xl font-bold text-primary-900 mb-4">OAIC Workshop?</h3>
             <p className="text-lg md:text-xl text-primary-950 leading-relaxed font-medium">
-              Workshops at OAIC 2026 are half-day focused events
+              Workshops at OAIC 2026 are 3-hours focused events
               co-located with the main conference. They provide a platform for
               in-depth discussions on emerging or specialised AI topics,
               bringing together researchers and practitioners with shared
@@ -108,12 +107,8 @@ export default function WorkshopProposalsPage() {
 
           <div className="mt-16 text-center">
             <div className="flex flex-wrap justify-center gap-6">
-              <Button as="a" href="#" className="bg-primary-600 hover:bg-primary-500 text-white text-lg px-8 py-6 shadow-md transition-transform hover:-translate-y-1 rounded-md border-none font-bold">
+              <Button as="a" href="mailto:im.aic@soa.ac.in" className="bg-primary-600 hover:bg-primary-500 text-white text-lg px-8 py-6 shadow-md transition-transform hover:-translate-y-1 rounded-md border-none font-bold">
                 Submit Workshop Proposal
-              </Button>
-              <Button as="a" href="#" variant="outline" className="text-primary-600 border-2 border-primary-600 hover:bg-primary-50 text-lg px-8 py-6 shadow-sm transition-transform hover:-translate-y-1 rounded-md font-bold">
-                <FileDown className="mr-3 h-5 w-5" />
-                Download Template
               </Button>
             </div>
           </div>
