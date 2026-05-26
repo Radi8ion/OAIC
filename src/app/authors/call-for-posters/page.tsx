@@ -3,7 +3,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import Section from '@/components/layout/Section';
 import SectionHeader from '@/components/layout/SectionHeader';
 import { Button } from '@/components/ui/Button';
-import { Check, Calendar } from 'lucide-react';
+import { Calendar, FileText, Upload, Award, Layout } from 'lucide-react';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/Alert';
 
 export const metadata: Metadata = {
@@ -12,22 +12,16 @@ export const metadata: Metadata = {
     'Submit your poster abstract for OAIC 2026. Share your work-in-progress and get feedback from the community.',
 };
 
-const formatRequirements = [
-  'Size: A0 Portrait (841 × 1189 mm)',
-  'Language: English',
-  'Include: Title, authors, abstract, methodology, results',
-  'QR code linking to paper/preprint (optional)',
-  'High-contrast colours for readability',
-  'Font size: minimum 24pt for body text',
-];
+
 
 const submissionInstructions = [
-  'Submit a 2–4 page extended abstract',
+  'Submit a 2–4 page Article',
   'IEEE double-column format required',
   'Submission portal to be announced',
   'Include "Poster:" prefix in the title',
   'Accepted posters receive participation certificate',
   'Best Poster Award presented at closing ceremony',
+  'Poster format shall be shared with the accepted authors'
 ];
 
 export default function CallForPostersPage() {
@@ -57,44 +51,62 @@ export default function CallForPostersPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <div>
-              <SectionHeader
-                title="Poster Format"
-                subtitle="Requirements"
-                className="mb-6"
-              />
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-lg transition-all duration-300">
-                <ul className="space-y-5">
-                  {formatRequirements.map((item) => (
-                    <li key={item} className="flex items-start">
-                      <div className="mr-4 mt-0.5">
-                        <Check className="h-5 w-5 text-primary-400 stroke-[3]" />
-                      </div>
-                      <span className="text-gray-700 font-medium text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+          <SectionHeader
+            title="Submission Instructions"
+            subtitle="Please review the requirements and guidelines for preparing and submitting your poster presentation:"
+            className="mb-10 text-center"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            {/* Card 1: Formatting & Length */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 hover:shadow-md hover:border-primary-200 transition-all duration-300 flex gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600 flex-shrink-0">
+                <FileText className="h-6 w-6" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-primary-950 mb-2">Paper Length & Format</h4>
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  Submit a <strong>2–4 page Article</strong>. The standard IEEE double-column format is strictly required for the submission.
+                </p>
               </div>
             </div>
 
-            <div>
-              <SectionHeader
-                title="Submission"
-                subtitle="Instructions"
-                className="mb-8"
-              />
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-lg transition-all duration-300">
-                <ul className="space-y-5">
-                  {submissionInstructions.map((item) => (
-                    <li key={item} className="flex items-start">
-                      <div className="mr-4 mt-0.5">
-                        <Check className="h-5 w-5 text-primary-400 stroke-[3]" />
-                      </div>
-                      <span className="text-gray-700 font-medium text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+            {/* Card 2: Submission Details */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 hover:shadow-md hover:border-primary-200 transition-all duration-300 flex gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600 flex-shrink-0">
+                <Upload className="h-6 w-6" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-primary-950 mb-2">Title & Portal</h4>
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  Ensure you include the <strong>&quot;Poster:&quot;</strong> prefix in your submission title. The submission portal details will be announced soon.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3: Awards & Recognition */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 hover:shadow-md hover:border-primary-200 transition-all duration-300 flex gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600 flex-shrink-0">
+                <Award className="h-6 w-6" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-primary-950 mb-2">Awards & Certification</h4>
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  All accepted poster presenters will receive a participation certificate. A prestigious <strong>Best Poster Award</strong> will be presented during the closing ceremony.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 4: Presentation Guidelines */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 hover:shadow-md hover:border-primary-200 transition-all duration-300 flex gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600 flex-shrink-0">
+                <Layout className="h-6 w-6" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-primary-950 mb-2">Poster Design Template</h4>
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  Detailed guidelines and templates for the physical poster format shall be shared directly with the authors of accepted works.
+                </p>
               </div>
             </div>
           </div>
@@ -104,7 +116,7 @@ export default function CallForPostersPage() {
             <AlertTitle className="font-bold text-xl text-primary-900 ml-2">Key Date</AlertTitle>
             <AlertDescription className="text-lg mt-2 ml-2">
               Poster Submission Deadline:{' '}
-              <strong className="font-bold text-primary-900">31 July 2026</strong>
+              <strong className="font-bold text-primary-900">15 Aug 2026</strong>
             </AlertDescription>
           </Alert>
 

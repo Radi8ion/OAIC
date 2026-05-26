@@ -13,12 +13,7 @@ export const navConfig: NavItem[] = [
   },
   {
     label: 'Committees',
-    children: [
-      { label: 'Organizing Committee', href: '/committees/organizing' },
-      { label: 'Technical Program Committee', href: '/committees/technical-program' },
-      { label: 'Operations Committee', href: '/committees/operations' },
-      { label: 'Industry Forums & Exhibition Committee', href: '/committees/industry-forums' },
-    ],
+    href: '/committees',
   },
   {
     label: 'Program',

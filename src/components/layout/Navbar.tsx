@@ -143,6 +143,37 @@ export default function Navbar() {
                   height={16}
                 />
               </Link>
+              <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
+              <Link
+                href="https://www.computer.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-80 hover:opacity-100 transition-opacity duration-200"
+              >
+                <Image
+                  src="/images/sponsors/CS-Bhubaneswar.png"
+                  alt="IEEE Computer Society Bhubaneswar Chapter"
+                  className="h-6 sm:h-8 md:h-10 w-auto object-contain scale-125"
+                  width={100}
+                  height={20}
+                />
+              </Link>
+              <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
+              <Link
+                href="https://www.optica.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-80 hover:opacity-100 transition-opacity duration-200"
+              >
+                <Image
+                  src="/images/sponsors/OSA-logo-small.png"
+                  alt="OSA Optica Chapter"
+                  className="h-4 sm:h-6 md:h-8 w-auto object-contain"
+                  width={80}
+                  height={16}
+                />
+              </Link>
+
 
             </div>
           </div>

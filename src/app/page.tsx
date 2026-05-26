@@ -4,6 +4,8 @@ import Image from 'next/image';
 import HeroSection from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/Button';
 import { importantDates as dates } from '@/data/dates';
+import { GraduationCap, Award, Globe, Building2 } from 'lucide-react';
+
 
 export const metadata: Metadata = {
   title: 'OAIC 2026',
@@ -76,46 +78,147 @@ export default function HomePage() {
             <div className="absolute bottom-0 right-0 w-[80%] md:w-[60%] h-[20%] md:h-[30%] border-b-2 border-r-2 border-[#e67e22] pointer-events-none" />
 
             <h2 className="text-2xl md:text-4xl font-bold text-primary-900 mb-4 md:mb-6">Welcome to OAIC 2026!</h2>
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed text-justify md:text-left mb-4">
-              The <strong>2026 1st Odisha AI Conference (OAIC)</strong> will serve as a premier platform for exchanging ideas, presenting research findings, and fostering collaborations that address real-world challenges through AI-driven solutions.
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed text-justify md:text-left mb-6">
+              OAIC 2026 welcomes original contributions spanning the full spectrum of AI research — from foundational theoretical developments to applied systems and domain-specific innovations.
             </p>
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed text-justify md:text-left">
-              OAIC focuses on both theoretical developments and practical applications of AI across diverse domains, emphasizing ethical AI, sustainable development, and the integration of AI with emerging technologies to drive societal and economic transformation.
-            </p>
+            
+            <div className="bg-primary-50/50 p-6 border-l-4 border-primary-600 rounded-r-lg">
+              <h3 className="text-base md:text-lg font-bold text-primary-900 mb-4">The conference places particular emphasis on:</h3>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
+                  <span className="text-sm md:text-base text-gray-700">Foundational advances and explainable AI</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
+                  <span className="text-sm md:text-base text-gray-700">Causal reasoning, trustworthy systems, and next-generation learning paradigms</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
+                  <span className="text-sm md:text-base text-gray-700">AI for sustainable development and climate resilience</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
+                  <span className="text-sm md:text-base text-gray-700">AI integration with emerging technologies (6G, quantum computing, edge intelligence)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
+                  <span className="text-sm md:text-base text-gray-700">AI-driven solutions for government, disaster management, and rural development</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
+                  <span className="text-sm md:text-base text-gray-700">Ethical, responsible use of AI</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Destination & Travel Info */}
+      {/* About SIKSHA 'O' ANUSANDHAN */}
       <section className="section-padding bg-white pt-0">
         <div className="container-wide">
-          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start relative p-6 md:p-8 mb-4">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start relative p-6 md:p-8 mb-4">
             {/* Bottom Left Bracket (under image) */}
-            <div className="absolute -bottom-4 md:-bottom-6 -left-2 md:left-4 w-[80%] md:w-[60%] h-[30%] md:h-[40%] border-b-2 border-l-2 border-[#e67e22] pointer-events-none z-0" />
+            <div className="absolute -bottom-4 md:-bottom-6 -left-2 md:left-4 w-[85%] md:w-[65%] h-[30%] md:h-[40%] border-b-2 border-l-2 border-[#e67e22] pointer-events-none z-0" />
             {/* Top Right Bracket (above text) */}
-            <div className="absolute -top-4 right-0 w-[80%] md:w-[40%] h-[20%] md:h-[30%] border-t-2 border-r-2 border-[#e67e22] pointer-events-none z-0" />
+            <div className="absolute -top-4 right-0 w-[85%] md:w-[45%] h-[20%] md:h-[30%] border-t-2 border-r-2 border-[#e67e22] pointer-events-none z-0" />
 
-            <div className="w-full md:w-1/2 overflow-hidden shadow-md transition-shadow duration-500 relative z-10">
-              <Image
-                src="/images/siksha-o-anusandhan-bhubaneswar-featured.jpg"
-                alt="ITER | Soa university"
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
-                width={800}
-                height={450}
-              />
+            {/* Left Side: Image and Key Badges */}
+            <div className="w-full lg:w-[45%] relative z-10 flex flex-col gap-6">
+              <div className="overflow-hidden shadow-md">
+                <Image
+                  src="/images/siksha-o-anusandhan-bhubaneswar-featured.jpg"
+                  alt="Siksha 'O' Anusandhan Campus"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                  width={800}
+                  height={450}
+                  priority
+                />
+              </div>
+              
+              {/* Badges Grid */}
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="bg-primary-50 border-l-4 border-primary-600 p-3 flex flex-col justify-center shadow-xs">
+                  <span className="text-[10px] sm:text-xs text-primary-700 font-semibold uppercase tracking-wider">NAAC Accreditation</span>
+                  <span className="text-sm sm:text-base font-bold text-primary-900">A++ Grade (3rd Cycle)</span>
+                </div>
+                <div className="bg-primary-50 border-l-4 border-primary-600 p-3 flex flex-col justify-center shadow-xs">
+                  <span className="text-[10px] sm:text-xs text-primary-700 font-semibold uppercase tracking-wider">NIRF 2025 Rankings</span>
+                  <span className="text-sm sm:text-base font-bold text-primary-900">15th in University</span>
+                </div>
+                <div className="bg-primary-50 border-l-4 border-primary-600 p-3 flex flex-col justify-center shadow-xs">
+                  <span className="text-[10px] sm:text-xs text-primary-700 font-semibold uppercase tracking-wider">UGC Autonomy</span>
+                  <span className="text-sm sm:text-base font-bold text-primary-900">Category-I Graded</span>
+                </div>
+                <div className="bg-primary-50 border-l-4 border-primary-600 p-3 flex flex-col justify-center shadow-xs">
+                  <span className="text-[10px] sm:text-xs text-primary-700 font-semibold uppercase tracking-wider">Swachh Campus</span>
+                  <span className="text-sm sm:text-base font-bold text-primary-900">3rd Nationally</span>
+                </div>
+              </div>
             </div>
-            <div className="w-full md:w-1/2 pt-2 md:pt-4">
-              <h2 className="text-2xl md:text-4xl font-bold text-primary-900 mb-2">The Destination</h2>
-              <p className="text-lg md:text-xl text-primary-800 mb-6 md:mb-8">ITER, Siksha &apos;O&apos; Anusandhan, Bhubaneswar, Odisha, India</p>
 
-              <h3 className="text-lg md:text-2xl font-bold text-primary-900 mb-3 md:mb-4">Travel Information</h3>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button as={Link} href="/travel/attractions" className="bg-primary-400 hover:bg-primary-500 text-white rounded-none border-none text-center w-full sm:w-auto shadow-md transition-transform hover:-translate-y-1">
-                  Hotel & Travel
-                </Button>
-                <Button as={Link} href="/travel/visa" className="bg-primary-400 hover:bg-primary-500 text-white rounded-none border-none text-center w-full sm:w-auto shadow-md transition-transform hover:-translate-y-1">
-                  Visa Information
-                </Button>
+            {/* Right Side: Title & Highlights */}
+            <div className="w-full lg:w-[55%] pt-2 md:pt-4 z-10">
+              <h2 className="text-2xl md:text-4xl font-bold text-primary-900 mb-2">About SIKSHA &apos;O&apos; ANUSANDHAN</h2>
+              <p className="text-md md:text-lg text-primary-800 mb-6 font-semibold">
+                ITER, Siksha &apos;O&apos; Anusandhan, Bhubaneswar, Odisha, India
+              </p>
+
+              <div className="space-y-6">
+                <p className="text-base text-gray-700 leading-relaxed text-justify">
+                  Siksha &apos;O&apos; Anusandhan (SOA), Bhubaneswar, declared under Section 3 of the UGC Act, 1956, is a leading university in India offering professional programmes in disciplines such as Science, Engineering, Medicine, Dental Sciences, Nursing, Pharmaceutical Sciences, Biotechnology, Management, Law, Hotel Management, and Agricultural Sciences.
+                </p>
+
+                <div className="space-y-4">
+                  <div className="flex gap-4 items-start">
+                    <div className="bg-primary-100 p-2 rounded-lg text-primary-800 shrink-0 mt-1">
+                      <GraduationCap className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Academic & Research Environment</h4>
+                      <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                        The university provides a vibrant environment for teaching, research, and development through its undergraduate and postgraduate programmes.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start">
+                    <div className="bg-primary-100 p-2 rounded-lg text-primary-800 shrink-0 mt-1">
+                      <Globe className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Global & National Recognition</h4>
+                      <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                        SOA is accredited with the prestigious NAAC &apos;A++&apos; grade (3rd Cycle) and ranked Internationally by QS and THE World University Rankings.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start">
+                    <div className="bg-primary-100 p-2 rounded-lg text-primary-800 shrink-0 mt-1">
+                      <Award className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Outstanding NIRF 2025 Rankings</h4>
+                      <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                        Secured 15th position in the University category, along with strong rankings in Engineering, Medical, Dental, Law, Research, and Management.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start">
+                    <div className="bg-primary-100 p-2 rounded-lg text-primary-800 shrink-0 mt-1">
+                      <Building2 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Graded Autonomy & Excellence</h4>
+                      <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                        Granted UGC Category-I Graded Autonomy and ranked 3rd nationally in the Swachh Campus rankings, reflecting its commitment to excellence in education, research, and innovation.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

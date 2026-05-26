@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/PageHeader';
 import { contactInfo } from '@/data/contact';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Mail } from 'lucide-react';
 import Section from '@/components/layout/Section';
 import ContactForm from '@/components/forms/ContactForm';
-
+ 
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
@@ -45,7 +45,7 @@ export default function ContactPage() {
 
       <Section className="bg-white">
         <div className="container-wide">
-         
+          
 
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-24 items-start">
             
@@ -78,37 +78,24 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="pt-16 border-t border-gray-100 relative">
+              <div className="pt-12 border-t border-gray-100 relative">
                 {/* Architectural Accent Line */}
                 <div className="absolute -top-px left-0 w-24 h-1 bg-[#002147]"></div>
                 
-                <h3 className="text-xs uppercase tracking-[0.2em] text-[#002147] font-bold mb-8 italic">Location & Venue</h3>
-                <div className="flex flex-col md:flex-row gap-12 items-start">
-                  <div className="flex-1 space-y-6">
-                    <h4 className="text-2xl font-serif font-bold text-[#002147]">Host University</h4>
-                    <div className="flex items-start gap-4">
-                      <div className="p-2 bg-gray-50 rounded-full">
-                        <MapPin className="h-5 w-5 text-[#002147]" />
-                      </div>
-                      <div className="text-gray-600 text-lg leading-relaxed">
-                        <span className="font-bold text-gray-900 block mb-1">Siksha &apos;O&apos; Anusandhan</span>
-                        {contactInfo.address.line1}<br />
-                        {contactInfo.address.line2}<br />
-                        {contactInfo.address.city}, {contactInfo.address.country}
-                      </div>
-                    </div>
+                <h3 className="text-xs uppercase tracking-[0.2em] text-[#002147] font-bold mb-6 italic">Location & Venue</h3>
+                
+                <div className="bg-gradient-to-br from-primary-50/30 to-white rounded-2xl border border-gray-100 p-6 md:p-8 hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row gap-6 items-start">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-800 flex-shrink-0">
+                    <MapPin className="h-6 w-6" />
                   </div>
-                  
-                  <div className="w-full md:w-auto pt-4 md:pt-14">
-                    <a
-                      href={`tel:${contactInfo.phone}`}
-                      className="group flex items-center gap-4 p-4 border border-gray-100 rounded-sm hover:bg-gray-50 transition-all duration-300"
-                    >
-                      <div className="p-2 bg-gray-50 rounded-full group-hover:bg-white transition-colors">
-                        <Phone className="h-5 w-5 text-[#002147]" />
-                      </div>
-                      <span className="text-lg font-semibold text-gray-700">{contactInfo.phone}</span>
-                    </a>
+                  <div>
+                    <h4 className="text-xl font-bold text-primary-950 mb-2">Host University</h4>
+                    <address className="not-italic text-gray-700 text-base md:text-lg leading-relaxed space-y-1">
+                      <span className="font-extrabold text-gray-900 block mb-1">Siksha &apos;O&apos; Anusandhan</span>
+                      <span>{contactInfo.address.line1}</span>
+                      <span className="block">{contactInfo.address.line2}</span>
+                      <span className="block font-semibold text-gray-800">{contactInfo.address.country}</span>
+                    </address>
                   </div>
                 </div>
               </div>

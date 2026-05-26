@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const notes = [
-  'GST at 18% applicable on all INR registrations.',
+  
   'Payment accepted via NEFT/RTGS, credit/debit card, and UPI.',
   'Cancellations before September 30, 2026receive 50% refund.',
   'No refunds after October 1, 2026.',

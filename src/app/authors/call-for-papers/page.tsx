@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/PageHeader';
-import { topics, submissionTypes } from '@/data/callForPapers';
+import { submissionTypes } from '@/data/callForPapers';
 import Section from '@/components/layout/Section';
 import SectionHeader from '@/components/layout/SectionHeader';
 import { Button } from '@/components/ui/Button';
-import { FileText, Check } from 'lucide-react';
+import { FileText } from 'lucide-react';
+import TracksSection from '@/components/sections/TracksSection';
 
 export const metadata: Metadata = {
   title: 'Call for Papers',
@@ -25,42 +26,42 @@ export default function CallForPapersPage() {
 
       <Section>
         <div className="mx-auto max-w-6xl py-6">
-          {/* Intro Box */}
-          <div className="mb-10 md:mb-14 bg-primary-50 border-none border-l-4 border-l-primary-600 rounded-r-xl p-6 md:p-8 shadow-sm mx-4 md:mx-0">
-            <p className="text-base md:text-xl text-primary-950 leading-relaxed font-medium">
-              The conference solicits contributions that present original and
-              unpublished work on all aspects of AI, Machine Learning, and
-              it is not limited to these topics. All accepted papers will be published in the
-              IEEE Xplore .
-            </p>
+          {/* Invitation to Authors Section */}
+          <div className="mb-12 md:mb-16 bg-white rounded-2xl border border-gray-100 p-6 md:p-10 shadow-sm">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-primary-950 mb-6 border-b border-gray-100 pb-4">
+              Invitation to Authors
+            </h2>
+            <div className="space-y-6 text-base md:text-lg text-gray-700 leading-relaxed text-justify md:text-left">
+              <p>
+                The Organizing Committee of the <strong>2026 1st IEEE Odisha AI Conference (OAIC)</strong> invites researchers, academicians, industry professionals, and practitioners worldwide to submit original, unpublished contributions on Artificial Intelligence and applications (see tracks and focus below). OAIC 2026 is the inaugural edition of a regional conference dedicated to fostering excellence in AI research and its transformative applications across industry, governance, healthcare, energy, and society. The conference will serve as a premier forum for exchanging ideas, presenting research findings, and building interdisciplinary collaborations that address real-world challenges through AI-driven solutions — with a special emphasis on the development priorities of the state of Odisha and the broader Indian subcontinent.
+              </p>
+              <p>
+                The conference will feature keynote addresses by leading researchers and practitioners, technical paper presentations, tutorials and workshops, and dedicated industry sessions — creating a vibrant ecosystem for knowledge exchange between academia and industry.
+              </p>
+            </div>
+            
+            {/* Publication Callout */}
+            <div className="mt-8 bg-primary-50 border-l-4 border-[#e67e22] p-5 rounded-r-xl">
+              <p className="text-sm md:text-base font-semibold text-primary-950 leading-relaxed">
+                <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-black uppercase bg-[#e67e22] text-white mr-3">
+                  Publication
+                </span>
+                All accepted and presented papers will be submitted for inclusion into IEEE Xplore subject to meeting IEEE quality requirements.
+              </p>
+            </div>
           </div>
 
+          {/* Conference Tracks Section */}
           <SectionHeader
-            title="Topics of Interest"
-            subtitle="We invite submissions on a wide range of topics, including but not limited to:"
+            title="Conference Tracks"
+            subtitle="Explore our conference tracks and submit your contributions to the appropriate areas of interest:"
           />
-          <div className="mb-12 mt-8 md:mb-16 md:mt-10 grid grid-cols-1 gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3 px-4 md:px-0">
-            {topics.map((t) => (
-              <div key={t.category} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                <div className="bg-primary-900 px-5 md:px-6 py-3 md:py-4">
-                  <h3 className="text-lg md:text-xl font-bold text-white">{t.category}</h3>
-                </div>
-                <div className="p-5 md:p-6">
-                  <ul className="space-y-4">
-                    {t.items.map((item) => (
-                      <li key={item} className="flex items-start">
-                        <Check className="mr-2 md:mr-3 mt-0.5 h-4 w-4 md:h-5 md:w-5 flex-shrink-0 text-primary-400 stroke-[3]" />
-                        <span className="text-sm md:text-base text-gray-700 font-medium">
-                          {item}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
+          
+          <div className="mb-16 mt-8 md:mb-20 md:mt-10 px-4 md:px-0">
+            <TracksSection />
           </div>
 
+          {/* Submission Types Section */}
           <SectionHeader
             title="Submission Types"
             subtitle="Choose the format that best fits your contribution."

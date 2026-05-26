@@ -37,7 +37,7 @@ export const registrationIncludes = [
   'Access to all technical sessions',
   'Conference proceedings (digital)',
   'Welcome reception & banquet dinner',
-  'Morning/afternoon coffee breaks',
+  'Morning/afternoon coffee and lunch',
   'Conference kit & badge',
 ];
 

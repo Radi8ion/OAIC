@@ -1,13 +1,12 @@
 export const contactInfo = {
-  generalEmail: 'bharatjyotisahu@soa.ac.in',
-  papersEmail: 'renusharma@soa.ac.in',
+  generalEmail: 'renusharma@soa.ac.in',
+  papersEmail: 'bharatjyotisahu@soa.ac.in',
   sponsorshipEmail: 'apuldev@soa.ac.in',
-  mediaEmail: 'bharatjyotisahu@soa.ac.in',
-  phone: '+91000000000',
+  mediaEmail: 'renusharma@soa.ac.in',
+  
   address: {
-    line1: 'SOA DU',
-    line2: 'Bhubaneswar',
-    city: 'Odisha 751030',
+    line1: 'Bhubaneswar',
+    line2: 'Odisha 751030',
     country: 'India',
   },
   social: {

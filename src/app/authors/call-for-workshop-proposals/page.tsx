@@ -51,7 +51,7 @@ export default function WorkshopProposalsPage() {
           <div className="mb-14 bg-primary-50 border-none border-l-4 border-l-primary-600 rounded-r-xl p-8 shadow-sm">
             <h3 className="text-2xl font-bold text-primary-900 mb-4">What is a Workshop?</h3>
             <p className="text-lg md:text-xl text-primary-950 leading-relaxed font-medium">
-              Workshops at OAIC 2026 are half-day or full-day focused events
+              Workshops at OAIC 2026 are half-day focused events
               co-located with the main conference. They provide a platform for
               in-depth discussions on emerging or specialised AI topics,
               bringing together researchers and practitioners with shared

@@ -18,8 +18,7 @@ const footerNav = {
     { label: 'Panels', href: '#' },
   ],
   committees: [
-    { label: 'Organizing', href: '/committees/organizing' },
-    { label: 'Technical Program', href: '/committees/technical-program' },
+    { label: 'Conference Committees', href: '/committees' },
   ],
   about: [
     { label: 'About OAIC', href: '/about/about-us' },
