@@ -5,7 +5,7 @@ export const patrons: CommitteeMember[] = [
 ];
 
 export const advisoryBoard: CommitteeMember[] = [
-  { name: 'Ashwini Nanda', role: 'Advisory Board', institution: '' },
+  { name: 'Ashwini Nanda', role: 'Advisory Board', institution: 'IIT Guwahati' },
   { name: 'Ajay Mohanty', role: 'Advisory Board', institution: 'Deloitte, USA' },
   { name: 'Durga Mishra', role: 'Advisory Board', institution: 'NJIT, USA' },
   { name: 'Rajesh Mishra', role: 'Advisory Board', institution: 'AHRC, IIT BBSR' },
@@ -38,14 +38,23 @@ export const programCoChairs: CommitteeMember[] = [
 ];
 
 export const technicalProgramChairs: CommitteeMember[] = [
-  { name: 'Ashutosh Dutta', role: 'Technical Program Chair', institution: 'JHU/APL, USA' }
+  { name: 'Abani Patra', role: 'Technical Program Chair', institution: 'TUFTS, USA' },
+  { name: 'Anjan Panda', role: 'Technical Program Chair (WEB)', institution: 'DAI, USA' }
 ];
 
 export const technicalProgramCommittee: CommitteeMember[] = [
-  { name: 'Ishan Ayus', role: 'TPC Member', institution: 'SOA, BBSR' }
+  { name: 'Ishan Ayus', role: 'TPC Member', institution: 'SOA, BBSR' },
+  { name: 'Ashis Pati', role: 'TPC Member', institution: 'SOA, BBSR' },
+  { name: 'Gyana Ranjan Patra', role: 'TPC Member', institution: 'SOA, BBSR' },
+  { name: 'Rangaballav Pradhan', role: 'TPC Member', institution: 'SOA, BBSR' },
+  { name: 'Sayantan Saha', role: 'TPC Member', institution: 'SOA, BBSR' },
+  { name: 'Arun Kumar Sahoo', role: 'TPC Member', institution: 'SOA, BBSR' },
+  { name: 'Swapnendu Panda', role: 'TPC Member', institution: 'SOA, BBSR' },
+  { name: 'Prajna Paramita Debata', role: 'TPC Member', institution: 'SOA, BBSR' }
 ];
 
 export const publicationsCommittee: CommitteeMember[] = [
+  { name: 'Ashutosh Dutta', role: 'Publications Chair', institution: 'JHU/APL, USA' },
   { name: 'Debahuti Mishra', role: 'Publications Chair', institution: 'SOA, BBSR' },
   { name: 'Bharat Jyoti Ranjan Sahu', role: 'Publications Chair', institution: 'SOA, BBSR' }
 ];
@@ -57,13 +66,11 @@ export const mediaTeam: CommitteeMember[] = [
 ];
 
 export const publicityChairs: CommitteeMember[] = [
-  { name: 'Renu Sharma', role: 'Publicity Chair (Chair/CFP)', institution: 'SOA, BBSR' },
-  { name: 'Lopa Mishra Jana', role: 'Publicity Co-Chair (Co Chair/Flyer)', institution: 'AHRC, IIT BBSR' },
-  { name: 'Anjan Panda', role: 'Publicity Chair (WEB)', institution: 'DAI, USA' },
+  { name: 'Renu Sharma', role: 'Publicity Chair', institution: 'SOA, BBSR' },
+  { name: 'Anjan Panda', role: 'Publicity Chair', institution: 'DAI, USA' },
   { name: 'Debabrata Nayak', role: 'Publicity Chair', institution: 'Director, PwC India' },
-  { name: 'Suchismita Chinara', role: 'Publicity Chair (WEB)', institution: 'NIT Rourkela' },
-  { name: 'Susmita Das', role: 'Publicity Chair (WEB)', institution: '' },
-  { name: 'Chinmay Chakraborty', role: 'Publicity Chair (WEB)', institution: 'KIIT' },
+  { name: 'Suchismita Chinara', role: 'Publicity Chair', institution: 'NIT, RKL' },
+  { name: 'Chinmay Chakraborty', role: 'Publicity Chair', institution: 'KIIT' },
   { name: 'Sakuntala Mahapatra', role: 'Publicity Chair', institution: 'TAT, BBSR' }
 ];
 
@@ -71,23 +78,18 @@ export const workshopChairs: CommitteeMember[] = [
   { name: 'Debasis Parida', role: 'Workshop Chair', institution: 'AIC-SOA Foundation' }
 ];
 
-export const exhibitionChairs: CommitteeMember[] = [
-  { name: 'Ayes Chinmay', role: 'Exhibition Chair', institution: 'SOA, BBSR' }
+export const startupExhibitionChairs: CommitteeMember[] = [
+  { name: 'Lopa Mishra Jana', role: 'Startup & Exhibition Chair', institution: 'AIC-SOA Foundation' }
 ];
 
 export const posterChairs: CommitteeMember[] = [
   { name: 'Alakananda Tripathy', role: 'Poster Chair', institution: 'SOA, BBSR' }
 ];
 
-export const startupInnovationChairs: CommitteeMember[] = [
-  { name: 'Lopa Mishra Jana', role: 'Startup & Innovation Chair', institution: 'AHRC, IIT BBSR' }
-];
-
 export const hackathonCommittee: CommitteeMember[] = [
   { name: 'Sukant Mohapatra', role: 'Hackathon Chair', institution: 'NIST, Odisha' },
   { name: 'Anjan Kumar Panda', role: 'Hackathon Co-Chair', institution: 'DAI, USA' },
-  { name: 'Suchismitha Chinara', role: 'Western Regional Chair', institution: 'NIT Rourkela' },
-  { name: 'Renu Sharma', role: 'Hackathon Mentor', institution: 'SOA, BBSR' },
+  { name: 'Suchismitha Chinara', role: 'Western Regional Chair', institution: 'NIT, RKL' },
   { name: 'Ayes Chinmay', role: 'Central Regional Chair', institution: 'SOA, BBSR' },
   { name: 'Sushanta Sahu', role: 'Southern Regional Chair', institution: 'NIST, Odisha' },
   { name: 'Swarupananda Bissoyi', role: 'Northern Regional Chair', institution: 'MSCBDU' },
@@ -99,7 +101,7 @@ export const hackathonCommittee: CommitteeMember[] = [
 ];
 
 export const organizingChairs: CommitteeMember[] = [
-  { name: 'Renu Sharma', role: 'Organizing Chair', institution: 'SOA, BBSR' }
+  { name: 'Bharat Jyoti R. Sahu', role: 'Organizing Chair', institution: 'SOA, BBSR' }
 ];
 
 export const registrationChairs: CommitteeMember[] = [
