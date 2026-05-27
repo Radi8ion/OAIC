@@ -285,7 +285,10 @@ export default function Navbar() {
               </button>
             </form>
             <button
-              className="lg:hidden p-2 rounded-md text-white hover:bg-primary-800 transition-colors"
+              className={cn(
+                "lg:hidden p-2 rounded-md transition-colors",
+                scrolled ? "text-white hover:bg-primary-800" : "text-[#154066] hover:bg-primary-100"
+              )}
               onClick={() => setMobileOpen(true)}
               aria-label="Open navigation menu"
             >
