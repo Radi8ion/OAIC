@@ -28,26 +28,66 @@ export default function CallForPapersPage() {
         <div className="mx-auto max-w-6xl py-6">
           {/* Invitation to Authors Section */}
           <div className="mb-12 md:mb-16 bg-white rounded-2xl border border-gray-100 p-6 md:p-10 shadow-sm">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-primary-950 mb-6 border-b border-gray-100 pb-4">
-              Invitation to Authors
-            </h2>
-            <div className="space-y-6 text-base md:text-lg text-gray-700 leading-relaxed text-justify md:text-left">
-              <p>
-                The Organizing Committee of the <strong>2026 1st IEEE Odisha AI Conference (OAIC)</strong> invites researchers, academicians, industry professionals, and practitioners worldwide to submit original, unpublished contributions on Artificial Intelligence and applications (see tracks and focus below). OAIC 2026 is the inaugural edition of a regional conference dedicated to fostering excellence in AI research and its transformative applications across industry, governance, healthcare, energy, and society. The conference will serve as a premier forum for exchanging ideas, presenting research findings, and building interdisciplinary collaborations that address real-world challenges through AI-driven solutions — with a special emphasis on the development priorities of the state of Odisha and the broader Indian subcontinent.
-              </p>
-              <p>
-                The conference will feature keynote addresses by leading researchers and practitioners, technical paper presentations, tutorials and workshops, and dedicated industry sessions — creating a vibrant ecosystem for knowledge exchange between academia and industry.
-              </p>
-            </div>
-            
-            {/* Publication Callout */}
-            <div className="mt-8 bg-primary-50 border-l-4 border-[#e67e22] p-5 rounded-r-xl">
-              <p className="text-sm md:text-base font-semibold text-primary-950 leading-relaxed">
-                <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-black uppercase bg-[#e67e22] text-white mr-3">
-                  Publication
-                </span>
-                All accepted and presented papers will be submitted for inclusion into IEEE Xplore subject to meeting IEEE quality requirements.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-start">
+              {/* Left Column: Text & Callout */}
+              <div className="lg:col-span-7">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-primary-950 mb-6 border-b border-gray-100 pb-4">
+                  Invitation to Authors
+                </h2>
+                <div className="space-y-6 text-base md:text-lg text-gray-700 leading-relaxed text-justify md:text-left">
+                  <p>
+                    The Organizing Committee of the <strong>2026 1st IEEE Odisha AI Conference (OAIC)</strong> invites researchers, academicians, industry professionals, and practitioners worldwide to submit original, unpublished contributions on Artificial Intelligence and applications (see tracks and focus below). OAIC 2026 is the inaugural edition of a regional conference dedicated to fostering excellence in AI research and its transformative applications across industry, governance, healthcare, energy, and society. The conference will serve as a premier forum for exchanging ideas, presenting research findings, and building interdisciplinary collaborations that address real-world challenges through AI-driven solutions — with a special emphasis on the development priorities of the state of Odisha and the broader Indian subcontinent.
+                  </p>
+                  <p>
+                    The conference will feature keynote addresses by leading researchers and practitioners, technical paper presentations, tutorials and workshops, and dedicated industry sessions — creating a vibrant ecosystem for knowledge exchange between academia and industry.
+                  </p>
+                </div>
+                
+                {/* Publication Callout */}
+                <div className="mt-8 bg-primary-50 border-l-4 border-[#e67e22] p-5 rounded-r-xl">
+                  <p className="text-sm md:text-base font-semibold text-primary-950 leading-relaxed">
+                    <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-black uppercase bg-[#e67e22] text-white mr-3">
+                      Publication
+                    </span>
+                    All accepted and presented papers will be submitted for inclusion into IEEE Xplore subject to meeting IEEE quality requirements.
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column: Canva Flyer Embed */}
+              <div className="lg:col-span-5 w-full flex flex-col items-center lg:mt-16">
+                <div 
+                  className="w-full relative rounded-xl overflow-hidden border border-gray-200 shadow-md bg-gray-50"
+                  style={{ paddingTop: '141.453%', height: 0 }}
+                >
+                  <iframe
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full border-none"
+                    src="https://www.canva.com/design/DAHKvR4DX5s/c2Ox3OO-wFsKhVkOXKYkyw/view?embed"
+                    allowFullScreen
+                    allow="fullscreen"
+                  />
+                </div>
+                <div className="mt-3 text-center text-xs text-gray-500 font-medium">
+                  <a
+                    href="https://www.canva.com/design/DAHKvR4DX5s/c2Ox3OO-wFsKhVkOXKYkyw/view?utm_content=DAHKvR4DX5s&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-600 hover:text-primary-500 hover:underline transition-colors font-semibold"
+                  >
+                    e gradient (23.4 x 33.1 in)
+                  </a>{' '}
+                  by Bharat Jyoti Ranjan Sahu .{' '}
+                  <a
+                    href="https://www.canva.com/design/DAHKvR4DX5s/c2Ox3OO-wFsKhVkOXKYkyw/view?utm_content=DAHKvR4DX5s&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-600 hover:text-primary-500 hover:underline transition-colors font-semibold"
+                  >
+                    Embed link
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
