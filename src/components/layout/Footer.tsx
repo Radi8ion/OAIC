@@ -51,7 +51,14 @@ export default function Footer() {
             <div className="lg:col-span-2 space-y-6">
               <div className="space-y-3">
                 <Link href="/" className="inline-block group">
-                  <Image src="/images/logo.png" alt="OAIC 2026 Logo" className="h-12 w-auto brightness-0 invert opacity-90 transition-opacity group-hover:opacity-100" width={130} height={42} priority />
+                  <Image
+                    src="/images/logo.png"
+                    alt="OAIC 2026 Logo"
+                    className="h-16 w-auto brightness-0 invert opacity-90 transition-opacity group-hover:opacity-100"
+                    width={256}
+                    height={64}
+                    priority
+                  />
                 </Link>
                 <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-[#3A8EC2] font-bold">
                   <Globe className="w-3 h-3" />

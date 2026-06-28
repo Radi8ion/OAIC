@@ -34,17 +34,21 @@ export const financeChairs: CommitteeMember[] = [
 
 export const programCoChairs: CommitteeMember[] = [
   { name: 'Chitta Baral', role: 'Program Co-Chair', institution: 'ASU, USA' },
-  { name: 'Abani Patra', role: 'Program Co-Chair', institution: 'TUFTS, USA' }
+  { name: 'Abani Patra', role: 'Program Co-Chair', institution: 'TUFTS, USA' },
+  { name: 'Bharat Jyoti Ranjan Sahu', role: 'Program Co-Chair', institution: 'SOA, BBSR' },
+  { name: 'Alakananda Tripathy', role: 'Program Co-Chair', institution: 'SOA, BBSR' }
 ];
 
 export const technicalProgramChairs: CommitteeMember[] = [
   { name: 'Abani Patra', role: 'Technical Program Chair', institution: 'TUFTS, USA' },
-  { name: 'Anjan Panda', role: 'Technical Program Chair (WEB)', institution: 'DAI, USA' }
+  { name: 'Anjan Panda', role: 'Technical Program Chair (WEB)', institution: 'DAI, USA' },
+  { name: 'Sujata Chakraborty', role: 'Technical Program Chair', institution: 'CUTM, BBSR' },
+  { name: 'Sakuntala Mohapatra', role: 'Technical Program Chair', institution: 'TAT, BBSR' },
+  { name: 'Suneeta Satapathy', role: 'Technical Program Chair', institution: 'SOA, BBSR' }
 ];
 
 export const technicalProgramCommittee: CommitteeMember[] = [
   { name: 'Ishan Ayus', role: 'TPC Member', institution: 'SOA, BBSR' },
-  { name: 'Ashis Pati', role: 'TPC Member', institution: 'SOA, BBSR' },
   { name: 'Gyana Ranjan Patra', role: 'TPC Member', institution: 'SOA, BBSR' },
   { name: 'Rangaballav Pradhan', role: 'TPC Member', institution: 'SOA, BBSR' },
   { name: 'Sayantan Saha', role: 'TPC Member', institution: 'SOA, BBSR' },
@@ -70,8 +74,7 @@ export const publicityChairs: CommitteeMember[] = [
   { name: 'Anjan Panda', role: 'Publicity Chair', institution: 'DAI, USA' },
   { name: 'Debabrata Nayak', role: 'Publicity Chair', institution: 'Director, PwC India' },
   { name: 'Suchismita Chinara', role: 'Publicity Chair', institution: 'NIT, RKL' },
-  { name: 'Chinmay Chakraborty', role: 'Publicity Chair', institution: 'KIIT' },
-  { name: 'Sakuntala Mahapatra', role: 'Publicity Chair', institution: 'TAT, BBSR' }
+  { name: 'Chinmay Chakraborty', role: 'Publicity Chair', institution: 'KIIT' }
 ];
 
 export const workshopChairs: CommitteeMember[] = [
@@ -101,11 +104,11 @@ export const hackathonCommittee: CommitteeMember[] = [
 ];
 
 export const organizingChairs: CommitteeMember[] = [
-  { name: 'Bharat Jyoti R. Sahu', role: 'Organizing Chair', institution: 'SOA, BBSR' }
+  { name: 'Apul Narayan Dev', role: 'Organizing Chair', institution: 'SOA, BBSR' }
 ];
 
 export const registrationChairs: CommitteeMember[] = [
-  { name: 'Apul Narayan Dev', role: 'Registration Chair', institution: 'SOA, BBSR' }
+  { name: 'Ashis Pati', role: 'Registration Chair', institution: 'SOA, BBSR' }
 ];
 
 export const sponsorshipChairs: CommitteeMember[] = [

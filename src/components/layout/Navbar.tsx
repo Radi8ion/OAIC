@@ -202,7 +202,10 @@ export default function Navbar() {
         )}
         role="banner"
       >
-        <div className="container-wide flex items-center justify-between h-16">
+        <div className={cn(
+          "container-wide flex items-center justify-between transition-all duration-300",
+          scrolled ? "h-16" : "h-20"
+        )}>
           <div className="flex items-center h-full">
             {/* Search Input on the Left (to match some parts of the image style, or right?)
                 Actually, putting Logo on left is standard. Let's keep Logo on left. */}
@@ -210,9 +213,12 @@ export default function Navbar() {
               <Image
                 src="/images/logo.png"
                 alt="OAIC 2026 Logo"
-                className="h-10 w-auto object-contain"
-                width={160}
-                height={40}
+                className={cn(
+                  "w-auto object-contain transition-all duration-300",
+                  scrolled ? "h-12" : "h-16"
+                )}
+                width={256}
+                height={64}
                 priority
               />
             </Link>
@@ -309,7 +315,13 @@ export default function Navbar() {
         <div className="relative flex flex-col w-full max-w-xs h-full bg-white shadow-xl">
           <div className="flex items-center justify-between px-4 py-3 border-b">
             <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-              <Image src="/images/logo.png" alt="OAIC 2026 Logo" className="h-10" width={120} height={400} />
+              <Image
+                src="/images/logo.png"
+                alt="OAIC 2026 Logo"
+                className="h-12 w-auto object-contain"
+                width={192}
+                height={48}
+              />
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 text-gray-500" aria-label="Close menu">
               <X className="w-6 h-6" />

@@ -41,8 +41,6 @@ function GeneralGuidelines() {
           {[
             'Papers must not exceed the specified page limits (excluding references).',
             'Additional pages (beyond the 6-page limit) will be charged at ₹1000 per page for Indian authors and $100 per page for international authors.',
-            'All submissions will undergo a blind peer review process.',
-            'Self-citations should be minimized and written in the third person to maintain anonymity.',
             'Submitted papers must not be under review elsewhere simultaneously.',
             'At least one author of an accepted paper must register for the conference and present the paper.',
           ].map((item) => (
