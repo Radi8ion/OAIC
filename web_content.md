@@ -42,7 +42,7 @@ Artificial Intelligence, Machine Learning, Deep Learning, Data Science, Big Data
 | Milestone | Date |
 | :--- | :--- |
 | **Abstract Submission** | July 10, 2026 |
-| **Full Paper Submission** | August 15, 2026 |
+| **Full Paper Submission** | August 31, 2025 |
 | **Notification of Acceptance** | September 30, 2026 |
 | **Final Paper Submission** | October 15, 2026 |
 
