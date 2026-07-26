@@ -9,7 +9,7 @@ export interface Track {
   number: string;
   title: string;
   shortTitle: string;
-  iconName: 'Brain' | 'Cpu' | 'HeartPulse' | 'Atom';
+  iconName: 'Brain' | 'Cpu' | 'HeartPulse' | 'Atom' | 'Layers' | 'Zap';
   subtracks: Subtrack[];
 }
 
@@ -243,18 +243,6 @@ export const tracksData: Track[] = [
     subtracks: [
       {
         letter: 'A',
-        title: 'Quantum Computing and AI',
-        topics: [
-          'Quantum machine learning algorithms and theory',
-          'Quantum optimization and sampling',
-          'Hybrid quantum-classical AI systems',
-          'Quantum-enhanced sensing and communication',
-          'Near-term quantum AI applications',
-          'Quantum cryptography and post-quantum security'
-        ]
-      },
-      {
-        letter: 'B',
         title: 'AI for Next-Generation Networks and Connectivity',
         topics: [
           '5G and 6G Intelligent Networks',
@@ -275,7 +263,7 @@ export const tracksData: Track[] = [
         ]
       },
       {
-        letter: 'C',
+        letter: 'B',
         title: 'Green AI Computing',
         topics: [
           'Energy-Efficient AI Architectures',
@@ -294,6 +282,60 @@ export const tracksData: Track[] = [
           'Efficient Neural Network Compression',
           'Federated Learning for Green Computing',
           'AI Workload Optimization'
+        ]
+      }
+    ]
+  },
+  {
+    id: 5,
+    number: 'Track 5',
+    title: 'General Track',
+    shortTitle: 'General',
+    iconName: 'Layers',
+    subtracks: [
+      {
+        letter: 'A',
+        title: 'Applications of AI',
+        topics: [
+          'AI applications in education and e-learning',
+          'AI for financial technology and banking',
+          'AI in supply chain and logistics',
+          'AI-driven content creation and media',
+          'AI for legal and compliance automation',
+          'AI in retail and consumer analytics',
+          'AI for human resources and talent management',
+          'AI-powered recommendation systems',
+          'AI for accessibility and assistive technologies',
+          'Cross-domain AI deployment and integration',
+          'Real-world case studies and benchmarks',
+          'Emerging AI applications and novel use cases'
+        ]
+      }
+    ]
+  },
+  {
+    id: 6,
+    number: 'Track 6',
+    title: 'Quantum Computing in AI',
+    shortTitle: 'Quantum',
+    iconName: 'Zap',
+    subtracks: [
+      {
+        letter: 'A',
+        title: 'Quantum Computing and AI',
+        topics: [
+          'Quantum machine learning algorithms and theory',
+          'Quantum optimization and sampling',
+          'Hybrid quantum-classical AI systems',
+          'Quantum-enhanced sensing and communication',
+          'Near-term quantum AI applications',
+          'Quantum cryptography and post-quantum security',
+          'Variational quantum algorithms for AI',
+          'Quantum neural networks and circuit learning',
+          'Quantum advantage in AI problem domains',
+          'Quantum data encoding and feature mapping',
+          'Quantum simulation for scientific AI',
+          'Quantum hardware and noise mitigation for AI'
         ]
       }
     ]

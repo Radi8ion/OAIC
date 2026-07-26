@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Brain, Cpu, HeartPulse, Atom } from 'lucide-react';
+import { Brain, Cpu, HeartPulse, Atom, Layers, Zap } from 'lucide-react';
 import { tracksData } from '@/data/tracksData';
 import { cn } from '@/lib/cn';
 
@@ -10,6 +10,8 @@ const iconMap = {
   Cpu: Cpu,
   HeartPulse: HeartPulse,
   Atom: Atom,
+  Layers: Layers,
+  Zap: Zap,
 };
 
 export default function TracksSection() {

@@ -54,7 +54,19 @@ export default function WorkshopProposalsPage() {
               co-located with the main conference. They provide a platform for
               in-depth discussions on emerging or specialised AI topics,
               bringing together researchers and practitioners with shared
-              interests.
+              interests. Workshops are designed for <strong>students</strong> to engage
+              in hands-on, collaborative learning experiences.
+            </p>
+          </div>
+
+          {/* Tutorial Section for Faculty and Researchers */}
+          <div className="mb-14 bg-amber-50 border-none border-l-4 border-l-amber-500 rounded-r-xl p-8 shadow-sm">
+            <h3 className="text-2xl font-bold text-amber-900 mb-4">Tutorial for Faculty and Researchers</h3>
+            <p className="text-lg md:text-xl text-amber-950 leading-relaxed font-medium">
+              In addition to student workshops, OAIC 2026 will feature dedicated <strong>Tutorials for Faculty and Researchers</strong>.
+              These sessions are designed to provide in-depth technical knowledge, emerging methodologies, and
+              hands-on exposure to advanced AI topics — enabling faculty and researchers to stay at the forefront
+              of AI innovation and bring cutting-edge insights back to their institutions.
             </p>
           </div>
 
@@ -107,7 +119,7 @@ export default function WorkshopProposalsPage() {
 
           <div className="mt-16 text-center">
             <div className="flex flex-wrap justify-center gap-6">
-              <Button as="a" href="mailto:im.aic@soa.ac.in" className="bg-primary-600 hover:bg-primary-500 text-white text-lg px-8 py-6 shadow-md transition-transform hover:-translate-y-1 rounded-md border-none font-bold">
+              <Button as="a" href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vTjM1MzYxP2M9MzUzNjE%3D" target="_blank" rel="noopener noreferrer" className="bg-primary-600 hover:bg-primary-500 text-white text-lg px-8 py-6 shadow-md transition-transform hover:-translate-y-1 rounded-md border-none font-bold">
                 Submit Workshop Proposal
               </Button>
             </div>
