@@ -14,7 +14,7 @@ const sponsorshipTiers = [
   {
     name: 'Diamond Partner',
     amount: '₹5,00,000 (5 Lakhs)',
-    description: 'Our most prestigious tier, offering maximum exposure and a keynote-level presentation slot.',
+    description: 'Our most prestigious tier, offering maximum exposure.',
     icon: Gem,
     gradient: 'from-[#00c6ff] via-[#0072ff] to-[#0d52ab]',
     borderColor: 'border-[#00c6ff]',
@@ -25,7 +25,6 @@ const sponsorshipTiers = [
       'Prime logo placement on all banners, backdrops, and websites.',
       '4 complimentary full-access delegate passes.',
       '1 dedicated standard exhibition booth/stall in a prime location.',
-      '10-minute presentation slot during the main program.',
       'Full-page color advertisement in the conference booklet.',
       'Acknowledge as "Diamond Sponsor" in all press releases and opening/closing ceremonies.',
     ],
@@ -50,7 +49,7 @@ const sponsorshipTiers = [
   },
   {
     name: 'Silver Partner',
-    amount: '₹1,00,000 (1 Lakh)',
+    amount: 'Up to ₹1,00,000 (1 Lakh)',
     description: 'Affordable entry tier ideal for startups and institutions looking to showcase their branding.',
     icon: Award,
     gradient: 'from-[#bdc3c7] via-[#95a5a6] to-[#7f8c8d]',
