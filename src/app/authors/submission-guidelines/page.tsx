@@ -6,7 +6,7 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/ui/Tabs';
-import { FileDown, AlertTriangle } from 'lucide-react';
+import { FileDown, AlertTriangle, Info } from 'lucide-react';
 import Section from '@/components/layout/Section';
 import { Button } from '@/components/ui/Button';
 import { Check } from 'lucide-react';
@@ -160,11 +160,69 @@ function CameraReady() {
   );
 }
 
+function EdasGuidelines() {
+  return (
+    <div className="space-y-6 mt-4 md:mt-0">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 md:p-8">
+        <Alert className="bg-blue-50 border-none border-l-4 border-l-blue-500 rounded-r-lg shadow-sm text-blue-950 p-5 mb-6 flex items-start">
+          <Info className="h-5 w-5 md:h-6 md:w-6 text-blue-600 shrink-0 mt-1" />
+          <div className="ml-3">
+            <AlertTitle className="font-bold text-lg md:text-xl text-blue-900">EDAS Submission Guidelines</AlertTitle>
+            <AlertDescription className="text-base md:text-lg mt-2 leading-relaxed">
+              Please read the following guidelines carefully before uploading your camera-ready manuscript on EDAS.
+            </AlertDescription>
+          </div>
+        </Alert>
+
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-lg md:text-xl font-bold text-primary-900 mb-3">Title Consistency</h3>
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+              Please ensure that the <strong>title in your camera-ready manuscript is the same as the title used in your initial submission</strong>. EDAS will not accept the upload if there is any discrepancy between the two titles.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg md:text-xl font-bold text-primary-900 mb-3">Margin Error Resolution</h3>
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
+              In some cases, EDAS may detect a margin error even though your manuscript already follows the official conference template. If this occurs, please consider the following steps:
+            </p>
+            <ul className="space-y-4">
+              {[
+                {
+                  label: 'a.',
+                  text: 'Manually adjust the page margins (try slightly increasing or decreasing them), even if the values are slightly beyond EDAS\u2019s margin threshold.',
+                },
+                {
+                  label: 'b.',
+                  text: 'Ensure that no text, figures, or symbols extend beyond the set margins — EDAS can reject PDFs that violate them.',
+                },
+                {
+                  label: 'c.',
+                  text: 'If the issue persists, try re-exporting your PDF using a different PDF engine or printer driver, and re-upload.',
+                },
+              ].map((item) => (
+                <li key={item.label} className="flex items-start">
+                  <span className="mr-4 mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700 font-bold text-sm">
+                    {item.label}
+                  </span>
+                  <span className="text-gray-700 font-medium text-base md:text-lg leading-relaxed">{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const TABS = [
   { value: 'general', label: 'General Guidelines', component: GeneralGuidelines },
   { value: 'formatting', label: 'Formatting', component: FormattingGuidelines },
   { value: 'ethics', label: 'Ethics Policy', component: EthicsPolicy },
   { value: 'camera-ready', label: 'Camera-Ready', component: CameraReady },
+  { value: 'edas', label: 'EDAS Guidelines', component: EdasGuidelines },
 ];
 
 export default function SubmissionGuidelinesPage() {

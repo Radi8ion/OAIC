@@ -49,7 +49,8 @@ export default function CallForPapersPage() {
                     <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-black uppercase bg-[#e67e22] text-white mr-3">
                       Publication
                     </span>
-                    All accepted and presented papers will be submitted for inclusion into IEEE Xplore subject to meeting IEEE quality requirements.
+                    All accepted and presented papers will be submitted for inclusion into IEEE Xplore subject to meeting IEEE quality requirements.{' '}
+                    <span className="font-bold text-primary-900">IEEE Conference Record Number: 72676.</span>
                   </p>
                 </div>
               </div>
