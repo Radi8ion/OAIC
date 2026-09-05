@@ -187,7 +187,7 @@ function EdasGuidelines() {
             <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
               In some cases, EDAS may detect a margin error even though your manuscript already follows the official conference template. If this occurs, please consider the following steps:
             </p>
-            <ul className="space-y-4">
+            <ul className="space-y-4 mb-8">
               {[
                 {
                   label: 'a.',
@@ -199,7 +199,15 @@ function EdasGuidelines() {
                 },
                 {
                   label: 'c.',
-                  text: 'If the issue persists, try re-exporting your PDF using a different PDF engine or printer driver, and re-upload.',
+                  text: 'If the issue persists, please repeat the above adjustments until the upload is accepted.',
+                },
+                {
+                  label: 'd.',
+                  text: 'Small variations during PDF creation are normal; keeping margins slightly above the minimum helps avoid rejection.',
+                },
+                {
+                  label: 'e.',
+                  text: 'Check margins on your final PDF (not just the source file).',
                 },
               ].map((item) => (
                 <li key={item.label} className="flex items-start">
@@ -210,6 +218,48 @@ function EdasGuidelines() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Margin Specifications */}
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg md:text-xl font-bold text-primary-900 mb-4">For US Letter-sized papers (in inches)</h3>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {[
+                  { label: 'Maximum text width', value: '7.26 in' },
+                  { label: 'Gutter between columns', value: '0.12 in' },
+                  { label: 'Minimum left/right margins', value: '0.62 in' },
+                  { label: 'Minimum top margin (first page)', value: '0.75 in' },
+                  { label: 'Minimum top margin (other pages)', value: '0.75 in' },
+                  { label: 'Minimum bottom margin', value: '1.0 in' },
+                ].map((spec) => (
+                  <div key={spec.label} className="flex justify-between items-center bg-gray-50 rounded-lg px-4 py-3 border border-gray-100">
+                    <span className="text-sm md:text-base text-gray-600 font-medium">{spec.label}</span>
+                    <span className="text-sm md:text-base font-bold text-primary-900 ml-4 shrink-0">{spec.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg md:text-xl font-bold text-primary-900 mb-2">For A4-sized papers (in centimeters)</h3>
+              <p className="text-sm md:text-base text-gray-500 italic mb-4">
+                EDAS notes that PDF converters sometimes shift content, so they advise keeping margins slightly larger than the template (e.g., add 0.1 cm).
+              </p>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {[
+                  { label: 'Minimum left/right margins', value: '1.57 cm' },
+                  { label: 'Minimum top margin (first page)', value: '0.96 cm' },
+                  { label: 'Minimum top margin (other pages)', value: '1.9 cm' },
+                  { label: 'Minimum bottom margin', value: '4.3 cm' },
+                ].map((spec) => (
+                  <div key={spec.label} className="flex justify-between items-center bg-gray-50 rounded-lg px-4 py-3 border border-gray-100">
+                    <span className="text-sm md:text-base text-gray-600 font-medium">{spec.label}</span>
+                    <span className="text-sm md:text-base font-bold text-primary-900 ml-4 shrink-0">{spec.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
