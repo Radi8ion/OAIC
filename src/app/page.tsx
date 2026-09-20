@@ -48,7 +48,7 @@ export default function HomePage() {
 
             {/* Dates List - Overlapping on right */}
             <div className="w-full lg:w-1/2 ml-auto flex flex-col justify-center space-y-3 z-10 py-6 lg:py-12 px-4 lg:px-0 -mt-10 sm:-mt-16 lg:mt-0 relative">
-              {dates.slice(0, 4).map((item, index) => (
+              {dates.map((item, index) => (
                 <div key={index} className="flex shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer group">
                   <div className="bg-primary-900 text-white font-bold p-3 md:p-4 w-24 md:w-32 flex items-center justify-center shrink-0 group-hover:bg-primary-800 transition-colors text-center text-xs md:text-base">
                     {item.date}

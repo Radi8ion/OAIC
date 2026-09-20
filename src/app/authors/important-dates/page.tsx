@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Calendar, AlertTriangle } from 'lucide-react';
 import Section from '@/components/layout/Section';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/Alert';
+import { cn } from '@/lib/cn';
 
 export const metadata: Metadata = {
   title: 'Important Dates',
@@ -36,16 +37,31 @@ export default function ImportantDatesPage() {
             {importantDates.map((date, i) => (
               <div key={i} className="relative pl-8 md:pl-12 group">
                 {/* Timeline Dot/Icon */}
-                <div className="absolute -left-[26px] top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-primary-900 text-white shadow-md ring-4 ring-white group-hover:bg-primary-600 transition-colors duration-300 group-hover:scale-110 z-10">
+                <div className={cn(
+                  "absolute -left-[26px] top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full text-white shadow-md ring-4 transition-colors duration-300 group-hover:scale-110 z-10",
+                  date.status === 'extended'
+                    ? "bg-amber-500 ring-amber-200 group-hover:bg-amber-600"
+                    : "bg-primary-900 ring-white group-hover:bg-primary-600"
+                )}>
                   <Calendar className="h-5 w-5" />
                 </div>
 
                 {/* Content Card */}
-                <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-5 md:p-6 hover:shadow-lg transition-all duration-300 group-hover:border-primary-300 group-hover:-translate-y-1">
+                <div className={cn(
+                  "bg-white rounded-lg shadow-sm border p-5 md:p-6 hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1",
+                  date.status === 'extended'
+                    ? "border-amber-300 group-hover:border-amber-400 bg-amber-50/20"
+                    : "border-gray-100 group-hover:border-primary-300"
+                )}>
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h3 className="text-xl font-bold text-primary-900 mb-1">
+                      <h3 className="text-xl font-bold text-primary-900 mb-1 flex flex-wrap items-center gap-2">
                         {date.event}
+                        {date.status === 'extended' && (
+                          <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-800 bg-amber-100 border border-amber-300 rounded-md px-2 py-0.5">
+                            <span className="animate-star-flash">🌟</span> Date Extended
+                          </span>
+                        )}
                       </h3>
                       <p className="text-sm font-medium text-gray-500 sm:hidden">
                         {date.date}
@@ -56,18 +72,24 @@ export default function ImportantDatesPage() {
                       <div className="hidden sm:block text-right">
                         <time
                           dateTime={date.date}
-                          className="text-lg font-bold text-gray-800"
+                          className={cn(
+                            "text-lg font-bold",
+                            date.status === 'extended' ? "text-amber-700" : "text-gray-800"
+                          )}
                         >
                           {date.date}
                         </time>
                       </div>
-                      <Badge 
+                      <Badge
                         className={
-                          date.status === 'past' 
-                            ? "bg-gray-100 text-gray-500 border-none hover:bg-gray-200" 
+                          date.status === 'past'
+                            ? "bg-gray-100 text-gray-500 border-none hover:bg-gray-200"
+                            : date.status === 'extended'
+                            ? "bg-amber-500 text-white border-none hover:bg-amber-600 shadow-sm px-3 py-1 font-bold flex items-center gap-1.5"
                             : "bg-primary-400 text-white border-none hover:bg-primary-500 shadow-sm px-3 py-1"
                         }
                       >
+                        {date.status === 'extended' && <span className="animate-star-flash">🌟</span>}
                         {date.status.charAt(0).toUpperCase() + date.status.slice(1)}
                       </Badge>
                     </div>

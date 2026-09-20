@@ -8,6 +8,7 @@ import { ChevronDown, Menu, X, Search } from 'lucide-react';
 import { navConfig } from '@/data/nav';
 import { cn } from '@/lib/cn';
 import type { NavItem } from '@/types';
+import AnnouncementBanner from '@/components/layout/AnnouncementBanner';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -194,6 +195,9 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Announcement Banner: Running Marquee Ticker */}
+      <AnnouncementBanner />
 
       <header
         className={cn(

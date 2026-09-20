@@ -17,11 +17,18 @@ export const navConfig: NavItem[] = [
   },
   {
     label: 'Program',
+    href: '/program/at-a-glance',
     children: [
       { label: 'At a Glance', href: '/program/at-a-glance' },
-      { label: 'Workshops', href: '/program/workshops' },
-      { label: 'Hackathons', href: '/program/hackathons' },
     ],
+  },
+  {
+    label: 'Hackathons',
+    href: '/program/hackathons',
+  },
+  {
+    label: 'Workshops',
+    href: '/program/workshops',
   },
   {
     label: 'Registration',
