@@ -116,7 +116,7 @@ export default function CallForPostersPage() {
             <AlertTitle className="font-bold text-xl text-primary-900 ml-2">Key Date</AlertTitle>
             <AlertDescription className="text-lg mt-2 ml-2">
               Poster Submission Deadline:{' '}
-              <strong className="font-bold text-primary-900">15 Aug 2026</strong>
+              <strong className="font-bold text-primary-900">15 Nov 2026</strong>
             </AlertDescription>
           </Alert>
 

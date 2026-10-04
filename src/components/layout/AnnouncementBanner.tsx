@@ -4,8 +4,10 @@ import Link from 'next/link';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
 export default function AnnouncementBanner() {
-  const announcementText =
-    'Date extended upto Sep 30 for Full Paper Submission';
+  const paperAnnouncementText =
+    'Date extended upto Oct 15 for Full Paper Submission';
+  const posterAnnouncementText =
+    'Call for Posters: Highlight your ongoing research';
 
   return (
     <div
@@ -30,9 +32,13 @@ export default function AnnouncementBanner() {
 
         {/* Continuous Running Marquee */}
         <div className="relative flex-1 overflow-hidden h-full flex items-center">
-          <div className="animate-marquee items-center whitespace-nowrap py-1">
+          <div
+            className="animate-marquee items-center whitespace-nowrap py-1"
+            style={{ animationDuration: '35s' }}
+          >
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className="flex items-center gap-6 sm:gap-10 px-4 sm:px-6">
+                {/* 1. Full Paper Submission Extended */}
                 <Link
                   href="/authors/important-dates"
                   className="flex items-center gap-2 text-amber-200 hover:text-white transition-colors duration-200"
@@ -41,7 +47,7 @@ export default function AnnouncementBanner() {
                     ★
                   </span>
                   <strong className="text-white font-bold tracking-wide">
-                    {announcementText}
+                    {paperAnnouncementText}
                   </strong>
                   <span className="hidden md:inline text-amber-300/90 text-xs">
                     (OAIC 2026)
@@ -64,10 +70,53 @@ export default function AnnouncementBanner() {
                 >
                   <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
                   <span className="font-semibold text-amber-100">
-                    Submit via EDAS Portal
+                    Submit Paper via EDAS Portal
                   </span>
                   <span className="text-[10px] bg-amber-400/20 text-amber-200 border border-amber-300/40 rounded px-1.5 py-0.5 font-bold uppercase">
-                    Deadline: Sep 30
+                    Deadline: Oct 15
+                  </span>
+                </Link>
+
+                <span className="text-amber-400/60 font-mono select-none" aria-hidden="true">
+                  ◆
+                </span>
+
+                {/* 2. Call for Posters Highlight */}
+                <Link
+                  href="/authors/call-for-posters"
+                  className="flex items-center gap-2 text-amber-200 hover:text-white transition-colors duration-200"
+                >
+                  <span className="animate-star-flash text-amber-300 text-sm">
+                    ★
+                  </span>
+                  <strong className="text-white font-bold tracking-wide">
+                    {posterAnnouncementText}
+                  </strong>
+                  <span className="hidden md:inline text-amber-300/90 text-xs">
+                    (OAIC 2026)
+                  </span>
+                  <span className="inline-flex items-center gap-0.5 text-[11px] font-bold text-amber-300 hover:underline ml-1">
+                    View Details
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                </Link>
+
+                <span className="text-amber-400/60 font-mono select-none" aria-hidden="true">
+                  ◆
+                </span>
+
+                <Link
+                  href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vTjM1MzYxP2M9MzUzNjE%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-200 hover:text-white transition-colors duration-200"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+                  <span className="font-semibold text-amber-100">
+                    Submit Poster Abstract
+                  </span>
+                  <span className="text-[10px] bg-amber-400/20 text-amber-200 border border-amber-300/40 rounded px-1.5 py-0.5 font-bold uppercase">
+                    Deadline: Nov 15
                   </span>
                 </Link>
 
