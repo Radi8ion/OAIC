@@ -93,7 +93,7 @@ export const hackathonCommittee: CommitteeMember[] = [
   { name: 'Sukant Mohapatra', role: 'Hackathon Chair', institution: 'NIST, Odisha' },
   { name: 'Anjan Kumar Panda', role: 'Hackathon Co-Chair', institution: 'DAI, USA' },
   { name: 'Suchismitha Chinara', role: 'Western Regional Chair', institution: 'NIT, RKL' },
-  { name: 'Ayes Chinmay', role: 'Central Regional Chair', institution: 'SOA, BBSR' },
+  { name: 'Ashis Pati', role: 'Central Regional Chair', institution: 'SOA, BBSR' },
   { name: 'Sushanta Sahu', role: 'Southern Regional Chair', institution: 'NIST, Odisha' },
   { name: 'Swarupananda Bissoyi', role: 'Northern Regional Chair', institution: 'MSCBDU' },
   { name: 'Sujata Chakraborty', role: 'Finance Chair', institution: 'CUTM, BBSR' },

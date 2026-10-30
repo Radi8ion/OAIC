@@ -397,6 +397,10 @@
   margin-top: 32px;
 }
 
+.hackathon-scope .timeline-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .hackathon-scope .step {
   position: relative;
   padding: 0 22px 0 0;
@@ -438,6 +442,23 @@
   margin: 0;
   color: var(--muted);
   font-size: 13px;
+}
+
+.hackathon-scope .step-highlight {
+  position: relative;
+}
+
+.hackathon-scope .num-highlight {
+  background: linear-gradient(135deg, var(--purple), var(--blue)) !important;
+  box-shadow: 0 0 0 4px rgba(91, 53, 177, 0.18);
+}
+
+.hackathon-scope .step-date {
+  font-size: 12px !important;
+  font-weight: 800;
+  color: var(--purple) !important;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px !important;
 }
 
 .hackathon-scope .contacts {
@@ -487,6 +508,55 @@
   text-align: center;
 }
 
+.hackathon-scope .apply-requirements {
+  text-align: left;
+  padding: 32px;
+}
+
+.hackathon-scope .requirements-list {
+  list-style: none;
+  margin: 18px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hackathon-scope .requirements-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(91,53,177,0.12);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 14px;
+}
+
+.hackathon-scope .req-icon {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.hackathon-scope .template-download {
+  margin-top: 22px;
+  padding: 16px;
+  background: rgba(255,255,255,0.8);
+  border: 1px dashed rgba(91,53,177,0.3);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hackathon-scope .template-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--purple);
+}
+
 .hackathon-scope .apply h2 {
   max-width: 700px;
   margin: 0 auto 12px;
@@ -523,7 +593,8 @@
   .hackathon-scope .theme-grid {
     grid-template-columns: 1fr;
   }
-  .hackathon-scope .timeline {
+  .hackathon-scope .timeline,
+  .hackathon-scope .timeline-5 {
     grid-template-columns: 1fr 1fr;
     gap: 28px;
   }
@@ -544,7 +615,8 @@
   }
   .hackathon-scope .grid-4,
   .hackathon-scope .regions,
-  .hackathon-scope .timeline {
+  .hackathon-scope .timeline,
+  .hackathon-scope .timeline-5 {
     grid-template-columns: 1fr;
   }
   .hackathon-scope .hero-card {

@@ -26,7 +26,7 @@ export default function HackathonsPage() {
           </div>
           <a
             className="btn btn-primary"
-            href="https://www.oaic.in/program/hackathons/"
+            href="https://docs.google.com/forms/d/1qqRZuBO3jY_4MsAHXTMBu3DKJGecwP76hqcGJxvKp0o"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -50,7 +50,7 @@ export default function HackathonsPage() {
             <div className="cta-row">
               <a
                 className="btn btn-primary"
-                href="https://www.oaic.in/program/hackathons/"
+                href="https://docs.google.com/forms/d/1qqRZuBO3jY_4MsAHXTMBu3DKJGecwP76hqcGJxvKp0o"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -64,8 +64,8 @@ export default function HackathonsPage() {
 
           <aside className="hero-card">
             <div className="mini">Grand Finale</div>
-            <div className="prize">₹3,00,000</div>
-            <div style={{ fontWeight: 800 }}>Prizes Worth INR 3,00,000/-</div>
+            <div className="prize">₹1,50,000</div>
+            <div style={{ fontWeight: 800 }}>Prizes Worth INR 1,50,000/-</div>
             <div className="date-box">
               <div className="stat">
                 <b>20 Dec 2026</b>
@@ -212,24 +212,30 @@ export default function HackathonsPage() {
             </div>
             <p className="lead">A simple regional pathway from application to the Odisha AI Conference 2026 finale.</p>
           </div>
-          <div className="timeline">
+          <div className="timeline timeline-5">
             <div className="step">
               <div className="num">1</div>
-              <h3>Visit the portal</h3>
-              <p>Go to the official OAIC hackathon page.</p>
+              <h3>Apply Online</h3>
+              <p>Submit your application via the official Google Form.</p>
             </div>
             <div className="step">
               <div className="num">2</div>
               <h3>Select your nodal centre</h3>
               <p>Choose the centre corresponding to your institute’s district.</p>
             </div>
-            <div className="step">
-              <div className="num">3</div>
-              <h3>Apply &amp; compete</h3>
-              <p>Complete the regional application and follow the nodal centre’s hackathon schedule.</p>
+            <div className="step step-highlight">
+              <div className="num num-highlight">3</div>
+              <h3>Regional Selection</h3>
+              <p className="step-date">~ Nov 20, 2026</p>
+              <p>Regional screening and evaluation at your nodal centre.</p>
             </div>
             <div className="step">
               <div className="num">4</div>
+              <h3>Apply &amp; Compete</h3>
+              <p>Shortlisted teams present solutions at the regional hackathon event.</p>
+            </div>
+            <div className="step">
+              <div className="num">5</div>
               <h3>Finale at SOA</h3>
               <p>Regional winners exhibit solutions at OAIC 2026 on 20 Dec 2026.</p>
             </div>
@@ -260,9 +266,9 @@ export default function HackathonsPage() {
                 </tr>
                 <tr>
                   <td>Central</td>
-                  <td>Prof. Ayes Chinmay</td>
+                  <td>Prof. Ashis Pati</td>
                   <td>
-                    <a href="mailto:ayeschinmay@soa.ac.in">ayeschinmay@soa.ac.in</a>
+                    <a href="mailto:ashispati@soa.ac.in">ashispati@soa.ac.in</a>
                   </td>
                 </tr>
                 <tr>
@@ -282,20 +288,44 @@ export default function HackathonsPage() {
               </tbody>
             </table>
           </div>
-          <div className="apply">
-            <div className="eyebrow">Ready to build?</div>
-            <h2>Take your AI idea from prototype to possibility.</h2>
-            <p>
-              Regional winners will be mentored by experts. Solutions beyond TRL 4 may be mentored/incubated by AIC-SOA for possible startup opportunities.
-            </p>
-            <a
-              className="btn btn-primary"
-              href="https://www.oaic.in/program/hackathons/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit OAIC Hackathons ↗
-            </a>
+          <div className="apply apply-requirements">
+            <div className="eyebrow">Submission Requirements</div>
+            <h2>What to submit.</h2>
+            <ul className="requirements-list">
+              <li>
+                <span className="req-icon">📊</span>
+                <span><strong>Idea PPT</strong> – Present your concept, approach &amp; solution</span>
+              </li>
+              <li>
+                <span className="req-icon">📄</span>
+                <span><strong>Abstract</strong> – Brief written summary of your project</span>
+              </li>
+              <li>
+                <span className="req-icon">🎬</span>
+                <span><strong>3-Minute Video</strong> – Demo or pitch of your AI solution</span>
+              </li>
+            </ul>
+            <div className="template-download">
+              <div className="template-label">PPT Template</div>
+              <a
+                className="btn btn-primary"
+                href="/templates/OAIC_Hackathon_PPT_Template.pptx"
+                download
+              >
+                ⬇ Download PPT Template
+              </a>
+            </div>
+            <div style={{ marginTop: '16px' }}>
+              <a
+                className="btn btn-primary"
+                href="https://docs.google.com/forms/d/1qqRZuBO3jY_4MsAHXTMBu3DKJGecwP76hqcGJxvKp0o"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ width: '100%', justifyContent: 'center' }}
+              >
+                Apply Now ↗
+              </a>
+            </div>
           </div>
         </div>
       </section>
