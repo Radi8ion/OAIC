@@ -168,7 +168,7 @@ export default function Navbar() {
                 title="The Odisha Society of the Americas (OSA)"
               >
                 <Image
-                  src="/images/sponsors/osa-logo.png"
+                  src="/images/sponsors/OSA-logo-small.png"
                   alt="The Odisha Society of the Americas (OSA)"
                   className="h-5 sm:h-7 md:h-8 w-auto object-contain"
                   width={90}
@@ -186,9 +186,9 @@ export default function Navbar() {
                 <Image
                   src="/images/sponsors/odisha-society-uk.png"
                   alt="Odisha Society of the UK (OSUK)"
-                  className="h-5 sm:h-7 md:h-9 w-auto object-contain"
-                  width={80}
-                  height={24}
+                  className="h-5 sm:h-7 md:h-8 w-auto object-contain"
+                  width={90}
+                  height={28}
                 />
               </Link>
               <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
