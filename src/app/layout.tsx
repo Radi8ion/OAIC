@@ -23,6 +23,7 @@ const robotoMono = Roboto_Mono({
   weight: ['400', '500'],
   variable: '--font-roboto-mono',
   display: 'swap',
+  preload: false,
 });
 
 export const metadata: Metadata = {
