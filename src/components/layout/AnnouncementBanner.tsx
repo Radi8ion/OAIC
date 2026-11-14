@@ -4,8 +4,6 @@ import Link from 'next/link';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
 export default function AnnouncementBanner() {
-  const paperAnnouncementText =
-    'Date extended upto Oct 15 for Full Paper Submission';
   const posterAnnouncementText =
     'Call for Posters: Highlight your ongoing research';
 
@@ -34,54 +32,11 @@ export default function AnnouncementBanner() {
         <div className="relative flex-1 overflow-hidden h-full flex items-center">
           <div
             className="animate-marquee items-center whitespace-nowrap py-1"
-            style={{ animationDuration: '35s' }}
+            style={{ animationDuration: '30s' }}
           >
-            {[1, 2, 3, 4].map((i) => (
+            {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className="flex items-center gap-6 sm:gap-10 px-4 sm:px-6">
-                {/* 1. Full Paper Submission Extended */}
-                <Link
-                  href="/authors/important-dates"
-                  className="flex items-center gap-2 text-amber-200 hover:text-white transition-colors duration-200"
-                >
-                  <span className="animate-star-flash text-amber-300 text-sm">
-                    ★
-                  </span>
-                  <strong className="text-white font-bold tracking-wide">
-                    {paperAnnouncementText}
-                  </strong>
-                  <span className="hidden md:inline text-amber-300/90 text-xs">
-                    (OAIC 2026)
-                  </span>
-                  <span className="inline-flex items-center gap-0.5 text-[11px] font-bold text-amber-300 hover:underline ml-1">
-                    View Details
-                    <ArrowRight className="w-3 h-3" />
-                  </span>
-                </Link>
-
-                <span className="text-amber-400/60 font-mono select-none" aria-hidden="true">
-                  ◆
-                </span>
-
-                <Link
-                  href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vTjM1MzYxP2M9MzUzNjE%3D"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-200 hover:text-white transition-colors duration-200"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-                  <span className="font-semibold text-amber-100">
-                    Submit Paper via EDAS Portal
-                  </span>
-                  <span className="text-[10px] bg-amber-400/20 text-amber-200 border border-amber-300/40 rounded px-1.5 py-0.5 font-bold uppercase">
-                    Deadline: Oct 15
-                  </span>
-                </Link>
-
-                <span className="text-amber-400/60 font-mono select-none" aria-hidden="true">
-                  ◆
-                </span>
-
-                {/* 2. Call for Posters Highlight */}
+                {/* Call for Posters Highlight */}
                 <Link
                   href="/authors/call-for-posters"
                   className="flex items-center gap-2 text-amber-200 hover:text-white transition-colors duration-200"
@@ -106,9 +61,7 @@ export default function AnnouncementBanner() {
                 </span>
 
                 <Link
-                  href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vTjM1MzYxP2M9MzUzNjE%3D"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/authors/call-for-posters"
                   className="flex items-center gap-2 text-gray-200 hover:text-white transition-colors duration-200"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
@@ -116,8 +69,24 @@ export default function AnnouncementBanner() {
                     Submit Poster Abstract
                   </span>
                   <span className="text-[10px] bg-amber-400/20 text-amber-200 border border-amber-300/40 rounded px-1.5 py-0.5 font-bold uppercase">
-                    Deadline: Nov 15
+                    Deadline: Nov 25
                   </span>
+                </Link>
+
+                <span className="text-amber-400/60 font-mono select-none" aria-hidden="true">
+                  ◆
+                </span>
+
+                <Link
+                  href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vTjM1MzYxP2M9MzUzNjE%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-amber-200 hover:text-white transition-colors duration-200"
+                >
+                  <span className="text-xs font-semibold text-amber-200 underline underline-offset-2">
+                    Submit Poster via EDAS
+                  </span>
+                  <ArrowRight className="w-3 h-3" />
                 </Link>
 
                 <span className="text-amber-400/60 font-mono select-none" aria-hidden="true">
@@ -128,15 +97,13 @@ export default function AnnouncementBanner() {
           </div>
         </div>
 
-        {/* Right CTA Quick Button */}
+        {/* Right CTA Quick Button: Submit Poster */}
         <div className="relative z-20 hidden md:flex items-center h-full shrink-0 pr-3 sm:pr-4 pl-2 bg-gradient-to-l from-[#061d2d] to-transparent">
           <Link
-            href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vTjM1MzYxP2M9MzUzNjE%3D"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/authors/call-for-posters"
             className="bg-amber-400 hover:bg-amber-300 text-gray-950 font-bold text-[11px] px-3 py-1 rounded shadow transition-all hover:scale-105 flex items-center gap-1"
           >
-            <span>Submit Now</span>
+            <span>Submit Poster</span>
             <ArrowRight className="w-3 h-3" />
           </Link>
         </div>

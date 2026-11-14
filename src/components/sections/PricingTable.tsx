@@ -1,5 +1,19 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
+
+const registrationLinks = [
+  {
+    title: 'Author Registration',
+    description: 'For authors of accepted papers and posters.',
+    cta: 'Register as Author',
+    href: 'https://forms.gle/kZwmSwZPBAjvqpr17',
+  },
+  {
+    title: 'Participation, Delegate & Speaker Registration',
+    description: 'For attendees, delegates and invited speakers.',
+    cta: 'Register to Participate',
+    href: 'https://forms.gle/NoXF3Yb7wSLvuTL88',
+  },
+];
 
 export default function PricingTable() {
   const rows = [
@@ -104,10 +118,26 @@ export default function PricingTable() {
         </CardContent>
       </Card>
       
-      <div className="mt-8 text-center">
-        <Button className="bg-primary-600 hover:bg-primary-500 text-white font-bold px-8 py-5 text-lg rounded-lg shadow-md transition-transform hover:-translate-y-0.5 border-none">
-          Register Now
-        </Button>
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        {registrationLinks.map((link) => (
+          <div
+            key={link.title}
+            className="flex flex-col justify-between gap-5 rounded-2xl border border-primary-100 bg-gradient-to-br from-primary-50/70 to-white p-6 shadow-sm"
+          >
+            <div>
+              <h3 className="text-lg md:text-xl font-bold text-primary-950">{link.title}</h3>
+              <p className="mt-1 text-sm text-gray-600">{link.description}</p>
+            </div>
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-500"
+            >
+              {link.cta} <span aria-hidden>↗</span>
+            </a>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,5 +1,13 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import './hackathon.css';
+
+const navPartners = [
+  { name: 'Siksha O Anusandhan University', logo: '/images/sponsors/SOA.png' },
+  { name: 'NIT Rourkela', logo: '/images/sponsors/nit-rourkela.png' },
+  { name: 'NIST University', logo: '/images/sponsors/nist.png' },
+  { name: 'Maharaja Sriram Chandra Bhanja Deo University', logo: '/images/sponsors/mscb-university.png' },
+];
 
 export const metadata: Metadata = {
   title: 'Odisha AI Hackathon 2026 | Innovate for Odisha, Build for the Future',
@@ -24,14 +32,29 @@ export default function HackathonsPage() {
             <a href="#journey">How to Apply</a>
             <a href="#contacts">Contacts</a>
           </div>
-          <a
-            className="btn btn-primary"
-            href="https://docs.google.com/forms/d/1qqRZuBO3jY_4MsAHXTMBu3DKJGecwP76hqcGJxvKp0o"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Apply Now ↗
-          </a>
+          <div className="nav-right">
+            <div className="nav-partners" aria-label="Hackathon partners">
+              {navPartners.map((p) => (
+                <Image
+                  key={p.name}
+                  src={p.logo}
+                  alt={p.name}
+                  title={p.name}
+                  width={80}
+                  height={80}
+                  className="nav-partner-logo"
+                />
+              ))}
+            </div>
+            <a
+              className="btn btn-primary"
+              href="https://docs.google.com/forms/d/1qqRZuBO3jY_4MsAHXTMBu3DKJGecwP76hqcGJxvKp0o"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Apply Now ↗
+            </a>
+          </div>
         </div>
       </nav>
 

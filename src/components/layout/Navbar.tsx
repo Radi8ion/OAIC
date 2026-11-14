@@ -161,17 +161,34 @@ export default function Navbar() {
               </Link>
               <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
               <Link
-                href="https://www.optica.org"
+                href="https://www.odishasociety.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="opacity-80 hover:opacity-100 transition-opacity duration-200"
+                className="opacity-90 hover:opacity-100 transition-opacity duration-200 flex items-center"
+                title="The Odisha Society of the Americas (OSA)"
               >
                 <Image
-                  src="/images/sponsors/OSA-logo-small.png"
-                  alt="OSA Optica Chapter"
-                  className="h-4 sm:h-6 md:h-8 w-auto object-contain"
+                  src="/images/sponsors/osa-logo.png"
+                  alt="The Odisha Society of the Americas (OSA)"
+                  className="h-5 sm:h-7 md:h-8 w-auto object-contain"
+                  width={90}
+                  height={28}
+                />
+              </Link>
+              <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
+              <Link
+                href="https://odiasocietyuk.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-90 hover:opacity-100 transition-opacity duration-200 flex items-center"
+                title="Odisha Society of the UK (OSUK)"
+              >
+                <Image
+                  src="/images/sponsors/odisha-society-uk.png"
+                  alt="Odisha Society of the UK (OSUK)"
+                  className="h-5 sm:h-7 md:h-9 w-auto object-contain"
                   width={80}
-                  height={16}
+                  height={24}
                 />
               </Link>
               <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
@@ -261,19 +278,25 @@ export default function Navbar() {
                         className="absolute top-full left-0 min-w-[240px] bg-white border-t-2 border-primary-600 rounded-b-md shadow-xl animate-slide-down overflow-hidden"
                         role="menu"
                       >
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.label}
-                            href={child.href!}
-                            role="menuitem"
-                            className={cn(
-                              'block px-5 py-3 text-sm transition-colors border-b border-gray-50 last:border-0',
-                              pathname === child.href ? 'text-primary-700 bg-primary-50 font-semibold' : 'text-gray-700 hover:bg-primary-50 hover:text-primary-800'
-                            )}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
+                        {item.children.map((child) => {
+                          const isExternal = child.href?.startsWith('http');
+                          return (
+                            <Link
+                              key={child.label}
+                              href={child.href!}
+                              target={isExternal ? '_blank' : undefined}
+                              rel={isExternal ? 'noopener noreferrer' : undefined}
+                              role="menuitem"
+                              className={cn(
+                                'flex items-center justify-between px-5 py-3 text-sm transition-colors border-b border-gray-50 last:border-0',
+                                pathname === child.href ? 'text-primary-700 bg-primary-50 font-semibold' : 'text-gray-700 hover:bg-primary-50 hover:text-primary-800'
+                              )}
+                            >
+                              <span>{child.label}</span>
+                              {isExternal && <span className="text-xs text-gray-400">↗</span>}
+                            </Link>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
@@ -375,19 +398,25 @@ function MobileNavItem({ item, pathname, onClose }: { item: NavItem; pathname: s
       </button>
       {open && (
         <div className="mt-1 ml-4 pl-3 border-l-2 border-gray-200 space-y-1">
-          {item.children.map((child) => (
-            <Link
-              key={child.label}
-              href={child.href!}
-              onClick={onClose}
-              className={cn(
-                'block px-3 py-2 rounded-md text-sm',
-                pathname === child.href ? 'text-primary-600' : 'text-gray-600 hover:bg-gray-100'
-              )}
-            >
-              {child.label}
-            </Link>
-          ))}
+          {item.children.map((child) => {
+            const isExternal = child.href?.startsWith('http');
+            return (
+              <Link
+                key={child.label}
+                href={child.href!}
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+                onClick={onClose}
+                className={cn(
+                  'flex items-center justify-between px-3 py-2 rounded-md text-sm',
+                  pathname === child.href ? 'text-primary-600' : 'text-gray-600 hover:bg-gray-100'
+                )}
+              >
+                <span>{child.label}</span>
+                {isExternal && <span className="text-xs text-gray-400">↗</span>}
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>

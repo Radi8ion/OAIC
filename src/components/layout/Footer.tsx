@@ -12,7 +12,7 @@ const socialLinks = [
 
 const footerNav = {
   program: [
-    { label: 'Workshops', href: '/program/workshops' },
+    { label: 'Program at a Glance', href: '/program/at-a-glance' },
     { label: 'Tutorials', href: '#' },
     { label: 'Keynotes', href: '#' },
     { label: 'Panels', href: '#' },

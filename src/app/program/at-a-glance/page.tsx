@@ -1,131 +1,91 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/PageHeader';
 import Section from '@/components/layout/Section';
-import { 
-  Presentation, 
-  Code, 
-  Users, 
-  FileText, 
-  Building, 
-  MessageSquare, 
-  Clock,
-  Sparkles
+import ProgramSchedule from '@/components/sections/ProgramSchedule';
+import {
+  Mic2,
+  MessageSquare,
+  FlaskConical,
+  Handshake,
+  Code,
+  Building,
+  CalendarDays,
+  Presentation,
+  PartyPopper,
+  Landmark,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Program At a Glance',
+  title: 'Program at a Glance',
   description:
-    'Full program framework of OAIC 2026 - keynotes, workshops, hackathons, and exhibitions.',
+    'OAIC 2026 program: pre-conference workshops on 18 December and conference days on 19–20 December 2026.',
 };
 
-const programEvents = [
-  {
-    title: 'Conference',
-    icon: Presentation,
-    description: 'Highlighting keynote addresses by global AI pioneers, peer-reviewed technical paper presentations, and specialized research tracks.',
-    badge: 'Core Program'
-  },
-  {
-    title: 'Hackathon',
-    icon: Code,
-    description: 'A high-energy competitive arena for developers, students, and researchers to build innovative AI-driven solutions addressing real-world problems.',
-    badge: 'Interactive'
-  },
-  {
-    title: 'Workshop',
-    icon: Users,
-    description: 'Co-located focused sessions and hands-on tutorials led by leading academicians and industry practitioners in specialized AI fields.',
-    badge: 'Learning'
-  },
-  {
-    title: 'Student Posters',
-    icon: FileText,
-    description: 'A dedicated platform for young researchers and students to present work-in-progress, network with experts, and receive direct feedback.',
-    badge: 'Research'
-  },
-  {
-    title: 'Exhibition',
-    icon: Building,
-    description: 'Showcasing cutting-edge AI technologies, demos, and solutions from leading tech companies, startups, and academic institutions.',
-    badge: 'Industry'
-  },
-  {
-    title: 'Panel Discussion',
-    icon: MessageSquare,
-    description: 'Insightful panel discussions exploring the future of artificial intelligence, ethical considerations, policy, and state development priorities.',
-    badge: 'Dialogue'
-  }
+const stats = [
+  { icon: CalendarDays, value: '3', label: 'Days', sub: '18 – 20 Dec 2026' },
+  { icon: Mic2, value: '4', label: 'Keynotes', sub: 'Plenary + 3 keynotes' },
+  { icon: MessageSquare, value: '4', label: 'Panel Discussions', sub: 'AI, Quantum, Cyber, Startups' },
+  { icon: FlaskConical, value: '12', label: 'Technical Tracks', sub: 'Onsite and virtual' },
+];
+
+const happenings = [
+  { icon: Handshake, label: 'Workshops', date: '18 Dec' },
+  { icon: Presentation, label: 'Posters', date: '19 Dec' },
+  { icon: PartyPopper, label: 'Cultural Evening', date: '19 Dec' },
+  { icon: Code, label: 'Hackathon Finals', date: '20 Dec' },
+  { icon: Building, label: 'Startup Exhibition', date: '20 Dec' },
+  { icon: Landmark, label: 'Valedictory', date: '20 Dec' },
 ];
 
 export default function AtAGlancePage() {
   return (
     <>
       <PageHeader
-        title="Program At a Glance"
-        description="A comprehensive framework of the inaugural 2026 IEEE Odisha AI Conference. December 19–20, 2026."
-        breadcrumbs={[
-          { href: '/program/at-a-glance', label: 'Program At a Glance' },
-        ]}
+        title="Program at a Glance (Tentative)"
+        description="Pre-conference workshops on 18 December, followed by two conference days on 19–20 December 2026."
+        breadcrumbs={[{ href: '/program/at-a-glance', label: 'Program at a Glance' }]}
       />
-      <Section className="pb-24">
-        <div className="mx-auto max-w-6xl">
-          {/* To Be Updated Callout Banner */}
-          <div className="mb-14 bg-gradient-to-r from-primary-50 to-blue-50 border-l-4 border-l-primary-600 rounded-r-2xl p-6 md:p-8 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-5 justify-between">
-            <div className="flex gap-4">
-              <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-700 flex-shrink-0">
-                <Clock className="h-5 w-5" />
-              </div>
-              <div>
-                <h3 className="text-xl font-black text-primary-950 flex items-center gap-2">
-                  Program Schedule Under Finalization
-                  <span className="inline-flex items-center rounded-full bg-primary-100 px-2 py-0.5 text-xs font-bold text-primary-800">
-                    To be Updated
-                  </span>
-                </h3>
-                <p className="mt-1 text-gray-700 text-base leading-relaxed">
-                  The detailed day-by-day session timetable and speaker line-up are currently being finalized. Registered participants will receive updates via email.
-                </p>
-              </div>
+      <Section className="pt-4 md:pt-5 pb-12 md:pb-16">
+        <div className="container-wide max-w-[1400px] px-4 md:px-8">
+          <div className="mb-8 relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 shadow-lg">
+            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#e67e22] via-[#f2c94c] to-[#e67e22]" />
+
+            <div className="relative grid grid-cols-2 lg:grid-cols-4 items-center gap-y-3 px-4 pt-8 pb-7 md:px-6 lg:divide-x lg:divide-white/15">
+              {stats.map(({ icon: Icon, value, label, sub }) => (
+                <div key={label} className="flex items-center justify-center gap-3 px-2">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#f2c94c]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div className="text-4xl font-black leading-none text-white font-serif">{value}</div>
+                  <div className="leading-tight text-left">
+                    <div className="text-sm font-bold uppercase tracking-wider text-white">{label}</div>
+                    <div className="hidden sm:block text-xs text-primary-200">{sub}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="relative flex items-center justify-center border-t border-white/10 bg-black/15 px-4 py-5 md:px-6">
+              <ul className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2">
+                {happenings.map(({ icon: Icon, label, date }) => (
+                  <li
+                    key={label}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 py-1 pl-3 pr-1 text-[13px] font-medium text-white"
+                  >
+                    <Icon className="h-3.5 w-3.5 text-primary-200" />
+                    {label}
+                    <span className="rounded-full bg-[#e67e22] px-2 py-0.5 text-xs font-black text-white">{date}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-extrabold text-primary-950 flex items-center justify-center gap-2">
-              <Sparkles className="h-6 w-6 text-[#e67e22]" />
-              Conference Program Elements
-            </h2>
-            <p className="text-gray-600 mt-2 max-w-2xl mx-auto text-base">
-              OAIC 2026 features a diverse line-up of academic, research, and collaborative sessions designed to foster state-of-the-art AI discourse.
-            </p>
-          </div>
+          <ProgramSchedule />
 
-          {/* Grid of 6 Elements */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {programEvents.map((event) => {
-              const Icon = event.icon;
-              return (
-                <div 
-                  key={event.title}
-                  className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col group"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <span className="text-xs font-black uppercase tracking-wider bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
-                      {event.badge}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-primary-950 mb-2 group-hover:text-primary-600 transition-colors">
-                    {event.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-base leading-relaxed flex-1">
-                    {event.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+          <p className="mt-8 text-center text-sm text-gray-500">
+            This is a tentative programme and is subject to change. Speakers and timings will be updated as they are confirmed.
+          </p>
         </div>
       </Section>
     </>

@@ -1,10 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import HeroSection from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/Button';
 import { importantDates as dates } from '@/data/dates';
-import { Award, Globe, Building2 } from 'lucide-react';
+import { BrainCircuit, ShieldCheck, Leaf, Radio, Landmark, Scale } from 'lucide-react';
+
+const emphasis = [
+  { icon: BrainCircuit, text: 'Foundational advances and explainable AI' },
+  { icon: ShieldCheck, text: 'Causal reasoning, trustworthy systems, and next-generation learning paradigms' },
+  { icon: Leaf, text: 'AI for sustainable development and climate resilience' },
+  { icon: Radio, text: 'AI integration with emerging technologies (6G, quantum computing, edge intelligence)' },
+  { icon: Landmark, text: 'AI-driven solutions for government, disaster management, and rural development' },
+  { icon: Scale, text: 'Ethical, responsible use of AI' },
+];
 
 
 export const metadata: Metadata = {
@@ -69,148 +77,68 @@ export default function HomePage() {
       </section>
 
       {/* Welcome Section */}
-      <section className="section-padding bg-white relative">
-        <div className="container-wide">
-          <div className="relative p-6 md:p-12 mt-4">
-            {/* Top Bracket */}
-            <div className="absolute top-0 left-0 w-[80%] md:w-[60%] h-[20%] md:h-[30%] border-t-2 border-l-2 border-[#e67e22] pointer-events-none" />
-            {/* Bottom Bracket */}
-            <div className="absolute bottom-0 right-0 w-[80%] md:w-[60%] h-[20%] md:h-[30%] border-b-2 border-r-2 border-[#e67e22] pointer-events-none" />
+      <section className="py-12 md:py-20 bg-white">
+        <div className="container-wide max-w-[1300px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            {/* Left: welcome text */}
+            <div className="lg:col-span-7">
+              <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#e67e22]">
+                <span className="h-px w-8 bg-[#e67e22]" />
+                Welcome
+              </span>
+              <h2 className="mt-3 text-3xl md:text-5xl font-bold text-primary-900 font-serif">Welcome to OAIC 2026!</h2>
 
-            <h2 className="text-2xl md:text-4xl font-bold text-primary-900 mb-4 md:mb-6">Welcome to OAIC 2026!</h2>
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed text-justify md:text-left mb-6">
-              OAIC 2026 welcomes original contributions spanning the full spectrum of AI research — from foundational theoretical developments to applied systems and domain-specific innovations.
-            </p>
-            
-            <div className="bg-primary-50/50 p-6 border-l-4 border-primary-600 rounded-r-lg">
-              <h3 className="text-base md:text-lg font-bold text-primary-900 mb-4">The conference places particular emphasis on:</h3>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
-                  <span className="text-sm md:text-base text-gray-700">Foundational advances and explainable AI</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
-                  <span className="text-sm md:text-base text-gray-700">Causal reasoning, trustworthy systems, and next-generation learning paradigms</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
-                  <span className="text-sm md:text-base text-gray-700">AI for sustainable development and climate resilience</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
-                  <span className="text-sm md:text-base text-gray-700">AI integration with emerging technologies (6G, quantum computing, edge intelligence)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
-                  <span className="text-sm md:text-base text-gray-700">AI-driven solutions for government, disaster management, and rural development</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#e67e22] font-extrabold mt-0.5">•</span>
-                  <span className="text-sm md:text-base text-gray-700">Ethical, responsible use of AI</span>
-                </li>
-              </ul>
+              <div className="mt-6 rounded-r-xl border-l-4 border-[#e67e22] bg-orange-50/70 px-5 py-4">
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">Conference Theme</p>
+                <p className="text-lg md:text-2xl font-bold text-primary-900 leading-snug">
+                  Sovereignty in AI: From Indigenous Intelligence to Global Impact
+                </p>
+              </div>
+
+              <div className="mt-6 space-y-4 text-base md:text-[17px] text-gray-700 leading-relaxed text-justify md:text-left">
+                <p>
+                  The Odisha AI Conference (OAIC) 2026 is a global platform bringing together visionaries, researchers, academicians, innovators, entrepreneurs, industry leaders, policymakers and young minds from across the world.
+                </p>
+                <p>
+                  Under the theme &quot;Sovereignty in AI: From Indigenous Intelligence to Global Impact,&quot; the conference explores the evolving landscape of Artificial Intelligence, with a focus on technological sovereignty, indigenous capabilities, research and innovation, responsible AI, and the opportunities to create meaningful global impact.
+                </p>
+                <p>
+                  The conference aims to foster interdisciplinary dialogue, showcase cutting-edge research, encourage international collaboration and connect academia, industry, government and society. It provides a platform to discuss how nations, institutions and communities can develop their own AI capabilities while contributing to a shared global AI ecosystem.
+                </p>
+                <p>
+                  OAIC welcomes diverse perspectives, breakthrough ideas and transformative innovations from across the world.
+                </p>
+              </div>
+
+              <div className="mt-6 rounded-2xl bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 p-5 md:p-6 text-white shadow-md">
+                <p className="text-base md:text-lg font-medium leading-relaxed">
+                  Our invitation is to the global AI community: Come, share your knowledge, exchange ideas, build collaborations and contribute to shaping the future of Artificial Intelligence.
+                </p>
+              </div>
             </div>
+
+            {/* Right: emphasis card */}
+            <aside className="lg:col-span-5 lg:sticky lg:top-28 rounded-3xl border border-primary-100 bg-gradient-to-b from-primary-50/70 to-white shadow-md overflow-hidden">
+              <div className="bg-primary-900 px-6 py-4">
+                <h3 className="text-sm md:text-base font-bold uppercase tracking-[0.15em] text-white">
+                  Particular emphasis on
+                </h3>
+              </div>
+              <ul className="divide-y divide-primary-100">
+                {emphasis.map(({ icon: Icon, text }) => (
+                  <li key={text} className="flex items-center gap-4 px-6 py-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-100 text-primary-800">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="text-sm md:text-base font-medium text-gray-700 leading-snug">{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </aside>
           </div>
         </div>
       </section>
 
-      {/* About SIKSHA 'O' ANUSANDHAN */}
-      <section className="section-padding bg-white pt-0">
-        <div className="container-wide">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start relative p-6 md:p-8 mb-4">
-            {/* Bottom Left Bracket (under image) */}
-            <div className="absolute -bottom-4 md:-bottom-6 -left-2 md:left-4 w-[85%] md:w-[65%] h-[30%] md:h-[40%] border-b-2 border-l-2 border-[#e67e22] pointer-events-none z-0" />
-            {/* Top Right Bracket (above text) */}
-            <div className="absolute -top-4 right-0 w-[85%] md:w-[45%] h-[20%] md:h-[30%] border-t-2 border-r-2 border-[#e67e22] pointer-events-none z-0" />
-
-            {/* Left Side: Image and Key Badges */}
-            <div className="w-full lg:w-[45%] relative z-10 flex flex-col gap-6">
-              <div className="overflow-hidden shadow-md">
-                <Image
-                  src="/images/siksha-o-anusandhan-bhubaneswar-featured.jpg"
-                  alt="Siksha 'O' Anusandhan Campus"
-                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
-                  width={800}
-                  height={450}
-                  priority
-                />
-              </div>
-              
-              {/* Badges Grid */}
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <div className="bg-primary-50 border-l-4 border-primary-600 p-3 flex flex-col justify-center shadow-xs">
-                  <span className="text-[10px] sm:text-xs text-primary-700 font-semibold uppercase tracking-wider">NAAC Accreditation</span>
-                  <span className="text-sm sm:text-base font-bold text-primary-900">A++ Grade (3rd Cycle)</span>
-                </div>
-                <div className="bg-primary-50 border-l-4 border-primary-600 p-3 flex flex-col justify-center shadow-xs">
-                  <span className="text-[10px] sm:text-xs text-primary-700 font-semibold uppercase tracking-wider">NIRF 2025 Rankings</span>
-                  <span className="text-sm sm:text-base font-bold text-primary-900">15th in University</span>
-                </div>
-                <div className="bg-primary-50 border-l-4 border-primary-600 p-3 flex flex-col justify-center shadow-xs">
-                  <span className="text-[10px] sm:text-xs text-primary-700 font-semibold uppercase tracking-wider">UGC Autonomy</span>
-                  <span className="text-sm sm:text-base font-bold text-primary-900">Category-I Graded</span>
-                </div>
-                <div className="bg-primary-50 border-l-4 border-primary-600 p-3 flex flex-col justify-center shadow-xs">
-                  <span className="text-[10px] sm:text-xs text-primary-700 font-semibold uppercase tracking-wider">Swachh Campus</span>
-                  <span className="text-sm sm:text-base font-bold text-primary-900">3rd Nationally</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side: Title & Highlights */}
-            <div className="w-full lg:w-[55%] pt-2 md:pt-4 z-10">
-              <h2 className="text-2xl md:text-4xl font-bold text-primary-900 mb-2">About SIKSHA &apos;O&apos; ANUSANDHAN</h2>
-              <p className="text-md md:text-lg text-primary-800 mb-6 font-semibold">
-               Siksha &apos;O&apos; Anusandhan, Bhubaneswar, Odisha, India
-              </p>
-
-                <p className="text-base text-gray-700 leading-relaxed text-justify mb-6">
-                  Siksha &apos;O&apos; Anusandhan (SOA), Bhubaneswar, declared under Section 3 of the UGC Act, 1956, is a leading university in India offering professional programmes in disciplines such as Science, Engineering, Medicine, Dental Sciences, Nursing, Pharmaceutical Sciences, Biotechnology, Management, Law, Hotel Management, and Agricultural Sciences. The university provides a vibrant environment for teaching, research, and development through its undergraduate and postgraduate programmes.
-                </p>
-
-                <div className="space-y-4">
-
-                  <div className="flex gap-4 items-start">
-                    <div className="bg-primary-100 p-2 rounded-lg text-primary-800 shrink-0 mt-1">
-                      <Globe className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Recognition</h4>
-                      <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                        SOA is accredited with the prestigious NAAC &apos;A++&apos; grade (3rd Cycle) and ranked Internationally by QS and THE World University Rankings.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4 items-start">
-                    <div className="bg-primary-100 p-2 rounded-lg text-primary-800 shrink-0 mt-1">
-                      <Award className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Rankings</h4>
-                      <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                        Secured 15th position in the University category, along with strong rankings in Engineering, Medical, Dental, Law, Research, and Management.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4 items-start">
-                    <div className="bg-primary-100 p-2 rounded-lg text-primary-800 shrink-0 mt-1">
-                      <Building2 className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 text-base md:text-lg">Excellence</h4>
-                      <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                        Granted UGC Category-I Graded Autonomy and ranked 3rd nationally in the Swachh Campus rankings, reflecting its commitment to excellence in education, research, and innovation.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </section>
     </>
   );
 }

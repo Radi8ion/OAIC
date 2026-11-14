@@ -27,13 +27,11 @@ export const navConfig: NavItem[] = [
     href: '/program/hackathons',
   },
   {
-    label: 'Workshops',
-    href: '/program/workshops',
-  },
-  {
     label: 'Registration',
     children: [
-      { label: 'Registration Fees', href: '/registration/fees' },
+      { label: 'Registration Fees & Info', href: '/registration/fees' },
+      { label: 'Author Registration Form', href: 'https://forms.gle/kZwmSwZPBAjvqpr17' },
+      { label: 'Participation, Delegate & Speaker Registration', href: 'https://forms.gle/NoXF3Yb7wSLvuTL88' },
     ],
   },
   {
@@ -44,7 +42,7 @@ export const navConfig: NavItem[] = [
     ],
   },
   {
-    label: 'Patrons & Exhibitors',
+    label: 'Patrons & Sponsors',
     href: '/patrons-exhibitors',
   },
   {
