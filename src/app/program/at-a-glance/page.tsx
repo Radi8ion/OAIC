@@ -41,49 +41,43 @@ export default function AtAGlancePage() {
   return (
     <>
       <PageHeader
-        title="Program at a Glance (Tentative)"
-        description="Pre-conference workshops on 18 December, followed by two conference days on 19–20 December 2026."
-        breadcrumbs={[{ href: '/program/at-a-glance', label: 'Program at a Glance' }]}
+        title="Program at a Glance"
+        description="Pre-conference workshops on 18 December, followed by two conference days on 19–20 December 2026. This programme is tentative."
+        breadcrumbs={[{ label: 'Program' }, { href: '/program/at-a-glance', label: 'At a Glance' }]}
       />
-      <Section className="pt-4 md:pt-5 pb-12 md:pb-16">
-        <div className="container-wide max-w-[1400px] px-4 md:px-8">
-          <div className="mb-8 relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 shadow-lg">
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#e67e22] via-[#f2c94c] to-[#e67e22]" />
-
-            <div className="relative grid grid-cols-2 lg:grid-cols-4 items-center gap-y-3 px-4 pt-8 pb-7 md:px-6 lg:divide-x lg:divide-white/15">
-              {stats.map(({ icon: Icon, value, label, sub }) => (
-                <div key={label} className="flex items-center justify-center gap-3 px-2">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#f2c94c]">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div className="text-4xl font-black leading-none text-white font-serif">{value}</div>
-                  <div className="leading-tight text-left">
-                    <div className="text-sm font-bold uppercase tracking-wider text-white">{label}</div>
-                    <div className="hidden sm:block text-xs text-primary-200">{sub}</div>
-                  </div>
+      <Section className="pt-8 md:pt-12">
+        <div className="container-wide">
+          <div className="surface grid grid-cols-2 divide-gray-200 lg:grid-cols-4 lg:divide-x">
+            {stats.map(({ icon: Icon, value, label, sub }, i) => (
+              <div
+                key={label}
+                className={`flex items-start gap-3 p-4 md:p-6 ${i < 2 ? 'border-b border-gray-200 lg:border-b-0' : ''} ${i % 2 === 0 ? 'border-r border-gray-200 lg:border-r-0' : ''}`}
+              >
+                <Icon className="mt-1 hidden h-5 w-5 shrink-0 text-primary-800 sm:block" aria-hidden />
+                <div>
+                  <p className="font-serif text-3xl font-semibold leading-none text-primary-950">{value}</p>
+                  <p className="mt-1.5 text-sm font-medium text-gray-800">{label}</p>
+                  <p className="mt-0.5 hidden text-xs text-gray-500 sm:block">{sub}</p>
                 </div>
-              ))}
-            </div>
-
-            <div className="relative flex items-center justify-center border-t border-white/10 bg-black/15 px-4 py-5 md:px-6">
-              <ul className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2">
-                {happenings.map(({ icon: Icon, label, date }) => (
-                  <li
-                    key={label}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 py-1 pl-3 pr-1 text-[13px] font-medium text-white"
-                  >
-                    <Icon className="h-3.5 w-3.5 text-primary-200" />
-                    {label}
-                    <span className="rounded-full bg-[#e67e22] px-2 py-0.5 text-xs font-black text-white">{date}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              </div>
+            ))}
           </div>
 
-          <ProgramSchedule />
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {happenings.map(({ icon: Icon, label, date }) => (
+              <li key={label} className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm text-gray-700">
+                <Icon className="h-3.5 w-3.5 text-gray-400" aria-hidden />
+                {label}
+                <span className="text-xs font-semibold text-brand-700">{date}</span>
+              </li>
+            ))}
+          </ul>
 
-          <p className="mt-8 text-center text-sm text-gray-500">
+          <div className="mt-10 md:mt-14">
+            <ProgramSchedule />
+          </div>
+
+          <p className="mt-10 text-sm text-gray-500">
             This is a tentative programme and is subject to change. Speakers and timings will be updated as they are confirmed.
           </p>
         </div>

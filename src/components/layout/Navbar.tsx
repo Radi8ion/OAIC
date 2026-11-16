@@ -3,360 +3,238 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useState, useRef, useEffect } from 'react';
-import { ChevronDown, Menu, X, Search } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ChevronDown, ExternalLink, Menu, X } from 'lucide-react';
 import { navConfig } from '@/data/nav';
 import { cn } from '@/lib/cn';
 import type { NavItem } from '@/types';
 import AnnouncementBanner from '@/components/layout/AnnouncementBanner';
 
+const partnerLogos = [
+  { href: 'https://aicsoa.in/', src: '/images/sponsors/aiclogo.png', alt: 'AIC-SOA Foundation', w: 708, h: 352, cls: 'h-6 md:h-7' },
+  { href: 'https://soa.ac.in', src: '/images/sponsors/SOA.png', alt: "Siksha 'O' Anusandhan", w: 681, h: 680, cls: 'h-7 md:h-8' },
+  { href: 'https://www.comsoc.org', src: '/images/sponsors/future_networks.png', alt: 'IEEE Future Networks', w: 200, h: 179, cls: 'h-7 md:h-8' },
+  { href: 'https://testbed.ieee.org/', src: '/images/sponsors/innovation_testbed.png', alt: 'IEEE 5G/6G Innovation Testbed', w: 1855, h: 1137, cls: 'h-7 md:h-8' },
+  { href: 'https://www.computer.org', src: '/images/sponsors/CS-Bhubaneswar.png', alt: 'IEEE Computer Society Bhubaneswar Chapter', w: 500, h: 500, cls: 'h-9 md:h-10' },
+  { href: 'https://www.odishasociety.org', src: '/images/sponsors/OSA-logo-small.png', alt: 'The Odisha Society of the Americas', w: 92, h: 33, cls: 'h-5 md:h-6' },
+  { href: 'https://odiasocietyuk.org', src: '/images/sponsors/odisha-society-uk.png', alt: 'Odisha Society of the UK', w: 330, h: 169, cls: 'h-6 md:h-7' },
+  { href: 'https://www.ieee.org', src: '/images/sponsors/IEEE-Bhubaneswar-Section-1-1.png', alt: 'IEEE Bhubaneswar Section', w: 1000, h: 1000, cls: 'h-10 md:h-11' },
+];
+
+const ieeeLinks = [
+  { label: 'IEEE.org', href: 'https://www.ieee.org' },
+  { label: 'IEEE Xplore', href: 'https://ieeexplore.ieee.org/Xplore/home.jsp' },
+  { label: 'IEEE Standards', href: 'https://standards.ieee.org/' },
+  { label: 'IEEE Spectrum', href: 'https://spectrum.ieee.org/' },
+];
+
+const isExternal = (href?: string) => !!href && href.startsWith('http');
+
+function isItemActive(item: NavItem, pathname: string): boolean {
+  if (item.href && (pathname === item.href || pathname.startsWith(item.href + '/'))) return true;
+  return !!item.children?.some((c) => c.href && !isExternal(c.href) && pathname.startsWith(c.href));
+}
+
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Lock page scroll while the mobile menu is open; close it with Escape.
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMobileOpen(false);
+    window.addEventListener('keydown', onKey);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
     };
+  }, [mobileOpen]);
+
+  useEffect(() => () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
   }, []);
 
-  // Removed effect that set state synchronously on pathname change, as per React best practices. (Reset should be handled via explicit handlers on navigation.)
-
-
-  const handleMouseEnter = (label: string) => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setActiveDropdown(label);
+  const openMenu = (label: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpenDropdown(label);
   };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
-  };
-
-  const isActive = (item: NavItem): boolean => {
-    if (item.href) return pathname === item.href || pathname.startsWith(item.href + '/');
-    if (item.children) return item.children.some((child) => child.href && pathname.startsWith(child.href));
-    return false;
+  const scheduleClose = () => {
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 120);
   };
 
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
 
-      {/* Top Utility Bar */}
-      <div className="bg-[#08283C] text-white border-b border-[#0C527D]/30 relative z-[60]">
-        <div className="container-wide flex justify-between items-center h-10 sm:h-12 md:h-14">
-          {/* Left: Quick Links - Horizontally scrollable on mobile */}
-          <div className="flex items-center text-[10px] sm:text-[12px] md:text-[13px] font-medium tracking-tight sm:tracking-wide overflow-x-auto no-scrollbar whitespace-nowrap pr-4">
-            <Link
-              href="https://www.ieee.org" target="_blank"
-              className="text-white/80 hover:text-white transition-colors duration-200 py-2 flex-shrink-0"
-            >
-              IEEE.org
-            </Link>
-            <span className="mx-2 sm:mx-3 w-px h-3 bg-[#0C527D] flex-shrink-0" aria-hidden="true" />
-            <Link
-              href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank"
-              className="text-white/80 hover:text-white transition-colors duration-200 py-2 flex-shrink-0"
-            >
-              IEEE Xplore
-            </Link>
-            <span className="mx-2 sm:mx-3 w-px h-3 bg-[#0C527D] hidden sm:block flex-shrink-0" aria-hidden="true" />
-            <Link
-              href="https://standards.ieee.org/" target="_blank"
-              className="text-white/80 hover:text-white transition-colors duration-200 py-2 hidden sm:block flex-shrink-0"
-            >
-              IEEE Standards
-            </Link>
-            <span className="mx-2 sm:mx-3 w-px h-3 bg-[#0C527D] hidden md:block flex-shrink-0" aria-hidden="true" />
-            <Link
-              href="https://spectrum.ieee.org/" target="_blank"
-              className="text-white/80 hover:text-white transition-colors duration-200 py-2 hidden md:block flex-shrink-0"
-            >
-              IEEE Spectrum
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-x-3 sm:gap-x-5 flex-shrink-0">
-            <div className="flex items-center gap-x-2 sm:gap-x-4">
-              <Link
-                href="https://aicsoa.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-80 hover:opacity-100 transition-opacity duration-200"
-              >
-                <Image
-                  src="/images/sponsors/aiclogo.png"
-                  alt="AIC-SOA"
-                  className="h-4 sm:h-6 md:h-8 w-auto object-contain brightness-0 invert"
-                  width={80}
-                  height={16}
-                />
-              </Link>
-              <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
-              <Link
-                href="https://soa.ac.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-80 hover:opacity-100 transition-opacity duration-200"
-              >
-                <Image
-                  src="/images/sponsors/SOA.png"
-                  alt="SOA"
-                  className="h-4 sm:h-6 md:h-8 w-auto object-contain "
-                  width={80}
-                  height={16}
-                />
-              </Link>
-              <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
-              <Link
-                href="https://www.comsoc.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-80 hover:opacity-100 transition-opacity duration-200"
-              >
-                <Image
-                  src="/images/sponsors/future_networks.png"
-                  alt="future networks"
-                  className="h-4 sm:h-6 md:h-8 w-auto object-contain brightness-0 invert"
-                  width={80}
-                  height={16}
-                />
-              </Link>
-              <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
-              <Link
-                href="https://testbed.ieee.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-80 hover:opacity-100 transition-opacity duration-200"
-              >
-                <Image
-                  src="/images/sponsors/innovation_testbed.png"
-                  alt="testbed"
-                  className="h-8 w-auto object-contain brightness-0 invert"
-                  width={80}
-                  height={16}
-                />
-              </Link>
-              <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
-              <Link
-                href="https://www.computer.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-80 hover:opacity-100 transition-opacity duration-200"
-              >
-                <Image
-                  src="/images/sponsors/CS-Bhubaneswar.png"
-                  alt="IEEE Computer Society Bhubaneswar Chapter"
-                  className="h-6 sm:h-8 md:h-10 w-auto object-contain scale-125"
-                  width={100}
-                  height={20}
-                />
-              </Link>
-              <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
-              <Link
-                href="https://www.odishasociety.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-90 hover:opacity-100 transition-opacity duration-200 flex items-center"
-                title="The Odisha Society of the Americas (OSA)"
-              >
-                <Image
-                  src="/images/sponsors/OSA-logo-small.png"
-                  alt="The Odisha Society of the Americas (OSA)"
-                  className="h-5 sm:h-7 md:h-8 w-auto object-contain"
-                  width={90}
-                  height={28}
-                />
-              </Link>
-              <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
-              <Link
-                href="https://odiasocietyuk.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-90 hover:opacity-100 transition-opacity duration-200 flex items-center"
-                title="Odisha Society of the UK (OSUK)"
-              >
-                <Image
-                  src="/images/sponsors/odisha-society-uk.png"
-                  alt="Odisha Society of the UK (OSUK)"
-                  className="h-5 sm:h-7 md:h-8 w-auto object-contain"
-                  width={90}
-                  height={28}
-                />
-              </Link>
-              <div className="w-px h-3 sm:h-4 bg-[#0C527D]" aria-hidden="true" />
-              <Link
-                href="https://www.ieee.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-80 hover:opacity-100 transition-opacity duration-200"
-              >
-                <Image
-                  src="/images/sponsors/IEEE-Bhubaneswar-Section-1-1.png"
-                  alt="IEEE Bhubaneswar Section"
-                  className="h-6 sm:h-8 md:h-10 w-auto object-contain scale-125 brightness-0 invert"
-                  width={100}
-                  height={20}
-                />
-              </Link>
-
-
-            </div>
-          </div>
+      {/* Partner bar */}
+      <div className="border-b border-gray-200 bg-white">
+        <div className="container-wide flex h-12 items-center justify-between gap-6 md:h-14">
+          <ul className="hidden shrink-0 items-center gap-5 text-xs font-medium lg:flex">
+            {ieeeLinks.map((l) => (
+              <li key={l.label}>
+                <a href={l.href} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary-900">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ul
+            className="no-scrollbar -mx-1 flex min-w-0 flex-1 items-center gap-5 overflow-x-auto px-1 md:gap-6 lg:flex-none lg:justify-end"
+            aria-label="Organising partners"
+          >
+            {partnerLogos.map((p) => (
+              <li key={p.alt} className="flex shrink-0 items-center">
+                <a href={p.href} target="_blank" rel="noopener noreferrer" title={p.alt} className="flex items-center">
+                  <Image src={p.src} alt={p.alt} width={p.w} height={p.h} className={cn('w-auto object-contain', p.cls)} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      {/* Announcement Banner: Running Marquee Ticker */}
       <AnnouncementBanner />
 
-      <header
-        className={cn(
-          'sticky top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-primary-950',
-          scrolled ? 'bg-primary-950 shadow-lg' : 'bg-primary-50'
-        )}
-        role="banner"
-      >
-        <div className={cn(
-          "container-wide flex items-center justify-between transition-all duration-300",
-          scrolled ? "h-16" : "h-20"
-        )}>
-          <div className="flex items-center h-full">
-            {/* Search Input on the Left (to match some parts of the image style, or right?)
-                Actually, putting Logo on left is standard. Let's keep Logo on left. */}
-            <Link href="/" className="flex items-center gap-3 pr-6" aria-label="OAIC 2026 - Home">
-              <Image
-                src="/images/logo.png"
-                alt="OAIC 2026 Logo"
-                className={cn(
-                  "w-auto object-contain transition-all duration-300",
-                  scrolled ? "h-12" : "h-16"
-                )}
-                width={256}
-                height={64}
-                priority
-              />
-            </Link>
+      <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90">
+        <div className="container-wide flex h-16 items-center justify-between gap-4">
+          <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="OAIC 2026 home">
+            <Image src="/images/logo.png" alt="Odisha AI" width={163} height={200} className="h-12 w-auto" priority />
+            <span className="hidden flex-col leading-tight sm:flex">
+              <span className="font-serif text-lg font-semibold text-primary-950">OAIC 2026</span>
+              <span className="text-[11px] font-medium text-gray-500">Odisha AI Conference</span>
+            </span>
+          </Link>
 
-            <div className="h-8 w-px bg-primary-700 mx-2 hidden lg:block" />
+          <nav className="hidden h-full items-stretch xl:flex" aria-label="Primary">
+            {navConfig.map((item) => {
+              const active = isItemActive(item, pathname);
+              const hasChildren = !!item.children?.length;
+              const expanded = openDropdown === item.label;
 
-            <nav className="hidden lg:flex items-center h-full ml-2" aria-label="Primary navigation">
-              {navConfig.map((item, index) => (
-                <div key={item.label} className="flex items-center h-full">
-                  <div
-                    className="relative h-full flex items-center group"
-                    onMouseEnter={() => item.children && handleMouseEnter(item.label)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <Link
-                      href={item.href || '#'}
+              return (
+                <div
+                  key={item.label}
+                  className="relative flex items-stretch"
+                  onMouseEnter={() => hasChildren && openMenu(item.label)}
+                  onMouseLeave={() => hasChildren && scheduleClose()}
+                >
+                  {hasChildren ? (
+                    <button
+                      type="button"
+                      aria-expanded={expanded}
+                      aria-haspopup="true"
+                      onClick={() => setOpenDropdown(expanded ? null : item.label)}
+                      onKeyDown={(e) => e.key === 'Escape' && setOpenDropdown(null)}
                       className={cn(
-                        'flex items-center gap-1.5 px-4 h-full text-sm font-semibold transition-all duration-300 relative', scrolled
-                        ? isActive(item)
-                          ? 'text-white bg-primary-800/50'
-                          : 'text-gray-200 hover:text-white hover:bg-primary-800/50'
-                        : isActive(item)
-                          ? 'text-[#154066]'
-                          : 'text-[#154066] hover:text-[#3271a8]'
+                        'relative flex items-center gap-1 px-3 text-sm font-medium transition-colors',
+                        active ? 'text-primary-950' : 'text-gray-700 hover:text-primary-950',
                       )}
                     >
                       {item.label}
-                      {item.children && <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />}
-
-                      {/* Animated bottom border */}
-                      <span className="absolute bottom-0 left-0 w-full h-1 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                      <ChevronDown className={cn('h-3.5 w-3.5 transition-transform', expanded && 'rotate-180')} aria-hidden />
+                      {active && <span className="absolute inset-x-3 bottom-0 h-0.5 bg-brand-700" />}
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href!}
+                      aria-current={active ? 'page' : undefined}
+                      className={cn(
+                        'relative flex items-center px-3 text-sm font-medium transition-colors',
+                        active ? 'text-primary-950' : 'text-gray-700 hover:text-primary-950',
+                      )}
+                    >
+                      {item.label}
+                      {active && <span className="absolute inset-x-3 bottom-0 h-0.5 bg-brand-700" />}
                     </Link>
+                  )}
 
-                    {item.children && activeDropdown === item.label && (
-                      <div
-                        className="absolute top-full left-0 min-w-[240px] bg-white border-t-2 border-primary-600 rounded-b-md shadow-xl animate-slide-down overflow-hidden"
-                        role="menu"
-                      >
-                        {item.children.map((child) => {
-                          const isExternal = child.href?.startsWith('http');
-                          return (
-                            <Link
-                              key={child.label}
-                              href={child.href!}
-                              target={isExternal ? '_blank' : undefined}
-                              rel={isExternal ? 'noopener noreferrer' : undefined}
-                              role="menuitem"
-                              className={cn(
-                                'flex items-center justify-between px-5 py-3 text-sm transition-colors border-b border-gray-50 last:border-0',
-                                pathname === child.href ? 'text-primary-700 bg-primary-50 font-semibold' : 'text-gray-700 hover:bg-primary-50 hover:text-primary-800'
-                              )}
-                            >
-                              <span>{child.label}</span>
-                              {isExternal && <span className="text-xs text-gray-400">↗</span>}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                  {index < navConfig.length - 1 && <div className="h-6 w-px bg-primary-700/50 mx-1" />}
+                  {hasChildren && expanded && (
+                    <div className="absolute left-0 top-full z-50 min-w-60 max-w-xs rounded-b-md border border-gray-200 bg-white py-1.5 shadow-lg">
+                      {item.children!.map((child) => {
+                        const ext = isExternal(child.href);
+                        const current = pathname === child.href;
+                        return (
+                          <Link
+                            key={child.label}
+                            href={child.href!}
+                            target={ext ? '_blank' : undefined}
+                            rel={ext ? 'noopener noreferrer' : undefined}
+                            onClick={() => setOpenDropdown(null)}
+                            onBlur={(e) => {
+                              if (!e.currentTarget.parentElement?.parentElement?.contains(e.relatedTarget as Node)) {
+                                setOpenDropdown(null);
+                              }
+                            }}
+                            className={cn(
+                              'flex items-center justify-between gap-3 px-4 py-2.5 text-sm transition-colors',
+                              current ? 'bg-gray-50 font-semibold text-primary-950' : 'text-gray-700 hover:bg-gray-50 hover:text-primary-950',
+                            )}
+                          >
+                            <span>{child.label}</span>
+                            {ext && <ExternalLink className="h-3.5 w-3.5 shrink-0 text-gray-400" aria-label="(opens in new tab)" />}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
-              ))}
-            </nav>
-          </div>
+              );
+            })}
+          </nav>
 
-          <div className="flex items-center gap-4">
-            <form className="relative hidden md:block group">
-              <input
-                type="search"
-                placeholder="Search"
-                className="pl-3 pr-10 py-1.5 w-48 text-sm bg-white text-gray-900 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary-400 transition-all duration-300 focus:w-64 placeholder:text-gray-500"
-              />
-              <button type="submit" className="absolute right-0 top-0 h-full px-3 text-gray-500 hover:text-primary-600 transition-colors">
-                <Search className="w-4 h-4" />
-              </button>
-            </form>
-            <button
-              className={cn(
-                "lg:hidden p-2 rounded-md transition-colors",
-                scrolled ? "text-white hover:bg-primary-800" : "text-[#154066] hover:bg-primary-100"
-              )}
-              onClick={() => setMobileOpen(true)}
-              aria-label="Open navigation menu"
-            >
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
+          <button
+            type="button"
+            className="-mr-2 rounded-md p-2 text-primary-950 hover:bg-gray-100 xl:hidden"
+            onClick={() => setMobileOpen(true)}
+            aria-label="Open menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+          >
+            <Menu className="h-6 w-6" />
+          </button>
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Mobile menu */}
       <div
-        className={cn(
-          "fixed inset-0 z-50 lg:hidden",
-          mobileOpen ? "block" : "hidden"
-        )}
+        id="mobile-menu"
+        className={cn('fixed inset-0 z-[70] xl:hidden', mobileOpen ? 'visible' : 'invisible')}
+        aria-hidden={!mobileOpen}
       >
-        <div className="fixed inset-0 bg-black/30" onClick={() => setMobileOpen(false)} />
-        <div className="relative flex flex-col w-full max-w-xs h-full bg-white shadow-xl">
-          <div className="flex items-center justify-between px-4 py-3 border-b">
-            <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-              <Image
-                src="/images/logo.png"
-                alt="OAIC 2026 Logo"
-                className="h-12 w-auto object-contain"
-                width={192}
-                height={48}
-              />
+        <div
+          className={cn('absolute inset-0 bg-gray-900/40 transition-opacity', mobileOpen ? 'opacity-100' : 'opacity-0')}
+          onClick={() => setMobileOpen(false)}
+        />
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site menu"
+          className={cn(
+            'absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-white shadow-xl transition-transform duration-200',
+            mobileOpen ? 'translate-x-0' : 'translate-x-full',
+          )}
+        >
+          <div className="flex h-16 shrink-0 items-center justify-between border-b border-gray-200 px-4">
+            <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5">
+              <Image src="/images/logo.png" alt="Odisha AI" width={163} height={200} className="h-10 w-auto" />
+              <span className="font-serif text-base font-semibold text-primary-950">OAIC 2026</span>
             </Link>
-            <button onClick={() => setMobileOpen(false)} className="p-2 text-gray-500" aria-label="Close menu">
-              <X className="w-6 h-6" />
+            <button
+              type="button"
+              onClick={() => setMobileOpen(false)}
+              className="-mr-2 rounded-md p-2 text-gray-600 hover:bg-gray-100"
+              aria-label="Close menu"
+            >
+              <X className="h-6 w-6" />
             </button>
           </div>
-          <nav className="flex-1 px-2 py-4 space-y-1">
+          <nav className="flex-1 overflow-y-auto overscroll-contain px-2 py-3" aria-label="Mobile">
             {navConfig.map((item) => (
-              <MobileNavItem key={item.label} item={item} pathname={pathname} onClose={() => setMobileOpen(false)} />
+              <MobileNavItem key={item.label} item={item} pathname={pathname} onNavigate={() => setMobileOpen(false)} />
             ))}
           </nav>
         </div>
@@ -365,59 +243,59 @@ export default function Navbar() {
   );
 }
 
-function MobileNavItem({ item, pathname, onClose }: { item: NavItem; pathname: string; onClose: () => void }) {
-  const [open, setOpen] = useState(false);
-  const isActive = item.children?.some((c) => c.href && pathname.startsWith(c.href)) || (item.href && pathname.startsWith(item.href));
+function MobileNavItem({ item, pathname, onNavigate }: { item: NavItem; pathname: string; onNavigate: () => void }) {
+  const active = isItemActive(item, pathname);
+  const [open, setOpen] = useState(active);
 
-  if (!item.children) {
+  const rowClass = cn(
+    'flex w-full items-center justify-between rounded-md px-3 py-3 text-left text-[15px] font-medium',
+    active ? 'text-primary-950' : 'text-gray-700 hover:bg-gray-50',
+  );
+
+  if (!item.children?.length) {
     return (
-      <Link
-        href={item.href!}
-        onClick={onClose}
-        className={cn(
-          'block px-3 py-2 rounded-md text-base font-medium',
-          isActive ? 'text-primary-700 bg-primary-100' : 'text-gray-700 hover:bg-gray-100'
-        )}
-      >
-        {item.label}
+      <Link href={item.href!} onClick={onNavigate} className={rowClass} aria-current={active ? 'page' : undefined}>
+        <span className="flex items-center gap-2">
+          {active && <span className="h-4 w-0.5 bg-brand-700" aria-hidden />}
+          {item.label}
+        </span>
       </Link>
     );
   }
 
   return (
     <div>
-      <button
-        onClick={() => setOpen(!open)}
-        className={cn(
-          'w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium',
-          isActive ? 'text-primary-700 bg-primary-100' : 'text-gray-700 hover:bg-gray-100'
-        )}
-      >
-        <span>{item.label}</span>
-        <ChevronDown className={cn('w-5 h-5 transition-transform', open && 'rotate-180')} />
+      <button type="button" onClick={() => setOpen(!open)} className={rowClass} aria-expanded={open}>
+        <span className="flex items-center gap-2">
+          {active && <span className="h-4 w-0.5 bg-brand-700" aria-hidden />}
+          {item.label}
+        </span>
+        <ChevronDown className={cn('h-4 w-4 text-gray-500 transition-transform', open && 'rotate-180')} aria-hidden />
       </button>
       {open && (
-        <div className="mt-1 ml-4 pl-3 border-l-2 border-gray-200 space-y-1">
+        <ul className="mb-2 ml-3 border-l border-gray-200 pl-2">
           {item.children.map((child) => {
-            const isExternal = child.href?.startsWith('http');
+            const ext = isExternal(child.href);
+            const current = pathname === child.href;
             return (
-              <Link
-                key={child.label}
-                href={child.href!}
-                target={isExternal ? '_blank' : undefined}
-                rel={isExternal ? 'noopener noreferrer' : undefined}
-                onClick={onClose}
-                className={cn(
-                  'flex items-center justify-between px-3 py-2 rounded-md text-sm',
-                  pathname === child.href ? 'text-primary-600' : 'text-gray-600 hover:bg-gray-100'
-                )}
-              >
-                <span>{child.label}</span>
-                {isExternal && <span className="text-xs text-gray-400">↗</span>}
-              </Link>
+              <li key={child.label}>
+                <Link
+                  href={child.href!}
+                  target={ext ? '_blank' : undefined}
+                  rel={ext ? 'noopener noreferrer' : undefined}
+                  onClick={onNavigate}
+                  className={cn(
+                    'flex items-center justify-between gap-3 rounded-md px-3 py-2.5 text-sm',
+                    current ? 'font-semibold text-primary-950' : 'text-gray-600 hover:bg-gray-50 hover:text-primary-950',
+                  )}
+                >
+                  <span>{child.label}</span>
+                  {ext && <ExternalLink className="h-3.5 w-3.5 shrink-0 text-gray-400" aria-hidden />}
+                </Link>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
     </div>
   );

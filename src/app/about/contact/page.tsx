@@ -4,7 +4,7 @@ import { contactInfo } from '@/data/contact';
 import { MapPin, Mail } from 'lucide-react';
 import Section from '@/components/layout/Section';
 import ContactForm from '@/components/forms/ContactForm';
- 
+
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
@@ -39,86 +39,46 @@ export default function ContactPage() {
     <>
       <PageHeader
         title="Contact Us"
-        description="We'd love to hear from you. Reach out for any questions about OAIC 2026."
-        breadcrumbs={[{ href: '/about/contact', label: 'Contact Us' }]}
+        description="Reach out with any questions about OAIC 2026."
+        breadcrumbs={[{ label: 'About' }, { href: '/about/contact', label: 'Contact Us' }]}
       />
 
-      <Section className="bg-white">
-        <div className="container-wide">
-          
-
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-24 items-start">
-            
-            {/* Left Column: Inquiry Channels & Venue */}
-            <div className="lg:col-span-7 space-y-16 animate-fade-in-up" style={{ '--animation-delay': '0.1s' } as React.CSSProperties}>
-              <div>
-                <h2 className="text-4xl md:text-5xl font-serif font-semibold text-[#002147] tracking-tight leading-tight mb-8 flex items-center gap-4">
-                  <span className="w-1.5 h-10 bg-[#002147]"></span>
-                  Get in Touch
-                </h2>
-                
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-                  {contactCategories.map((cat) => (
-                    <div key={cat.label} className="group p-6 border border-gray-100 bg-gray-50/30 rounded-sm hover:border-gray-200 transition-all duration-300">
-                      <h3 className="text-lg font-bold text-[#002147] mb-3 group-hover:text-primary-600 transition-colors">{cat.label}</h3>
-                      <div className="flex items-center gap-2 mb-3">
-                        <Mail className="w-3.5 h-3.5 text-gray-400" />
-                        <a
-                          href={`mailto:${cat.email}`}
-                          className="text-sm text-primary-600 font-medium hover:underline"
-                        >
-                          {cat.email}
-                        </a>
-                      </div>
-                      <p className="text-sm text-gray-500 leading-relaxed">
-                        {cat.desc}
-                      </p>
-                    </div>
-                  ))}
+      <Section>
+        <div className="container-wide grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-7">
+            <h2 className="text-2xl font-semibold md:text-3xl">Get in touch</h2>
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {contactCategories.map((cat) => (
+                <div key={cat.label} className="surface p-5">
+                  <h3 className="font-sans text-base font-semibold">{cat.label}</h3>
+                  <p className="mt-1 text-sm text-gray-600">{cat.desc}</p>
+                  <a href={`mailto:${cat.email}`} className="mt-3 inline-flex items-center gap-2 break-all text-sm font-medium">
+                    <Mail className="h-4 w-4 shrink-0 text-gray-400" aria-hidden />
+                    {cat.email}
+                  </a>
                 </div>
-              </div>
-
-              <div className="pt-12 border-t border-gray-100 relative">
-                {/* Architectural Accent Line */}
-                <div className="absolute -top-px left-0 w-24 h-1 bg-[#002147]"></div>
-                
-                <h3 className="text-xs uppercase tracking-[0.2em] text-[#002147] font-bold mb-6 italic">Location & Venue</h3>
-                
-                <div className="bg-gradient-to-br from-primary-50/30 to-white rounded-2xl border border-gray-100 p-6 md:p-8 hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row gap-6 items-start">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-800 flex-shrink-0">
-                    <MapPin className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-primary-950 mb-2">Host University</h4>
-                    <address className="not-italic text-gray-700 text-base md:text-lg leading-relaxed space-y-1">
-                      <span className="font-extrabold text-gray-900 block mb-1">Siksha &apos;O&apos; Anusandhan</span>
-                      <span>{contactInfo.address.line1}</span>
-                      <span className="block">{contactInfo.address.line2}</span>
-                      <span className="block font-semibold text-gray-800">{contactInfo.address.country}</span>
-                    </address>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
 
-            {/* Right Column: Message Panel */}
-            <div className="lg:col-span-5 animate-fade-in-up relative" style={{ '--animation-delay': '0.2s' } as React.CSSProperties}>
-              {/* Reference-style Architectural Accent */}
-              <div className="absolute -bottom-10 -left-10 w-48 h-32 border-l border-b border-[#002147]/20 pointer-events-none hidden xl:block"></div>
-              
-              <div className="bg-white border border-gray-100 p-8 md:p-10 shadow-sm relative z-10">
-                <div className="mb-8">
-                  <h3 className="text-2xl font-serif font-bold text-[#002147] mb-3">Send a Message</h3>
-                  <p className="text-gray-500 text-sm">
-                    Your message will be sent to our general inquiries inbox.
-                  </p>
-                </div>
-                <ContactForm />
-              </div>
+            <h2 className="mt-12 text-2xl font-semibold md:text-3xl">Venue</h2>
+            <div className="surface mt-6 flex items-start gap-4 p-5 md:p-6">
+              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary-800" aria-hidden />
+              <address className="not-italic leading-relaxed text-gray-700">
+                <span className="block font-semibold text-gray-900">Siksha &apos;O&apos; Anusandhan</span>
+                <span className="block">{contactInfo.address.line1}</span>
+                <span className="block">{contactInfo.address.line2}</span>
+                <span className="block">{contactInfo.address.country}</span>
+              </address>
             </div>
+          </div>
 
+          <div className="surface p-6 md:p-8 lg:col-span-5">
+            <h2 className="text-xl font-semibold md:text-2xl">Send a message</h2>
+            <p className="mb-6 mt-1 text-sm text-gray-600">Your message will go to our general inquiries inbox.</p>
+            <ContactForm />
           </div>
         </div>
       </Section>
     </>
-  );}
+  );
+}

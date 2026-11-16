@@ -4,40 +4,28 @@ import { ReactNode } from 'react';
 interface CardProps {
   children: ReactNode;
   className?: string;
-  glowOnHover?: boolean;
 }
 
-export function Card({ children, className, glowOnHover = true }: CardProps) {
-  return (
-    <div
-      className={cn(
-        'bg-dark-700 border border-earth-700 rounded-xl p-6 transition-all duration-300',
-        glowOnHover &&
-          'hover:border-glow-amber hover:shadow-card-hover hover:-translate-y-1',
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
+export function Card({ children, className }: CardProps) {
+  return <div className={cn('surface overflow-hidden', className)}>{children}</div>;
 }
 
 export function CardHeader({ children, className }: CardProps) {
-  return <div className={cn("flex flex-col space-y-1.5 p-6", className)}>{children}</div>;
+  return <div className={cn('flex flex-col gap-1.5 p-6', className)}>{children}</div>;
 }
 
 export function CardTitle({ children, className }: CardProps) {
-  return <h3 className={cn("font-semibold leading-none tracking-tight", className)}>{children}</h3>;
+  return <h3 className={cn('font-semibold leading-snug', className)}>{children}</h3>;
 }
 
 export function CardDescription({ children, className }: CardProps) {
-  return <p className={cn("text-sm text-muted-foreground", className)}>{children}</p>;
+  return <p className={cn('text-sm text-gray-600', className)}>{children}</p>;
 }
 
 export function CardContent({ children, className }: CardProps) {
-  return <div className={cn("p-6 pt-0", className)}>{children}</div>;
+  return <div className={cn('p-6 pt-0', className)}>{children}</div>;
 }
 
 export function CardFooter({ children, className }: CardProps) {
-  return <div className={cn("flex items-center p-6 pt-0", className)}>{children}</div>;
+  return <div className={cn('flex items-center p-6 pt-0', className)}>{children}</div>;
 }

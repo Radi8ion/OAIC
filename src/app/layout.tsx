@@ -42,13 +42,13 @@ export const metadata: Metadata = {
     siteName: 'OAIC 2026',
     title: '1st Odisha AI Conference (OAIC) 2026',
     description: 'Premier AI conference hosted at SOA University, Bhubaneswar, India. December 19-20, 2026.',
-    images: [{ url: '/images/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/images/hero-2.jpg' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: '1st Odisha AI Conference (OAIC) 2026',
     description: 'Premier AI conference hosted at SOA University, Bhubaneswar, India. December 19-20, 2026.',
-    images: ['/images/og-image.jpg'],
+    images: ['/images/hero-2.jpg'],
   },
   robots: { index: true, follow: true },
 };
@@ -78,9 +78,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="bg-gray-50 text-gray-800 font-sans antialiased" suppressHydrationWarning>
+      <body className="flex min-h-screen flex-col bg-white font-sans text-gray-800 antialiased" suppressHydrationWarning>
         <Navbar />
-        <main id="main-content" className="flex-grow">
+        <main id="main-content" className="flex-1">
           {children}
         </main>
         <Footer />

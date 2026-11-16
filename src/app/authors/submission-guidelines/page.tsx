@@ -1,278 +1,224 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import { AlertTriangle, Check, ExternalLink, Info, ShieldCheck } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@/components/ui/Tabs';
-import { FileDown, AlertTriangle, Info } from 'lucide-react';
 import Section from '@/components/layout/Section';
-import { Button } from '@/components/ui/Button';
-import { Check } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/Alert';
+import { Button } from '@/components/ui/Button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
 
 export const metadata: Metadata = {
   title: 'Submission Guidelines',
-  description:
-    'Everything you need to know to prepare and submit your paper to OAIC 2026.',
+  description: 'Everything you need to know to prepare and submit your paper to OAIC 2026.',
 };
+
+const IEEE_TEMPLATES_URL = 'https://www.ieee.org/conferences/publishing/templates.html';
+
+function CheckList({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-3">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-3">
+          <Check className="mt-1 h-4 w-4 shrink-0 text-brand-700" aria-hidden />
+          <span className="text-[15px] leading-relaxed text-gray-700 md:text-base">{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function SpecGrid({ specs }: { specs: { label: string; value: string }[] }) {
+  return (
+    <dl className="surface grid grid-cols-1 divide-y divide-gray-200 sm:grid-cols-2 sm:divide-y-0">
+      {specs.map((s, i) => (
+        <div
+          key={s.label}
+          className={`flex items-center justify-between gap-4 px-4 py-3 sm:border-gray-200 ${i >= 2 ? 'sm:border-t' : ''} ${i % 2 === 0 ? 'sm:border-r' : ''}`}
+        >
+          <dt className="text-sm text-gray-600">{s.label}</dt>
+          <dd className="shrink-0 text-sm font-semibold text-primary-950">{s.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+function Panel({ children }: { children: ReactNode }) {
+  return <div className="surface space-y-6 p-5 md:p-8">{children}</div>;
+}
 
 function GeneralGuidelines() {
   return (
-    <div className="space-y-6 mt-4 md:mt-0">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 md:p-8">
-        <Alert className="bg-amber-50 border-none border-l-4 border-l-amber-500 rounded-r-lg shadow-sm text-amber-950 p-5 mb-6 flex items-start">
-          <AlertTriangle className="h-5 w-5 md:h-6 md:w-6 text-amber-600 shrink-0 mt-1" />
-          <div className="ml-3">
-            <AlertTitle className="font-bold text-lg md:text-xl text-amber-900">Anonymization Requirement</AlertTitle>
-            <AlertDescription className="text-base md:text-lg mt-2 leading-relaxed font-semibold">
-              Authors must anonymize their submissions, removing names, affiliations, and acknowledgements to ensure a fair double-blind peer review process.
-            </AlertDescription>
-          </div>
-        </Alert>
-
-        <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6 md:mb-8">
-          All papers submitted to OAIC 2026 must be original, unpublished work not
-          currently under review at any other venue. Submissions must be in
-          English and comply with the IEEE double-column conference format.
-        </p>
-        <ul className="space-y-5">
-          {[
-            'Papers must not exceed the specified page limits (excluding references).',
-            'Additional pages (beyond the 6-page limit) will be charged at ₹1000 per page for Indian authors and $100 per page for international authors.',
-            'Submitted papers must not be under review elsewhere simultaneously.',
-            'At least one author of an accepted paper must register for the conference and present the paper.',
-          ].map((item) => (
-            <li key={item} className="flex items-start">
-              <div className="mr-4 mt-1">
-                <Check className="h-5 w-5 text-primary-400 stroke-[3]" />
-              </div>
-              <span className="text-gray-700 font-medium text-base md:text-lg">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <Panel>
+      <Alert>
+        <AlertTriangle aria-hidden />
+        <AlertTitle>Anonymization requirement</AlertTitle>
+        <AlertDescription>
+          Authors must anonymize their submissions, removing names, affiliations, and acknowledgements to ensure a fair double-blind peer review.
+        </AlertDescription>
+      </Alert>
+      <p className="leading-relaxed text-gray-700 md:text-lg">
+        All papers submitted to OAIC 2026 must be original, unpublished work not currently under review at any other venue. Submissions must be in English and comply with the IEEE double-column conference format.
+      </p>
+      <CheckList
+        items={[
+          'Papers must not exceed the specified page limits (excluding references).',
+          'Additional pages (beyond the 6-page limit) will be charged at ₹1000 per page for Indian authors and $100 per page for international authors.',
+          'Submitted papers must not be under review elsewhere simultaneously.',
+          'At least one author of an accepted paper must register for the conference and present the paper.',
+        ]}
+      />
+    </Panel>
   );
 }
 
 function FormattingGuidelines() {
   return (
-    <div className="space-y-6 mt-4 md:mt-0">
-      <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2">
-        {[
+    <Panel>
+      <SpecGrid
+        specs={[
           { label: 'Format', value: 'IEEE double-column, A4' },
-          { label: 'Full Paper Length', value: '6 pages (+ refs)' },
+          { label: 'Full paper length', value: '6 pages (+ refs)' },
           { label: 'Font', value: 'Times New Roman, 10pt' },
-          { label: 'File Format', value: 'PDF only' },
-          { label: 'File Size Limit', value: '10 MB' },
-        ].map((spec) => (
-          <div key={spec.label} className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 md:p-6 hover:border-primary-400 hover:shadow-md transition-all duration-300 flex flex-col justify-center">
-            <p className="text-xs md:text-sm font-bold text-primary-400 uppercase tracking-wider mb-1">
-              {spec.label}
-            </p>
-            <p className="font-bold text-primary-900 text-lg md:text-xl">{spec.value}</p>
-          </div>
-        ))}
-      </div>
-      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-4">
-        <Button as="a" href="#" className="bg-primary-600 hover:bg-primary-500 text-white text-base md:text-lg px-6 md:px-8 py-4 md:py-6 shadow-md transition-transform hover:-translate-y-1 rounded-md border-none font-bold w-full sm:w-auto text-center">
-          <FileDown className="mr-2 md:mr-3 h-4 w-4 md:h-5 md:w-5 inline-block" /> LaTeX Template
-        </Button>
-        <Button as="a" href="#" variant="outline" className="text-primary-600 border-2 border-primary-600 hover:bg-primary-50 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 shadow-sm transition-transform hover:-translate-y-1 rounded-md font-bold w-full sm:w-auto text-center">
-          <FileDown className="mr-2 md:mr-3 h-4 w-4 md:h-5 md:w-5 inline-block" /> Word Template
+          { label: 'File format', value: 'PDF only' },
+          { label: 'File size limit', value: '10 MB' },
+        ]}
+      />
+      <div>
+        <p className="text-[15px] text-gray-700">
+          Use the official IEEE conference templates (LaTeX and Microsoft Word).
+        </p>
+        <Button as="a" href={IEEE_TEMPLATES_URL} target="_blank" rel="noopener noreferrer" variant="primary" className="mt-4">
+          IEEE conference templates
+          <ExternalLink className="h-4 w-4" aria-hidden />
         </Button>
       </div>
-    </div>
+    </Panel>
   );
 }
 
 function EthicsPolicy() {
+  const items = [
+    { title: 'Plagiarism', desc: 'All submissions are checked using plagiarism detection software. Papers with significant overlap will be rejected.' },
+    { title: 'Authorship', desc: 'All listed authors must have made a substantial contribution. Ghostwriting and honorary authorship are not permitted.' },
+    { title: 'AI-assisted writing', desc: 'Authors must disclose the use of AI writing tools. AI tools may not be listed as authors.' },
+    { title: 'Data integrity', desc: 'Authors must preserve research data and provide access upon reasonable request by reviewers.' },
+  ];
   return (
-    <div className="space-y-6 md:space-y-8 mt-4 md:mt-0">
-      <Alert className="bg-primary-50 border-none border-l-4 border-l-primary-600 rounded-r-lg shadow-sm text-primary-950 p-5 md:p-6">
-        <AlertTriangle className="h-5 w-5 md:h-6 md:w-6 text-primary-600" />
-        <AlertTitle className="font-bold text-lg md:text-xl text-primary-900 ml-2">Commitment to Integrity</AlertTitle>
-        <AlertDescription className="text-base md:text-lg mt-2 ml-2 leading-relaxed">
-          OAIC 2026 is committed to the highest standards of publication ethics
-          and takes all forms of misconduct seriously, including plagiarism,
-          data fabrication, and improper authorship.
+    <Panel>
+      <Alert>
+        <ShieldCheck aria-hidden />
+        <AlertTitle>Commitment to integrity</AlertTitle>
+        <AlertDescription>
+          OAIC 2026 is committed to the highest standards of publication ethics and takes all forms of misconduct seriously, including plagiarism, data fabrication, and improper authorship.
         </AlertDescription>
       </Alert>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        {[
-          {
-            title: 'Plagiarism',
-            desc: 'All submissions are checked using plagiarism detection software. Papers with significant overlap will be rejected.',
-          },
-          {
-            title: 'Authorship',
-            desc: 'All listed authors must have made a substantial contribution. Ghostwriting and honorary authorship are not permitted.',
-          },
-          {
-            title: 'AI-Assisted Writing',
-            desc: 'Authors must disclose the use of AI writing tools. AI tools may not be listed as authors.',
-          },
-          {
-            title: 'Data Integrity',
-            desc: 'Authors must preserve research data and provide access upon reasonable request by reviewers.',
-          },
-        ].map((item) => (
-          <div key={item.title} className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 md:p-6 hover:shadow-md transition-shadow duration-300">
-            <h3 className="text-lg md:text-xl font-bold text-primary-900 mb-2 md:mb-3">{item.title}</h3>
-            <p className="text-sm md:text-base text-gray-600 font-medium leading-relaxed">{item.desc}</p>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {items.map((item) => (
+          <div key={item.title} className="rounded-md border border-gray-200 p-5">
+            <h3 className="font-sans text-base font-semibold">{item.title}</h3>
+            <p className="mt-1.5 text-[15px] leading-relaxed text-gray-600">{item.desc}</p>
           </div>
         ))}
       </div>
-    </div>
+    </Panel>
   );
 }
 
 function CameraReady() {
   return (
-    <div className="space-y-6 mt-4 md:mt-0">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 md:p-8">
-        <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6 md:mb-8">
-          After acceptance, authors must prepare and submit the camera-ready
-          version by{' '}
-          <strong className="font-bold text-primary-900">15 November 2026</strong>.
-        </p>
-        <ul className="space-y-5">
-          {[
-            'Address all reviewer comments in the final version.',
-            'Include author names and affiliations (no longer anonymized).',
-            'Add acknowledgements section if applicable.',
-            'Ensure PDF is IEEE Xplore compliant (use IEEE PDF eXpress).',
-            'Submit the signed IEEE Copyright Form.',
-            'Upload all materials via the submission system by the deadline.',
-          ].map((item) => (
-            <li key={item} className="flex items-start">
-              <div className="mr-4 mt-1">
-                <Check className="h-5 w-5 text-primary-400 stroke-[3]" />
-              </div>
-              <span className="text-gray-700 font-medium text-base md:text-lg">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <Panel>
+      <p className="leading-relaxed text-gray-700 md:text-lg">
+        After acceptance, authors must prepare and submit the camera-ready version by{' '}
+        <strong className="text-primary-950">25 November 2026</strong>.
+      </p>
+      <CheckList
+        items={[
+          'Address all reviewer comments in the final version.',
+          'Include author names and affiliations (no longer anonymized).',
+          'Add an acknowledgements section if applicable.',
+          'Ensure the PDF is IEEE Xplore compliant (use IEEE PDF eXpress).',
+          'Submit the signed IEEE Copyright Form.',
+          'Upload all materials through the submission system by the deadline.',
+        ]}
+      />
+    </Panel>
   );
 }
 
 function EdasGuidelines() {
+  const steps = [
+    'Manually adjust the page margins (try slightly increasing or decreasing them), even if the values are slightly beyond the EDAS margin threshold.',
+    'Ensure that no text, figures, or symbols extend beyond the set margins; EDAS can reject PDFs that violate them.',
+    'If the issue persists, repeat the above adjustments until the upload is accepted.',
+    'Small variations during PDF creation are normal; keeping margins slightly above the minimum helps avoid rejection.',
+    'Check margins on your final PDF, not just the source file.',
+  ];
   return (
-    <div className="space-y-6 mt-4 md:mt-0">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 md:p-8">
-        <Alert className="bg-blue-50 border-none border-l-4 border-l-blue-500 rounded-r-lg shadow-sm text-blue-950 p-5 mb-6 flex items-start">
-          <Info className="h-5 w-5 md:h-6 md:w-6 text-blue-600 shrink-0 mt-1" />
-          <div className="ml-3">
-            <AlertTitle className="font-bold text-lg md:text-xl text-blue-900">EDAS Submission Guidelines</AlertTitle>
-            <AlertDescription className="text-base md:text-lg mt-2 leading-relaxed">
-              Please read the following guidelines carefully before uploading your camera-ready manuscript on EDAS.
-            </AlertDescription>
-          </div>
-        </Alert>
+    <Panel>
+      <Alert>
+        <Info aria-hidden />
+        <AlertTitle>EDAS submission guidelines</AlertTitle>
+        <AlertDescription>Please read the following carefully before uploading your camera-ready manuscript on EDAS.</AlertDescription>
+      </Alert>
 
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-lg md:text-xl font-bold text-primary-900 mb-3">Title Consistency</h3>
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-              Please ensure that the <strong>title in your camera-ready manuscript is the same as the title used in your initial submission</strong>. EDAS will not accept the upload if there is any discrepancy between the two titles.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg md:text-xl font-bold text-primary-900 mb-3">Margin Error Resolution</h3>
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
-              In some cases, EDAS may detect a margin error even though your manuscript already follows the official conference template. If this occurs, please consider the following steps:
-            </p>
-            <ul className="space-y-4 mb-8">
-              {[
-                {
-                  label: 'a.',
-                  text: 'Manually adjust the page margins (try slightly increasing or decreasing them), even if the values are slightly beyond EDAS\u2019s margin threshold.',
-                },
-                {
-                  label: 'b.',
-                  text: 'Ensure that no text, figures, or symbols extend beyond the set margins — EDAS can reject PDFs that violate them.',
-                },
-                {
-                  label: 'c.',
-                  text: 'If the issue persists, please repeat the above adjustments until the upload is accepted.',
-                },
-                {
-                  label: 'd.',
-                  text: 'Small variations during PDF creation are normal; keeping margins slightly above the minimum helps avoid rejection.',
-                },
-                {
-                  label: 'e.',
-                  text: 'Check margins on your final PDF (not just the source file).',
-                },
-              ].map((item) => (
-                <li key={item.label} className="flex items-start">
-                  <span className="mr-4 mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700 font-bold text-sm">
-                    {item.label}
-                  </span>
-                  <span className="text-gray-700 font-medium text-base md:text-lg leading-relaxed">{item.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Margin Specifications */}
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg md:text-xl font-bold text-primary-900 mb-4">For US Letter-sized papers (in inches)</h3>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {[
-                  { label: 'Maximum text width', value: '7.26 in' },
-                  { label: 'Gutter between columns', value: '0.12 in' },
-                  { label: 'Minimum left/right margins', value: '0.62 in' },
-                  { label: 'Minimum top margin (first page)', value: '0.75 in' },
-                  { label: 'Minimum top margin (other pages)', value: '0.75 in' },
-                  { label: 'Minimum bottom margin', value: '1.0 in' },
-                ].map((spec) => (
-                  <div key={spec.label} className="flex justify-between items-center bg-gray-50 rounded-lg px-4 py-3 border border-gray-100">
-                    <span className="text-sm md:text-base text-gray-600 font-medium">{spec.label}</span>
-                    <span className="text-sm md:text-base font-bold text-primary-900 ml-4 shrink-0">{spec.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg md:text-xl font-bold text-primary-900 mb-2">For A4-sized papers (in centimeters)</h3>
-              <p className="text-sm md:text-base text-gray-500 italic mb-4">
-                EDAS notes that PDF converters sometimes shift content, so they advise keeping margins slightly larger than the template (e.g., add 0.1 cm).
-              </p>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {[
-                  { label: 'Minimum left/right margins', value: '1.57 cm' },
-                  { label: 'Minimum top margin (first page)', value: '0.96 cm' },
-                  { label: 'Minimum top margin (other pages)', value: '1.9 cm' },
-                  { label: 'Minimum bottom margin', value: '4.3 cm' },
-                ].map((spec) => (
-                  <div key={spec.label} className="flex justify-between items-center bg-gray-50 rounded-lg px-4 py-3 border border-gray-100">
-                    <span className="text-sm md:text-base text-gray-600 font-medium">{spec.label}</span>
-                    <span className="text-sm md:text-base font-bold text-primary-900 ml-4 shrink-0">{spec.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+      <div>
+        <h3 className="font-sans text-lg font-semibold">Title consistency</h3>
+        <p className="mt-2 leading-relaxed text-gray-700">
+          Ensure that the <strong>title in your camera-ready manuscript is the same as the title used in your initial submission</strong>. EDAS will not accept the upload if the two titles differ.
+        </p>
       </div>
-    </div>
+
+      <div>
+        <h3 className="font-sans text-lg font-semibold">Margin error resolution</h3>
+        <p className="mt-2 leading-relaxed text-gray-700">
+          EDAS may detect a margin error even when your manuscript follows the official template. If this happens:
+        </p>
+        <ol className="mt-4 list-[lower-alpha] space-y-2.5 pl-6 marker:font-semibold marker:text-primary-900">
+          {steps.map((s) => (
+            <li key={s} className="pl-1 leading-relaxed text-gray-700">{s}</li>
+          ))}
+        </ol>
+      </div>
+
+      <div>
+        <h3 className="mb-3 font-sans text-base font-semibold">US Letter paper (inches)</h3>
+        <SpecGrid
+          specs={[
+            { label: 'Maximum text width', value: '7.26 in' },
+            { label: 'Gutter between columns', value: '0.12 in' },
+            { label: 'Minimum left/right margins', value: '0.62 in' },
+            { label: 'Minimum top margin (first page)', value: '0.75 in' },
+            { label: 'Minimum top margin (other pages)', value: '0.75 in' },
+            { label: 'Minimum bottom margin', value: '1.0 in' },
+          ]}
+        />
+      </div>
+
+      <div>
+        <h3 className="font-sans text-base font-semibold">A4 paper (centimetres)</h3>
+        <p className="mb-3 mt-1 text-sm text-gray-500">
+          PDF converters sometimes shift content, so EDAS advises keeping margins slightly larger than the template (for example, add 0.1 cm).
+        </p>
+        <SpecGrid
+          specs={[
+            { label: 'Minimum left/right margins', value: '1.57 cm' },
+            { label: 'Minimum top margin (first page)', value: '0.96 cm' },
+            { label: 'Minimum top margin (other pages)', value: '1.9 cm' },
+            { label: 'Minimum bottom margin', value: '4.3 cm' },
+          ]}
+        />
+      </div>
+    </Panel>
   );
 }
 
 const TABS = [
-  { value: 'general', label: 'General Guidelines', component: GeneralGuidelines },
+  { value: 'general', label: 'General', component: GeneralGuidelines },
   { value: 'formatting', label: 'Formatting', component: FormattingGuidelines },
   { value: 'ethics', label: 'Ethics Policy', component: EthicsPolicy },
   { value: 'camera-ready', label: 'Camera-Ready', component: CameraReady },
-  { value: 'edas', label: 'EDAS Guidelines', component: EdasGuidelines },
+  { value: 'edas', label: 'EDAS', component: EdasGuidelines },
 ];
 
 export default function SubmissionGuidelinesPage() {
@@ -281,28 +227,23 @@ export default function SubmissionGuidelinesPage() {
       <PageHeader
         title="Submission Guidelines"
         description="Everything you need to know to prepare and submit your paper to OAIC 2026."
-        breadcrumbs={[
-          {
-            href: '/authors/submission-guidelines',
-            label: 'Submission Guidelines',
-          },
-        ]}
+        breadcrumbs={[{ label: 'Authors' }, { href: '/authors/submission-guidelines', label: 'Submission Guidelines' }]}
       />
-      <Section className="pb-16 md:pb-24 px-4 md:px-0">
-        <Tabs defaultValue="general" className="mx-auto max-w-4xl">
-          <TabsList className="w-full flex-wrap h-auto justify-start md:justify-center mb-4 md:mb-0 gap-2">
+      <Section>
+        <div className="container-wide max-w-4xl">
+          <Tabs defaultValue="general">
+            <TabsList>
+              {TABS.map((tab) => (
+                <TabsTrigger key={tab.value} value={tab.value}>{tab.label}</TabsTrigger>
+              ))}
+            </TabsList>
             {TABS.map((tab) => (
-              <TabsTrigger key={tab.value} value={tab.value} className="flex-1 min-w-[140px] md:flex-none">
-                {tab.label}
-              </TabsTrigger>
+              <TabsContent key={tab.value} value={tab.value}>
+                <tab.component />
+              </TabsContent>
             ))}
-          </TabsList>
-          {TABS.map((tab) => (
-            <TabsContent key={tab.value} value={tab.value} className="pt-6">
-              <tab.component />
-            </TabsContent>
-          ))}
-        </Tabs>
+          </Tabs>
+        </div>
       </Section>
     </>
   );

@@ -1,23 +1,10 @@
-import { forwardRef } from 'react';
+import { forwardRef, type InputHTMLAttributes } from 'react';
 import { cn } from '@/lib/cn';
 
-// You can use InputHTMLAttributes<HTMLInputElement> directly without an empty interface. Remove this line or export the base type if desired.
-
-import type { InputHTMLAttributes } from 'react';
+export const fieldClasses =
+  'w-full rounded-md border border-gray-300 bg-white px-3 text-sm text-gray-900 placeholder:text-gray-400 transition-colors focus:border-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-800/15 disabled:cursor-not-allowed disabled:opacity-50 aria-[invalid=true]:border-red-600';
 
 export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
-  ({ className, type, ...props }, ref) => {
-    return (
-      <input
-        type={type}
-        className={cn(
-          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-          className
-        )}
-        ref={ref}
-        {...props}
-      />
-    )
-  }
-)
-Input.displayName = "Input"
+  ({ className, ...props }, ref) => <input ref={ref} className={cn(fieldClasses, 'h-11', className)} {...props} />,
+);
+Input.displayName = 'Input';

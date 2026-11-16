@@ -1,112 +1,59 @@
-'use client';
-
 import Link from 'next/link';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+
+const EDAS_URL = 'https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vTjM1MzYxP2M9MzUzNjE%3D';
+
+const items = [
+  { text: 'Call for Posters: present your ongoing research at OAIC 2026', href: '/authors/call-for-posters' },
+  { text: 'Poster abstract submission deadline: 25 November 2026', href: '/authors/call-for-posters' },
+  { text: 'Submit posters through the EDAS portal', href: EDAS_URL, external: true },
+];
+
+function Sequence({ hidden }: { hidden?: boolean }) {
+  return (
+    <ul className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
+      {[0, 1].flatMap((n) =>
+        items.map((item) => (
+          <li key={`${n}-${item.text}`} className="flex items-center">
+            <Link
+              href={item.href}
+              target={item.external ? '_blank' : undefined}
+              rel={item.external ? 'noopener noreferrer' : undefined}
+              tabIndex={hidden ? -1 : undefined}
+              className="whitespace-nowrap px-6 text-white/90 hover:text-white hover:underline"
+            >
+              {item.text}
+            </Link>
+            <span className="h-1 w-1 rounded-full bg-white/40" aria-hidden />
+          </li>
+        )),
+      )}
+    </ul>
+  );
+}
 
 export default function AnnouncementBanner() {
-  const posterAnnouncementText =
-    'Call for Posters: Highlight your ongoing research';
-
   return (
-    <div
-      role="region"
-      aria-label="Important Announcement"
-      className="relative bg-gradient-to-r from-[#061d2d] via-[#0c4063] to-[#061d2d] text-white border-b border-amber-400/30 overflow-hidden text-xs sm:text-sm font-medium z-40"
-    >
-      <div className="flex items-center h-9 sm:h-10">
-        {/* Left Sticky Badge */}
-        <div className="relative z-20 flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold px-3 sm:px-4 h-full shrink-0 shadow-md transition-colors">
-          <span className="text-base sm:text-lg animate-star-flash leading-none">
-            🌟
-          </span>
-          <span className="text-[10px] sm:text-xs tracking-wider uppercase">
-            Notice
-          </span>
-          <span className="hidden sm:inline-block h-3.5 w-px bg-amber-700/50 mx-0.5" />
-          <span className="hidden sm:inline-block text-[11px] font-semibold text-amber-950">
-            Updated
-          </span>
-        </div>
+    <div role="region" aria-label="Announcements" className="bg-primary-950 text-[13px] text-white">
+      <div className="flex h-10 items-stretch">
+        <span className="flex shrink-0 items-center bg-brand-700 px-3 text-[11px] font-semibold uppercase tracking-wider sm:px-4">
+          Notice
+        </span>
 
-        {/* Continuous Running Marquee */}
-        <div className="relative flex-1 overflow-hidden h-full flex items-center">
-          <div
-            className="animate-marquee items-center whitespace-nowrap py-1"
-            style={{ animationDuration: '30s' }}
-          >
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="flex items-center gap-6 sm:gap-10 px-4 sm:px-6">
-                {/* Call for Posters Highlight */}
-                <Link
-                  href="/authors/call-for-posters"
-                  className="flex items-center gap-2 text-amber-200 hover:text-white transition-colors duration-200"
-                >
-                  <span className="animate-star-flash text-amber-300 text-sm">
-                    ★
-                  </span>
-                  <strong className="text-white font-bold tracking-wide">
-                    {posterAnnouncementText}
-                  </strong>
-                  <span className="hidden md:inline text-amber-300/90 text-xs">
-                    (OAIC 2026)
-                  </span>
-                  <span className="inline-flex items-center gap-0.5 text-[11px] font-bold text-amber-300 hover:underline ml-1">
-                    View Details
-                    <ArrowRight className="w-3 h-3" />
-                  </span>
-                </Link>
-
-                <span className="text-amber-400/60 font-mono select-none" aria-hidden="true">
-                  ◆
-                </span>
-
-                <Link
-                  href="/authors/call-for-posters"
-                  className="flex items-center gap-2 text-gray-200 hover:text-white transition-colors duration-200"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-                  <span className="font-semibold text-amber-100">
-                    Submit Poster Abstract
-                  </span>
-                  <span className="text-[10px] bg-amber-400/20 text-amber-200 border border-amber-300/40 rounded px-1.5 py-0.5 font-bold uppercase">
-                    Deadline: Nov 25
-                  </span>
-                </Link>
-
-                <span className="text-amber-400/60 font-mono select-none" aria-hidden="true">
-                  ◆
-                </span>
-
-                <Link
-                  href="https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vTjM1MzYxP2M9MzUzNjE%3D"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-amber-200 hover:text-white transition-colors duration-200"
-                >
-                  <span className="text-xs font-semibold text-amber-200 underline underline-offset-2">
-                    Submit Poster via EDAS
-                  </span>
-                  <ArrowRight className="w-3 h-3" />
-                </Link>
-
-                <span className="text-amber-400/60 font-mono select-none" aria-hidden="true">
-                  ◆
-                </span>
-              </div>
-            ))}
+        <div className="relative min-w-0 flex-1 overflow-hidden">
+          <div className="animate-marquee h-full items-center">
+            <Sequence />
+            <Sequence hidden />
           </div>
         </div>
 
-        {/* Right CTA Quick Button: Submit Poster */}
-        <div className="relative z-20 hidden md:flex items-center h-full shrink-0 pr-3 sm:pr-4 pl-2 bg-gradient-to-l from-[#061d2d] to-transparent">
-          <Link
-            href="/authors/call-for-posters"
-            className="bg-amber-400 hover:bg-amber-300 text-gray-950 font-bold text-[11px] px-3 py-1 rounded shadow transition-all hover:scale-105 flex items-center gap-1"
-          >
-            <span>Submit Poster</span>
-            <ArrowRight className="w-3 h-3" />
-          </Link>
-        </div>
+        <Link
+          href="/authors/call-for-posters"
+          className="hidden shrink-0 items-center gap-1.5 border-l border-white/15 px-4 text-[13px] font-medium text-white hover:bg-white/10 hover:text-white md:flex"
+        >
+          Submit a poster
+          <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+        </Link>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { ExternalLink, FileText, Presentation, Video } from 'lucide-react';
 import './hackathon.css';
 
 const navPartners = [
@@ -20,10 +21,10 @@ export default function HackathonsPage() {
     <div className="hackathon-scope">
       <nav className="hackathon-subnav">
         <div className="hackathon-container nav-inner">
-          <a className="brand" href="#">
-            <span className="brand-mark">AI</span>
-            <span>
-              Odisha AI Hackathon <span style={{ color: '#7c3aed' }}>2026</span>
+          <a className="brand" href="#top">
+            <Image src="/images/logo.png" alt="" width={163} height={200} style={{ height: 36, width: 'auto' }} />
+            <span className="brand-text">
+              Odisha AI Hackathon <span className="brand-year">2026</span>
             </span>
           </a>
           <div className="nav-links">
@@ -52,19 +53,19 @@ export default function HackathonsPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Apply Now ↗
+              Apply now
+              <ExternalLink size={16} aria-hidden />
             </a>
           </div>
         </div>
       </nav>
 
-      <header className="hero">
+      <header className="hero" id="top">
         <div className="hackathon-container hero-inner">
           <div>
-            <span className="kicker">ODISHA AI • SOA • HCLTech</span>
+            <span className="kicker">Odisha AI · SOA · HCLTech</span>
             <h1>
-              ODISHA AI<br />
-              <span className="gradient-text">HACKATHON 2026</span>
+              Odisha AI Hackathon <span className="hero-year">2026</span>
             </h1>
             <div className="tagline">Innovate for Odisha and Build for the Future.</div>
             <p className="sub">
@@ -77,10 +78,11 @@ export default function HackathonsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Start Your Application ↗
+                Start your application
+                <ExternalLink size={16} aria-hidden />
               </a>
               <a className="btn btn-light" href="#themes">
-                Explore Themes
+                Explore themes
               </a>
             </div>
           </div>
@@ -88,7 +90,7 @@ export default function HackathonsPage() {
           <aside className="hero-card">
             <div className="mini">Grand Finale</div>
             <div className="prize">₹1,50,000</div>
-            <div style={{ fontWeight: 800 }}>Prizes Worth INR 1,50,000/-</div>
+            <div style={{ fontWeight: 600 }}>Prizes worth INR 1,50,000</div>
             <div className="date-box">
               <div className="stat">
                 <b>20 Dec 2026</b>
@@ -107,7 +109,7 @@ export default function HackathonsPage() {
                 <span>Group size</span>
               </div>
             </div>
-            <p style={{ margin: '18px 0 0', color: '#667085', fontSize: '13px' }}>
+            <p style={{ margin: '18px 0 0', color: 'var(--muted)', fontSize: '13px' }}>
               <strong>Qualification:</strong> Top 3 teams from each of the four regions advance to the final round.
             </p>
           </aside>
@@ -249,7 +251,7 @@ export default function HackathonsPage() {
             <div className="step step-highlight">
               <div className="num num-highlight">3</div>
               <h3>Regional Selection</h3>
-              <p className="step-date">~ Nov 20, 2026</p>
+              <p className="step-date">Around 20 Nov 2026</p>
               <p>Regional screening and evaluation at your nodal centre.</p>
             </div>
             <div className="step">
@@ -270,7 +272,8 @@ export default function HackathonsPage() {
         <div className="hackathon-container contacts">
           <div className="contact-card">
             <div className="eyebrow">Regional Chairs</div>
-            <h2 style={{ fontSize: '30px', marginBottom: '18px' }}>Need regional guidance?</h2>
+            <h2 style={{ marginBottom: '18px' }}>Need regional guidance?</h2>
+            <div className="table-scroll">
             <table className="contact-table">
               <thead>
                 <tr>
@@ -310,34 +313,25 @@ export default function HackathonsPage() {
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
           <div className="apply apply-requirements">
             <div className="eyebrow">Submission Requirements</div>
             <h2>What to submit.</h2>
             <ul className="requirements-list">
               <li>
-                <span className="req-icon">📊</span>
-                <span><strong>Idea PPT</strong> – Present your concept, approach &amp; solution</span>
+                <Presentation className="req-icon" aria-hidden />
+                <span><strong>Idea PPT:</strong> present your concept, approach &amp; solution</span>
               </li>
               <li>
-                <span className="req-icon">📄</span>
-                <span><strong>Abstract</strong> – Brief written summary of your project</span>
+                <FileText className="req-icon" aria-hidden />
+                <span><strong>Abstract:</strong> a brief written summary of your project</span>
               </li>
               <li>
-                <span className="req-icon">🎬</span>
-                <span><strong>3-Minute Video</strong> – Demo or pitch of your AI solution</span>
+                <Video className="req-icon" aria-hidden />
+                <span><strong>3-minute video:</strong> a demo or pitch of your AI solution</span>
               </li>
             </ul>
-            <div className="template-download">
-              <div className="template-label">PPT Template</div>
-              <a
-                className="btn btn-primary"
-                href="/templates/OAIC_Hackathon_PPT_Template.pptx"
-                download
-              >
-                ⬇ Download PPT Template
-              </a>
-            </div>
             <div style={{ marginTop: '16px' }}>
               <a
                 className="btn btn-primary"
@@ -346,7 +340,8 @@ export default function HackathonsPage() {
                 rel="noopener noreferrer"
                 style={{ width: '100%', justifyContent: 'center' }}
               >
-                Apply Now ↗
+                Apply now
+                <ExternalLink size={16} aria-hidden />
               </a>
             </div>
           </div>
@@ -356,7 +351,7 @@ export default function HackathonsPage() {
       <div className="hackathon-footer-strip">
         <div className="hackathon-container foot">
           <div>
-            <strong style={{ color: '#fff' }}>Odisha AI Hackathon 2026</strong> · Innovate for Odisha and Build for the Future
+            <strong style={{ color: 'var(--ink)' }}>Odisha AI Hackathon 2026</strong> · Innovate for Odisha and Build for the Future
           </div>
           <div>Finale · 20 December 2026 · SOA University, Bhubaneswar</div>
         </div>

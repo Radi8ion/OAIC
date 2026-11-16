@@ -59,9 +59,9 @@ export default function CommitteesPage() {
           { href: '/committees', label: 'Committees' },
         ]}
       />
-      
-      <Section className="py-12 md:py-20 bg-gray-50/40">
-        <div className="container-wide px-4 md:px-8">
+
+      <Section>
+        <div className="container-wide">
           <CommitteesClient sections={sections} />
         </div>
       </Section>

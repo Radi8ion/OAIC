@@ -1,16 +1,14 @@
 import type { Metadata } from 'next';
+import { Check, Info } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
-import PricingTable from '@/components/sections/PricingTable';
 import Section from '@/components/layout/Section';
+import PricingTable from '@/components/sections/PricingTable';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/Alert';
-import { AlertTriangle } from 'lucide-react';
 import { registrationIncludes } from '@/data/registration';
-import { Check } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Registration Fees',
-  description:
-    'View OAIC 2026 registration fees for students, academics, industry, and international attendees.',
+  description: 'View OAIC 2026 registration fees for students, academics, industry, and international attendees.',
 };
 
 const notes = [
@@ -24,36 +22,30 @@ export default function RegistrationFeesPage() {
       <PageHeader
         title="Registration Fees"
         description="Register early for the best rates. Early Bird closes September 15, 2026."
-        breadcrumbs={[
-          { href: '/registration/fees', label: 'Registration Fees' },
-        ]}
+        breadcrumbs={[{ label: 'Registration' }, { href: '/registration/fees', label: 'Registration Fees' }]}
       />
-      <Section className="pb-24">
-        <div className="mx-auto max-w-5xl px-3 sm:px-4 md:px-0">
+      <Section>
+        <div className="container-wide max-w-5xl">
           <PricingTable />
 
-          <div className="mt-6 sm:mt-12 grid grid-cols-1 gap-4 sm:gap-8 md:grid-cols-2">
-            <div className="rounded-lg border bg-card p-3 sm:p-6 text-card-foreground shadow-sm">
-              <h3 className="mb-3 sm:mb-4 text-lg font-semibold">
-                Registration Includes
-              </h3>
-              <ul className="space-y-2 sm:space-y-3">
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="surface p-6">
+              <h2 className="font-sans text-lg font-semibold">Registration includes</h2>
+              <ul className="mt-4 space-y-2.5">
                 {registrationIncludes.map((item) => (
-                  <li key={item} className="flex items-start">
-                    <div className="mr-2 sm:mr-3 flex h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <Check className="h-3 w-3 sm:h-4 sm:w-4" />
-                    </div>
-                    <span className="text-xs sm:text-sm text-muted-foreground">{item}</span>
+                  <li key={item} className="flex items-start gap-3">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" aria-hidden />
+                    <span className="text-[15px] text-gray-700">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             <Alert>
-              <AlertTriangle className="h-4 w-4" />
-              <AlertTitle>Important Notes</AlertTitle>
+              <Info aria-hidden />
+              <AlertTitle>Important notes</AlertTitle>
               <AlertDescription>
-                <ul className="mt-2 list-inside list-disc space-y-1 text-xs sm:text-sm">
+                <ul className="mt-2 list-disc space-y-1 pl-5">
                   {notes.map((note) => (
                     <li key={note}>{note}</li>
                   ))}

@@ -94,16 +94,13 @@ export default function CommitteesClient({ sections }: CommitteesClientProps) {
   }, [activeSection]);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      {/* Left Column: Sticky Sidebar Directory */}
+    <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-10">
       <aside
         ref={sidebarRef}
-        className="lg:col-span-3 lg:sticky lg:top-24 max-h-[calc(100vh-8rem)] overflow-y-auto bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hidden lg:block no-scrollbar scroll-smooth"
+        className="no-scrollbar hidden max-h-[calc(100vh-7rem)] overflow-y-auto lg:sticky lg:top-24 lg:col-span-3 lg:block"
       >
-        <h3 className="text-xs uppercase tracking-widest text-[#002147] font-extrabold mb-4 pb-2 border-b border-gray-100">
-          Committee Index
-        </h3>
-        <nav className="space-y-1">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500">On this page</p>
+        <nav aria-label="Committees" className="border-l border-gray-200">
           {sections.map((section) => {
             const isActive = activeSection === section.id;
             return (
@@ -111,10 +108,11 @@ export default function CommitteesClient({ sections }: CommitteesClientProps) {
                 key={section.id}
                 ref={isActive ? activeLinkRef : null}
                 href={`#${section.id}`}
-                className={`block text-xs font-bold px-3 py-2 rounded-lg transition-all duration-200 border-l-2 ${
+                aria-current={isActive ? 'true' : undefined}
+                className={`-ml-px block border-l-2 py-1.5 pl-4 text-sm transition-colors ${
                   isActive
-                    ? 'text-primary-700 bg-primary-50 border-l-primary-600 font-extrabold shadow-sm'
-                    : 'text-gray-500 hover:text-primary-600 hover:bg-primary-50/30 border-l-transparent'
+                    ? 'border-brand-700 font-medium text-primary-950'
+                    : 'border-transparent text-gray-600 hover:text-primary-950'
                 }`}
               >
                 {section.title}
@@ -124,17 +122,10 @@ export default function CommitteesClient({ sections }: CommitteesClientProps) {
         </nav>
       </aside>
 
-      {/* Right Column: Committee Lists */}
-      <main className="lg:col-span-9 space-y-16">
-        {/* Mobile Index Quick-Scroll links */}
-        <div className="lg:hidden bg-white p-4 rounded-xl border border-gray-100 mb-6">
-          <h3 className="text-xs uppercase tracking-wider text-gray-400 font-extrabold mb-3">
-            Jump to Section
-          </h3>
-          <div 
-            ref={mobileMenuRef}
-            className="flex gap-2 overflow-x-auto pb-2 no-scrollbar whitespace-nowrap scroll-smooth"
-          >
+      <div className="min-w-0 space-y-12 lg:col-span-9">
+        <div className="lg:hidden">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">Jump to</p>
+          <div ref={mobileMenuRef} className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1">
             {sections.map((section) => {
               const isActive = activeSection === section.id;
               return (
@@ -142,10 +133,10 @@ export default function CommitteesClient({ sections }: CommitteesClientProps) {
                   key={section.id}
                   ref={isActive ? activeMobileLinkRef : null}
                   href={`#${section.id}`}
-                  className={`inline-block px-3 py-1 text-xs font-semibold rounded-full transition-all duration-200 border ${
+                  className={`shrink-0 whitespace-nowrap rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
                     isActive
-                      ? 'bg-primary-600 text-white border-primary-600 font-bold shadow-sm'
-                      : 'bg-gray-50 text-gray-600 hover:bg-primary-50 hover:text-primary-700 border-gray-100'
+                      ? 'border-primary-950 bg-primary-950 text-white hover:text-white'
+                      : 'border-gray-200 bg-white text-gray-700 hover:border-gray-400 hover:text-primary-950'
                   }`}
                 >
                   {section.title}
@@ -156,44 +147,25 @@ export default function CommitteesClient({ sections }: CommitteesClientProps) {
         </div>
 
         {sections.map((section) => (
-          <div key={section.id} id={section.id} className="scroll-mt-24 space-y-6">
-            <div className="flex items-center gap-4">
-              <span className="w-1.5 h-8 bg-primary-600 rounded-full"></span>
-              <h2 className="text-xl md:text-2xl font-serif font-black text-primary-950 tracking-tight">
-                {section.title}
-              </h2>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+          <section key={section.id} id={section.id} className="scroll-mt-24">
+            <h2 className="border-b border-gray-200 pb-3 text-xl font-semibold md:text-2xl">{section.title}</h2>
+            <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {section.members.map((member, i) => (
-                <div
-                  key={`${member.name}-${i}`}
-                  className="group bg-white border border-gray-100 rounded-xl p-4 md:p-5 hover:shadow-md hover:border-gray-200 transition-all duration-300 flex flex-col justify-between border-l-4 border-l-primary-950/80"
-                >
-                  <div className="space-y-1.5">
-                    <h3 className="font-bold text-gray-900 text-base group-hover:text-primary-600 transition-colors duration-300">
-                      {member.name}
-                    </h3>
-                    {member.role && (
-                      <span className="inline-block bg-[#eaf2f8] text-[#1a5f7a] font-bold px-2 py-0.5 rounded text-[10px] md:text-xs tracking-wide">
-                        {member.role}
-                      </span>
-                    )}
-                  </div>
+                <li key={`${member.name}-${i}`} className="surface flex flex-col p-4">
+                  <p className="font-semibold text-gray-900">{member.name}</p>
+                  {member.role && <p className="mt-0.5 text-sm text-brand-700">{member.role}</p>}
                   {member.institution && (
-                    <div className="mt-3 pt-3 border-t border-gray-50 flex items-start gap-2 text-xs text-gray-500">
-                      <Building2 className="w-3.5 h-3.5 mt-0.5 text-gray-400 flex-shrink-0" />
-                      <span className="font-medium text-gray-600 leading-relaxed">
-                        {member.institution}
-                      </span>
-                    </div>
+                    <p className="mt-2 flex items-start gap-1.5 text-sm leading-snug text-gray-600">
+                      <Building2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-400" aria-hidden />
+                      {member.institution}
+                    </p>
                   )}
-                </div>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </section>
         ))}
-      </main>
+      </div>
     </div>
   );
 }

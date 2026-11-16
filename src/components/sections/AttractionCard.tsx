@@ -1,51 +1,29 @@
-import type { TouristAttraction } from '@/types';
-import { MapPin } from 'lucide-react';
-import { Badge } from '@/components/ui/Badge';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/Card';
 import Image from 'next/image';
+import { MapPin } from 'lucide-react';
+import type { TouristAttraction } from '@/types';
 
-interface AttractionCardProps {
-  attraction: TouristAttraction;
-}
-
-
-export default function AttractionCard({ attraction }: AttractionCardProps) {
+export default function AttractionCard({ attraction }: { attraction: TouristAttraction }) {
+  const category = attraction.category.charAt(0).toUpperCase() + attraction.category.slice(1);
   return (
-    <Card className="flex flex-col overflow-hidden">
-      <CardHeader className="relative h-48 w-full p-0">
+    <article className="surface flex flex-col overflow-hidden">
+      <div className="relative aspect-[4/3] w-full">
         <Image
           src={attraction.photoUrl}
           alt={attraction.name}
-          layout="fill"
-          objectFit="cover"
+          fill
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-        <div className="absolute bottom-4 left-4">
-          <Badge>
-            {attraction.category.charAt(0).toUpperCase() +
-              attraction.category.slice(1)}
-          </Badge>
-        </div>
-      </CardHeader>
-      <CardContent className="flex-1 p-6">
-        <CardTitle className="mb-2 text-lg">{attraction.name}</CardTitle>
-        <CardDescription className="line-clamp-4">
-          {attraction.description}
-        </CardDescription>
-      </CardContent>
-      <CardFooter className="p-6 pt-0">
-        <div className="flex items-center text-sm text-muted-foreground">
-          <MapPin className="mr-1.5 h-4 w-4" /> {attraction.distanceFromVenue}{' '}
-          from venue
-        </div>
-      </CardFooter>
-    </Card>
+      </div>
+      <div className="flex flex-1 flex-col p-5">
+        <span className="text-xs font-medium uppercase tracking-wider text-brand-700">{category}</span>
+        <h3 className="mt-1 text-lg font-semibold">{attraction.name}</h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600">{attraction.description}</p>
+        <p className="mt-4 flex items-center gap-1.5 text-sm text-gray-500">
+          <MapPin className="h-4 w-4 shrink-0" aria-hidden />
+          {attraction.distanceFromVenue} from venue
+        </p>
+      </div>
+    </article>
   );
 }

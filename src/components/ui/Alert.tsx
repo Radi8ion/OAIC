@@ -2,13 +2,23 @@ import { ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 
 export function Alert({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn("relative w-full rounded-lg border p-4 [&>svg]:absolute [&>svg]:text-foreground [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11", className)} role="alert">{children}</div>;
+  return (
+    <div
+      className={cn(
+        'callout relative w-full [&>svg]:absolute [&>svg]:left-5 [&>svg]:top-[1.1rem] [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-brand-700 [&:has(>svg)]:pl-12',
+        className,
+      )}
+      role="note"
+    >
+      {children}
+    </div>
+  );
 }
 
 export function AlertTitle({ children, className }: { children: ReactNode; className?: string }) {
-  return <h5 className={cn("mb-1 font-medium leading-none tracking-tight", className)}>{children}</h5>;
+  return <p className={cn('font-semibold text-primary-950', className)}>{children}</p>;
 }
 
 export function AlertDescription({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn("text-sm [&_p]:leading-relaxed", className)}>{children}</div>;
+  return <div className={cn('mt-1 text-sm leading-relaxed text-gray-700 md:text-base', className)}>{children}</div>;
 }

@@ -11,7 +11,9 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/Form';
-import { Input } from '@/components/ui/Input';
+import { useEffect, useState } from 'react';
+import { Input, fieldClasses } from '@/components/ui/Input';
+import { cn } from '@/lib/cn';
 import { Textarea } from '@/components/ui/Textarea';
 import { contactInfo } from '@/data/contact';
 
@@ -22,7 +24,6 @@ const formSchema = z.object({
   message: z.string().min(10, 'Message must be at least 10 characters.'),
 });
 
-import { useState, useEffect } from 'react';
 
 export default function ContactForm() {
   const [mailtoLink, setMailtoLink] = useState<string | null>(null);
@@ -57,40 +58,43 @@ export default function ContactForm() {
   },
     [mailtoLink]);
 
+  const subjects = [
+    'Hackathon',
+    'Participation',
+    'Sponsor',
+    'Call for Paper',
+    'Call for Workshop',
+    'Call for Poster Presentation',
+    'General Query',
+    'Registration',
+  ];
+
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5" noValidate>
         <Controller
           control={form.control}
           name="name"
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
-              <FormLabel className="text-[#002147] font-bold uppercase tracking-widest text-[10px]">Full Name</FormLabel>
+              <FormLabel htmlFor="contact-name">Full name</FormLabel>
               <FormControl>
-                <Input
-                  placeholder="Your full name"
-                  {...field}
-                  className="rounded-none border-gray-200 focus:border-[#002147] focus:ring-0 transition-colors"
-                />
+                <Input id="contact-name" autoComplete="name" placeholder="Your full name" aria-invalid={!!fieldState.error} {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage>{fieldState.error?.message}</FormMessage>
             </FormItem>
           )}
         />
         <Controller
           control={form.control}
           name="email"
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
-              <FormLabel className="text-[#002147] font-bold uppercase tracking-widest text-[10px]">Email Address</FormLabel>
+              <FormLabel htmlFor="contact-email">Email address</FormLabel>
               <FormControl>
-                <Input
-                  placeholder="your.email@example.com"
-                  {...field}
-                  className="rounded-none border-gray-200 focus:border-[#002147] focus:ring-0 transition-colors"
-                />
+                <Input id="contact-email" type="email" autoComplete="email" placeholder="you@example.com" aria-invalid={!!fieldState.error} {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage>{fieldState.error?.message}</FormMessage>
             </FormItem>
           )}
         />
@@ -99,50 +103,35 @@ export default function ContactForm() {
           name="subject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-[#002147] font-bold uppercase tracking-widest text-[10px]">Subject</FormLabel>
+              <FormLabel htmlFor="contact-subject">Subject</FormLabel>
               <FormControl>
-                <select
-                  {...field}
-                  className="flex h-10 w-full rounded-none border border-gray-200 bg-background px-3 py-2 text-sm focus:border-[#002147] focus:outline-none focus:ring-0 transition-colors cursor-pointer"
-                >
+                <select id="contact-subject" {...field} className={cn(fieldClasses, 'h-11 cursor-pointer')}>
                   <option value="" disabled>Select a subject</option>
-                  <option value="hackathon">Hackathon</option>
-                  <option value="participation">Participation</option>
-                  <option value="sponsor">Sponsor</option>
-                  <option value="call for paper">Call for Paper</option>
-                  <option value="call for workshop">Call for Workshop</option>
-                  <option value="call for poster presentation">Call for Poster Presentation</option>
-                  <option value="general query">General Query</option>
-                  <option value="registration">Registration</option>
+                  {subjects.map((s) => (
+                    <option key={s} value={s.toLowerCase()}>{s}</option>
+                  ))}
                 </select>
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />
         <Controller
           control={form.control}
           name="message"
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
-              <FormLabel className="text-[#002147] font-bold uppercase tracking-widest text-[10px]">Message</FormLabel>
+              <FormLabel htmlFor="contact-message">Message</FormLabel>
               <FormControl>
-                <Textarea
-                  placeholder="Your message..."
-                  className="resize-none rounded-none border-gray-200 focus:border-[#002147] focus:ring-0 transition-colors min-h-[120px]"
-                  {...field}
-                />
+                <Textarea id="contact-message" placeholder="How can we help?" className="resize-y" aria-invalid={!!fieldState.error} {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage>{fieldState.error?.message}</FormMessage>
             </FormItem>
           )}
         />
-        <Button
-          type="submit"
-          className="w-full bg-[#002147] hover:bg-[#003366] text-white rounded-none py-6 uppercase tracking-[0.2em] font-bold text-xs transition-all duration-300"
-        >
-          Send Message
+        <Button type="submit" variant="primary" className="w-full">
+          Send message
         </Button>
+        <p className="text-xs text-gray-500">This opens your email app with the message ready to send.</p>
       </form>
     </Form>
   );
