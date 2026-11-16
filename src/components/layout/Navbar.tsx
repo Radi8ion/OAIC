@@ -18,7 +18,7 @@ const partnerLogos = [
   { href: 'https://www.computer.org', src: '/images/sponsors/CS-Bhubaneswar.png', alt: 'IEEE Computer Society Bhubaneswar Chapter', w: 500, h: 500, cls: 'h-9 md:h-10' },
   { href: 'https://www.odishasociety.org', src: '/images/sponsors/OSA-logo-small.png', alt: 'The Odisha Society of the Americas', w: 92, h: 33, cls: 'h-5 md:h-6' },
   { href: 'https://odiasocietyuk.org', src: '/images/sponsors/odisha-society-uk.png', alt: 'Odisha Society of the UK', w: 330, h: 169, cls: 'h-6 md:h-7' },
-  { href: 'https://www.ieee.org', src: '/images/sponsors/IEEE-Bhubaneswar-Section-1-1.png', alt: 'IEEE Bhubaneswar Section', w: 1000, h: 1000, cls: 'h-9 md:h-11 brightness-0 invert' },
+  { href: 'https://site.ieee.org/bhubaneswar/', src: '/images/sponsors/ieeebbs.png', alt: 'IEEE Bhubaneswar Section', w: 476, h: 227, cls: 'h-5 md:h-7 brightness-0 invert' },
 ];
 
 const ieeeLinks = [
