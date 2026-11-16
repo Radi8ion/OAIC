@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, BrainCircuit, Landmark, Leaf, Radio, Scale, ShieldCheck } from 'lucide-react';
+import PastAware from '@/components/ui/PastAware';
 import HeroSection from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/Button';
 import { importantDates } from '@/data/dates';
@@ -17,7 +19,7 @@ const emphasis = [
 export const metadata: Metadata = {
   title: 'OAIC 2026',
   description:
-    'The 2026 1st Odisha AI Conference (OAIC) is a premier platform for exchanging ideas and presenting research findings in AI. Join us in Bhubaneswar, India, December 19-20, 2026.',
+    'The 2026 1st Odisha AI Conference (OAIC) is a premier platform for exchanging ideas and presenting research findings in AI. Join us in Bhubaneswar, India, 19th–20th December 2026.',
 };
 
 export default function HomePage() {
@@ -25,26 +27,59 @@ export default function HomePage() {
     <>
       <HeroSection />
 
-      {/* Announcement */}
-      <section className="pt-10 md:pt-14">
+      {/* News and Announcements */}
+      <section className="pt-8 md:pt-10">
         <div className="container-wide">
-          <div className="surface flex flex-col gap-3 p-5 sm:flex-row sm:items-center sm:justify-between md:px-8 md:py-6">
-            <div>
-              <span className="eyebrow">News and Announcements</span>
-              <p className="mt-1 font-serif text-lg font-semibold text-primary-950 md:text-xl">
-                OAIC 2026 Call for Papers announced
-              </p>
-            </div>
-            <Link href="/authors/call-for-papers" className="inline-flex items-center gap-1.5 text-sm font-semibold">
-              Read the call
+          <div className="surface flex flex-col gap-3 border-l-[3px] border-l-brand-700 p-5 text-center md:flex-row md:items-center md:justify-between md:px-8 md:py-6 md:text-left">
+            <h2 className="text-xl font-semibold md:text-3xl">News and Announcements</h2>
+            <Link href="/authors/call-for-papers" className="inline-flex items-center justify-center gap-1.5 font-semibold md:text-lg">
+              OAIC 2026 Call for Papers announced
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Welcome */}
+      {/* Important Dates */}
       <section className="section-padding">
+        <div className="container-wide">
+          <div className="relative flex flex-col lg:min-h-[420px] lg:flex-row">
+            <div className="relative z-0 h-52 w-full overflow-hidden rounded-lg sm:h-72 lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-2/3">
+              <Image src="/images/hero-3.jpg" alt="" fill sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover" />
+              <div className="absolute inset-0 bg-primary-950/45" />
+              <div className="absolute left-0 top-5 border-l-4 border-brand-700 bg-primary-950 px-6 py-3 shadow-lg md:top-8 md:px-8 md:py-4">
+                <h2 className="text-xl font-semibold text-white md:text-2xl">Important Dates</h2>
+              </div>
+            </div>
+
+            <div className="relative z-10 -mt-12 ml-auto flex w-full flex-col justify-center gap-3 px-3 sm:-mt-16 sm:px-6 lg:mt-0 lg:w-1/2 lg:px-0 lg:py-10">
+              {importantDates.map((item) => (
+                <PastAware key={item.event} iso={item.iso} className="flex overflow-hidden rounded-md bg-white shadow-md ring-1 ring-gray-200 transition-shadow hover:shadow-lg">
+                  <div className="flex w-28 shrink-0 items-center justify-center bg-primary-950 p-3 text-center text-xs font-semibold text-white md:w-36 md:text-sm group-data-[past=true]:bg-gray-400">
+                    <time className="group-data-[past=true]:line-through">{item.date}</time>
+                  </div>
+                  <div className="flex flex-1 flex-wrap items-center gap-x-2 gap-y-1 p-3 text-sm md:p-4">
+                    <span className="font-medium text-gray-800 group-data-[past=true]:text-gray-400 group-data-[past=true]:line-through">{item.event}</span>
+                    {item.status === 'extended' && (
+                      <span className="rounded bg-brand-50 px-1.5 py-0.5 text-xs font-medium text-brand-700 group-data-[past=true]:hidden">Extended</span>
+                    )}
+                    <span className="hidden rounded bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-500 group-data-[past=true]:inline">Passed</span>
+                  </div>
+                </PastAware>
+              ))}
+              <div className="flex justify-end pt-2">
+                <Button as={Link} href="/authors/important-dates" variant="accent" className="w-full sm:w-auto">
+                  See all dates
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Welcome */}
+      <section className="section-padding border-t border-gray-200 bg-gray-50">
         <div className="container-wide grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-7">
             <span className="eyebrow">Welcome</span>
@@ -75,13 +110,15 @@ export default function HomePage() {
 
           <aside className="lg:col-span-5">
             <div className="surface lg:sticky lg:top-24">
-              <h3 className="border-b border-gray-200 px-6 py-4 font-sans text-sm font-semibold uppercase tracking-wider text-primary-950">
+              <h3 className="rounded-t-lg bg-primary-950 px-5 py-3.5 font-sans text-sm font-semibold uppercase tracking-wider text-white">
                 Particular emphasis on
               </h3>
               <ul className="divide-y divide-gray-100">
                 {emphasis.map(({ icon: Icon, text }) => (
-                  <li key={text} className="flex items-start gap-4 px-6 py-4">
-                    <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary-800" aria-hidden />
+                  <li key={text} className="flex items-center gap-4 px-5 py-3.5">
+                    <span className="icon-badge h-9 w-9">
+                      <Icon className="h-[18px] w-[18px]" aria-hidden />
+                    </span>
                     <span className="text-[15px] leading-snug text-gray-700">{text}</span>
                   </li>
                 ))}
@@ -91,39 +128,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Important dates */}
-      <section className="section-padding border-t border-gray-200 bg-gray-50">
-        <div className="container-wide grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-4">
-            <span className="eyebrow">Plan ahead</span>
-            <h2 className="mt-2 text-3xl font-semibold md:text-4xl">Important Dates</h2>
-            <p className="mt-3 text-gray-600">All deadlines are 11:59 PM Anywhere on Earth (AoE).</p>
-            <Button as={Link} href="/authors/important-dates" variant="outline" className="mt-6 hidden lg:inline-flex">
-              See all dates
-            </Button>
-          </div>
-
-          <ol className="surface divide-y divide-gray-200 lg:col-span-8">
-            {importantDates.map((item) => (
-              <li key={item.event} className="flex flex-col gap-1 px-5 py-4 sm:flex-row sm:items-baseline sm:gap-6 md:px-6">
-                <time className="shrink-0 text-sm font-semibold text-brand-700 sm:w-40">{item.date}</time>
-                <span className="text-[15px] text-gray-800">
-                  {item.event}
-                  {item.status === 'extended' && (
-                    <span className="ml-2 inline-block rounded bg-brand-50 px-1.5 py-0.5 align-middle text-xs font-medium text-brand-700">
-                      Extended
-                    </span>
-                  )}
-                </span>
-              </li>
-            ))}
-          </ol>
-
-          <Button as={Link} href="/authors/important-dates" variant="outline" className="w-full lg:hidden">
-            See all dates
-          </Button>
-        </div>
-      </section>
     </>
   );
 }

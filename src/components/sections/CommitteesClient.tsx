@@ -122,7 +122,7 @@ export default function CommitteesClient({ sections }: CommitteesClientProps) {
         </nav>
       </aside>
 
-      <div className="min-w-0 space-y-12 lg:col-span-9">
+      <div className="min-w-0 space-y-10 lg:col-span-9">
         <div className="lg:hidden">
           <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">Jump to</p>
           <div ref={mobileMenuRef} className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1">
@@ -148,10 +148,10 @@ export default function CommitteesClient({ sections }: CommitteesClientProps) {
 
         {sections.map((section) => (
           <section key={section.id} id={section.id} className="scroll-mt-24">
-            <h2 className="border-b border-gray-200 pb-3 text-xl font-semibold md:text-2xl">{section.title}</h2>
+            <h2 className="heading-rule text-xl font-semibold md:text-2xl">{section.title}</h2>
             <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {section.members.map((member, i) => (
-                <li key={`${member.name}-${i}`} className="surface flex flex-col p-4">
+                <li key={`${member.name}-${i}`} className="surface surface-hover flex flex-col border-l-[3px] border-l-primary-800 p-4">
                   <p className="font-semibold text-gray-900">{member.name}</p>
                   {member.role && <p className="mt-0.5 text-sm text-brand-700">{member.role}</p>}
                   {member.institution && (

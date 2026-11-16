@@ -18,23 +18,23 @@ import {
 export const metadata: Metadata = {
   title: 'Program at a Glance',
   description:
-    'OAIC 2026 program: pre-conference workshops on 18 December and conference days on 19–20 December 2026.',
+    'OAIC 2026 program: pre-conference workshops on 18th December and conference days on 19th–20th December 2026.',
 };
 
 const stats = [
-  { icon: CalendarDays, value: '3', label: 'Days', sub: '18 – 20 Dec 2026' },
+  { icon: CalendarDays, value: '3', label: 'Days', sub: '18th–20th Dec 2026' },
   { icon: Mic2, value: '4', label: 'Keynotes', sub: 'Plenary + 3 keynotes' },
   { icon: MessageSquare, value: '4', label: 'Panel Discussions', sub: 'AI, Quantum, Cyber, Startups' },
   { icon: FlaskConical, value: '12', label: 'Technical Tracks', sub: 'Onsite and virtual' },
 ];
 
 const happenings = [
-  { icon: Handshake, label: 'Workshops', date: '18 Dec' },
-  { icon: Presentation, label: 'Posters', date: '19 Dec' },
-  { icon: PartyPopper, label: 'Cultural Evening', date: '19 Dec' },
-  { icon: Code, label: 'Hackathon Finals', date: '20 Dec' },
-  { icon: Building, label: 'Startup Exhibition', date: '20 Dec' },
-  { icon: Landmark, label: 'Valedictory', date: '20 Dec' },
+  { icon: Handshake, label: 'Workshops', date: '18th Dec' },
+  { icon: Presentation, label: 'Posters', date: '19th Dec' },
+  { icon: PartyPopper, label: 'Cultural Evening', date: '19th Dec' },
+  { icon: Code, label: 'Hackathon Finals', date: '20th Dec' },
+  { icon: Building, label: 'Startup Exhibition', date: '20th Dec' },
+  { icon: Landmark, label: 'Valedictory', date: '20th Dec' },
 ];
 
 export default function AtAGlancePage() {
@@ -42,7 +42,7 @@ export default function AtAGlancePage() {
     <>
       <PageHeader
         title="Program at a Glance"
-        description="Pre-conference workshops on 18 December, followed by two conference days on 19–20 December 2026. This programme is tentative."
+        description="Pre-conference workshops on 18th December, followed by two conference days on 19th–20th December 2026. This programme is tentative."
         breadcrumbs={[{ label: 'Program' }, { href: '/program/at-a-glance', label: 'At a Glance' }]}
       />
       <Section className="pt-8 md:pt-12">
@@ -73,7 +73,7 @@ export default function AtAGlancePage() {
             ))}
           </ul>
 
-          <div className="mt-10 md:mt-14">
+          <div className="mt-10 md:mt-10">
             <ProgramSchedule />
           </div>
 

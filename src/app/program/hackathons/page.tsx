@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { ExternalLink, FileText, Presentation, Video } from 'lucide-react';
+import { Download, ExternalLink, FileText, Presentation, Video } from 'lucide-react';
 import './hackathon.css';
+
+const PPT_TEMPLATE_URL =
+  'https://docs.google.com/presentation/d/1MMdwyNxHIA8Z1Bc84_5U5mp5w0PYCCEQ/edit?usp=drive_link&ouid=113828468777167726178&rtpof=true&sd=true';
 
 const navPartners = [
   { name: 'Siksha O Anusandhan University', logo: '/images/sponsors/SOA.png' },
@@ -13,7 +16,7 @@ const navPartners = [
 export const metadata: Metadata = {
   title: 'Odisha AI Hackathon 2026 | Innovate for Odisha, Build for the Future',
   description:
-    'Odisha AI Hackathon 2026 — Applications of AI. Regional rounds across Odisha, culminating at SOA University, Bhubaneswar on 20 December 2026.',
+    'Odisha AI Hackathon 2026 — Applications of AI. Regional rounds across Odisha, culminating at SOA University, Bhubaneswar on 20th December 2026.',
 };
 
 export default function HackathonsPage() {
@@ -22,7 +25,6 @@ export default function HackathonsPage() {
       <nav className="hackathon-subnav">
         <div className="hackathon-container nav-inner">
           <a className="brand" href="#top">
-            <Image src="/images/logo.png" alt="" width={163} height={200} style={{ height: 36, width: 'auto' }} />
             <span className="brand-text">
               Odisha AI Hackathon <span className="brand-year">2026</span>
             </span>
@@ -63,7 +65,6 @@ export default function HackathonsPage() {
       <header className="hero" id="top">
         <div className="hackathon-container hero-inner">
           <div>
-            <span className="kicker">Odisha AI · SOA · HCLTech</span>
             <h1>
               Odisha AI Hackathon <span className="hero-year">2026</span>
             </h1>
@@ -93,7 +94,7 @@ export default function HackathonsPage() {
             <div style={{ fontWeight: 600 }}>Prizes worth INR 1,50,000</div>
             <div className="date-box">
               <div className="stat">
-                <b>20 Dec 2026</b>
+                <b>20th Dec 2026</b>
                 <span>Finale date</span>
               </div>
               <div className="stat">
@@ -251,7 +252,7 @@ export default function HackathonsPage() {
             <div className="step step-highlight">
               <div className="num num-highlight">3</div>
               <h3>Regional Selection</h3>
-              <p className="step-date">Around 20 Nov 2026</p>
+              <p className="step-date">Around 20th Nov 2026</p>
               <p>Regional screening and evaluation at your nodal centre.</p>
             </div>
             <div className="step">
@@ -262,7 +263,7 @@ export default function HackathonsPage() {
             <div className="step">
               <div className="num">5</div>
               <h3>Finale at SOA</h3>
-              <p>Regional winners exhibit solutions at OAIC 2026 on 20 Dec 2026.</p>
+              <p>Regional winners exhibit solutions at OAIC 2026 on 20th Dec 2026.</p>
             </div>
           </div>
         </div>
@@ -332,6 +333,16 @@ export default function HackathonsPage() {
                 <span><strong>3-minute video:</strong> a demo or pitch of your AI solution</span>
               </li>
             </ul>
+            <div className="template-download">
+              <div>
+                <div className="template-label">PPT template</div>
+                <p className="template-note">Use the official template for your idea presentation.</p>
+              </div>
+              <a className="btn btn-light" href={PPT_TEMPLATE_URL} target="_blank" rel="noopener noreferrer">
+                <Download size={16} aria-hidden />
+                Open template
+              </a>
+            </div>
             <div style={{ marginTop: '16px' }}>
               <a
                 className="btn btn-primary"
@@ -353,7 +364,7 @@ export default function HackathonsPage() {
           <div>
             <strong style={{ color: 'var(--ink)' }}>Odisha AI Hackathon 2026</strong> · Innovate for Odisha and Build for the Future
           </div>
-          <div>Finale · 20 December 2026 · SOA University, Bhubaneswar</div>
+          <div>Finale · 20th December 2026 · SOA University, Bhubaneswar</div>
         </div>
       </div>
     </div>

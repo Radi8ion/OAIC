@@ -107,15 +107,15 @@ export default function AboutUsPage() {
           <div className="flex flex-col gap-5 lg:col-span-5">
             <dl className="surface divide-y divide-gray-200">
               <div className="flex items-start gap-3 p-5">
-                <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-primary-800" aria-hidden />
+                <span className="icon-badge"><Calendar className="h-5 w-5" aria-hidden /></span>
                 <div>
                   <dt className="text-xs font-medium uppercase tracking-wider text-gray-500">Dates</dt>
-                  <dd className="mt-0.5 font-semibold text-gray-900">December 19–20, 2026</dd>
-                  <dd className="text-sm text-gray-500">Pre-conference workshops: December 18, 2026</dd>
+                  <dd className="mt-0.5 font-semibold text-gray-900">19th–20th December 2026</dd>
+                  <dd className="text-sm text-gray-500">Pre-conference workshops: 18th December 2026</dd>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-5">
-                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary-800" aria-hidden />
+                <span className="icon-badge"><MapPin className="h-5 w-5" aria-hidden /></span>
                 <div>
                   <dt className="text-xs font-medium uppercase tracking-wider text-gray-500">Location</dt>
                   <dd className="mt-0.5 font-semibold text-gray-900">Bhubaneswar, Odisha, India</dd>
@@ -197,7 +197,7 @@ export default function AboutUsPage() {
             </div>
           </div>
 
-          <div className="mt-16 md:mt-20">
+          <div className="mt-12 md:mt-10">
             <div className="mx-auto mb-10 max-w-2xl text-center">
               <span className="eyebrow">Action plan</span>
               <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Key Strategic Objectives</h2>
@@ -206,9 +206,9 @@ export default function AboutUsPage() {
 
             <ol className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
               {objectives.map(({ icon: Icon, number, title, text }) => (
-                <li key={title} className="surface p-6">
+                <li key={title} className="surface surface-hover p-6">
                   <div className="flex items-center justify-between">
-                    <Icon className="h-5 w-5 text-primary-800" aria-hidden />
+                    <span className="icon-badge"><Icon className="h-5 w-5" aria-hidden /></span>
                     <span className="font-serif text-lg font-semibold text-gray-300">{number}</span>
                   </div>
                   <h3 className="mt-4 font-sans text-base font-semibold">{title}</h3>
@@ -218,7 +218,7 @@ export default function AboutUsPage() {
             </ol>
           </div>
 
-          <figure className="mx-auto mt-16 max-w-3xl border-l-[3px] border-brand-700 pl-6 md:mt-20 md:pl-8">
+          <figure className="mx-auto mt-12 max-w-3xl border-l-[3px] border-brand-700 pl-6 md:mt-10 md:pl-8">
             <blockquote className="font-serif text-xl leading-relaxed text-primary-950 md:text-2xl">
               Odisha AI aspires not merely to accelerate the adoption of Artificial Intelligence, but to build the knowledge, capabilities and innovation ecosystem necessary to shape its future.
             </blockquote>

@@ -5,14 +5,14 @@ import type { TouristAttraction } from '@/types';
 export default function AttractionCard({ attraction }: { attraction: TouristAttraction }) {
   const category = attraction.category.charAt(0).toUpperCase() + attraction.category.slice(1);
   return (
-    <article className="surface flex flex-col overflow-hidden">
+    <article className="surface surface-hover group flex flex-col overflow-hidden">
       <div className="relative aspect-[4/3] w-full">
         <Image
           src={attraction.photoUrl}
           alt={attraction.name}
           fill
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
         />
       </div>
       <div className="flex flex-1 flex-col p-5">

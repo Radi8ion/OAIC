@@ -65,7 +65,7 @@ export default function AttractionsPage() {
           />
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {cuisine.map((dish) => (
-              <li key={dish.name} className="surface p-6">
+              <li key={dish.name} className="surface surface-hover border-t-[3px] border-t-brand-700 p-6">
                 <h3 className="text-lg font-semibold">{dish.name}</h3>
                 <p className="mt-2 text-[15px] leading-relaxed text-gray-600">{dish.desc}</p>
               </li>

@@ -94,8 +94,8 @@ export default function CallForPapersPage() {
           <SectionHeader eyebrow="Formats" title="Submission Types" subtitle="Choose the format that best fits your contribution." />
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
             {submissionTypes.map((type) => (
-              <div key={type.type} className="surface flex flex-col p-6">
-                <FileText className="h-6 w-6 text-primary-800" aria-hidden />
+              <div key={type.type} className="surface surface-hover flex flex-col p-6">
+                <span className="icon-badge"><FileText className="h-5 w-5" aria-hidden /></span>
                 <h3 className="mt-4 text-lg font-semibold">{type.type}</h3>
                 <p className="mt-1 text-sm font-medium text-brand-700">{type.pages}</p>
                 <p className="mt-3 flex-1 text-[15px] leading-relaxed text-gray-600">{type.description}</p>

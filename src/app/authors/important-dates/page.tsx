@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Info } from 'lucide-react';
+import { CalendarDays, Info } from 'lucide-react';
+import PastAware from '@/components/ui/PastAware';
 import PageHeader from '@/components/layout/PageHeader';
 import Section from '@/components/layout/Section';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/Alert';
@@ -28,23 +29,38 @@ export default function ImportantDatesPage() {
             All deadlines are at <strong className="font-semibold text-gray-800">11:59 PM AoE</strong> (Anywhere on Earth).
           </p>
 
-          <ol className="surface mt-8 divide-y divide-gray-200">
+          <ol className="relative mt-7">
+            <span className="absolute bottom-6 left-[11px] top-6 w-0.5 bg-primary-100" aria-hidden />
             {importantDates.map((d) => (
-              <li key={d.event} className="grid grid-cols-1 gap-2 px-5 py-5 sm:grid-cols-[11rem_1fr_auto] sm:items-center sm:gap-6 md:px-6">
-                <time className="text-sm font-semibold text-brand-700 md:text-base">{d.date}</time>
-                <span className="text-[15px] font-medium text-gray-900 md:text-base">{d.event}</span>
+              <PastAware as="li" key={d.event} iso={d.iso} className="relative pb-4 pl-10 last:pb-0">
                 <span
-                  className={cn(
-                    'w-fit rounded px-2 py-0.5 text-xs font-medium',
-                    d.status === 'extended' && 'bg-brand-50 text-brand-700',
-                    d.status === 'upcoming' && 'bg-primary-50 text-primary-900',
-                    (d.status === 'past' || d.status === 'closed') && 'bg-gray-100 text-gray-500',
-                    d.status === 'open' && 'bg-primary-50 text-primary-900',
-                  )}
+                  className="absolute left-0 top-5 flex h-6 w-6 items-center justify-center rounded-full bg-brand-700 text-white ring-4 ring-white group-data-[past=true]:bg-gray-300"
+                  aria-hidden
                 >
-                  {statusLabel[d.status]}
+                  <CalendarDays className="h-3.5 w-3.5" />
                 </span>
-              </li>
+                <div className="surface surface-hover grid grid-cols-1 gap-2 px-5 py-4 sm:grid-cols-[11rem_1fr_auto] sm:items-center sm:gap-6 md:px-6 group-data-[past=true]:bg-gray-50">
+                  <time className="text-sm font-semibold text-brand-700 md:text-base group-data-[past=true]:text-gray-400 group-data-[past=true]:line-through">
+                    {d.date}
+                  </time>
+                  <span className="text-[15px] font-medium text-gray-900 md:text-base group-data-[past=true]:text-gray-500 group-data-[past=true]:line-through">
+                    {d.event}
+                  </span>
+                  <span
+                    className={cn(
+                      'w-fit rounded px-2 py-0.5 text-xs font-medium group-data-[past=true]:hidden',
+                      d.status === 'extended' && 'bg-brand-50 text-brand-700',
+                      (d.status === 'upcoming' || d.status === 'open') && 'bg-primary-50 text-primary-900',
+                      (d.status === 'past' || d.status === 'closed') && 'bg-gray-100 text-gray-500',
+                    )}
+                  >
+                    {statusLabel[d.status]}
+                  </span>
+                  <span className="hidden w-fit rounded bg-gray-200 px-2 py-0.5 text-xs font-medium text-gray-600 group-data-[past=true]:inline-block">
+                    Passed
+                  </span>
+                </div>
+              </PastAware>
             ))}
           </ol>
 

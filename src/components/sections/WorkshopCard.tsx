@@ -3,7 +3,7 @@ import type { Workshop } from '@/types';
 
 export default function WorkshopCard({ workshop }: Readonly<{ workshop: Workshop }>) {
   return (
-    <article className="surface flex flex-col">
+    <article className="surface surface-hover flex flex-col border-t-[3px] border-t-brand-700">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-gray-200 px-5 py-3 text-sm text-gray-600">
         <span className="font-medium text-brand-700">Workshop</span>
         <span className="inline-flex items-center gap-1.5">

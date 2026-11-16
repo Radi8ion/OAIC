@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import NexusCredit from '@/components/layout/NexusCredit';
 
 const columns = [
   {
@@ -33,8 +34,8 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-950 text-gray-300">
-      <div className="container-wide grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 md:py-16 lg:grid-cols-5 lg:gap-8">
+    <footer className="bg-dots border-t-[3px] border-brand-700 bg-primary-950 text-gray-300">
+      <div className="container-wide grid grid-cols-1 gap-8 py-10 sm:grid-cols-2 md:py-12 lg:grid-cols-5 lg:gap-8">
         <div className="sm:col-span-2">
           <Link href="/" className="inline-flex items-center gap-4" aria-label="OAIC 2026 home">
             <span className="rounded-md bg-white p-2">
@@ -46,7 +47,7 @@ export default function Footer() {
             </span>
           </Link>
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-gray-400">
-            19–20 December 2026
+            19th–20th December 2026
             <br />
             Siksha &apos;O&apos; Anusandhan, Bhubaneswar, Odisha, India
           </p>
@@ -69,9 +70,9 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-wide flex flex-col gap-2 py-5 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-wide flex flex-col gap-2 pb-20 pt-5 text-xs sm:pb-5 text-gray-500 sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; 2026 Siksha &apos;O&apos; Anusandhan &amp; OAIC. All rights reserved.</p>
-          <p>Proceedings to be submitted to IEEE Xplore</p>
+          <NexusCredit />
         </div>
       </div>
     </footer>

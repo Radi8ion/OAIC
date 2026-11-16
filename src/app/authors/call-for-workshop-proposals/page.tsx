@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Check, ExternalLink } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import Section from '@/components/layout/Section';
+import PastAware from '@/components/ui/PastAware';
 import { Button } from '@/components/ui/Button';
 
 export const metadata: Metadata = {
@@ -23,9 +24,9 @@ const proposalTopics = [
 ];
 
 const keyDates = [
-  { date: '30 September 2026', event: 'Workshop proposal deadline' },
-  { date: '15 October 2026', event: 'Acceptance notification' },
-  { date: '19–20 December 2026', event: 'Workshop days' },
+  { date: '30th September 2026', iso: '2026-09-30', event: 'Workshop proposal deadline' },
+  { date: '15th October 2026', iso: '2026-10-15', event: 'Acceptance notification' },
+  { date: '19th–20th December 2026', iso: '2026-12-20', event: 'Workshop days' },
 ];
 
 export default function WorkshopProposalsPage() {
@@ -55,7 +56,7 @@ export default function WorkshopProposalsPage() {
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-5 md:mt-16">
+          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-5 md:mt-12">
             <div className="surface p-6 md:p-8 lg:col-span-3">
               <h2 className="text-xl font-semibold md:text-2xl">Proposal guidelines</h2>
               <p className="mt-1 text-sm text-gray-500">What to include</p>
@@ -74,10 +75,10 @@ export default function WorkshopProposalsPage() {
               <p className="mt-1 text-sm text-gray-500">Timeline</p>
               <ol className="mt-6 space-y-5">
                 {keyDates.map((d) => (
-                  <li key={d.event} className="border-l-2 border-gray-200 pl-4">
-                    <p className="text-sm font-semibold text-brand-700">{d.date}</p>
-                    <p className="mt-0.5 text-[15px] text-gray-800">{d.event}</p>
-                  </li>
+                  <PastAware as="li" key={d.event} iso={d.iso} className="border-l-2 border-brand-700 pl-4 data-[past=true]:border-gray-200">
+                    <p className="text-sm font-semibold text-brand-700 group-data-[past=true]:text-gray-400 group-data-[past=true]:line-through">{d.date}</p>
+                    <p className="mt-0.5 text-[15px] text-gray-800 group-data-[past=true]:text-gray-500 group-data-[past=true]:line-through">{d.event}</p>
+                  </PastAware>
                 ))}
               </ol>
             </div>

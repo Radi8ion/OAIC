@@ -5,7 +5,7 @@ const EDAS_URL = 'https://edas.info/login.php?rurl=aHR0cHM6Ly9lZGFzLmluZm8vTjM1M
 
 const items = [
   { text: 'Call for Posters: present your ongoing research at OAIC 2026', href: '/authors/call-for-posters' },
-  { text: 'Poster abstract submission deadline: 25 November 2026', href: '/authors/call-for-posters' },
+  { text: 'Poster abstract submission deadline: 25th November 2026', href: '/authors/call-for-posters' },
   { text: 'Submit posters through the EDAS portal', href: EDAS_URL, external: true },
 ];
 

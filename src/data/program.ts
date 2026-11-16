@@ -1,7 +1,7 @@
 import type { ScheduleSlot, Workshop } from '@/types';
 
 export const schedule: ScheduleSlot[] = [
-  // Day 1 - October 15
+  // Day 1 - 15th October
   { day: 1, time: '08:00–09:00', title: 'Registration & Welcome Coffee', type: 'break' },
   { day: 1, time: '09:00–09:30', title: 'Opening Ceremony & Inaugural Address', type: 'social', room: 'Main Hall' },
   { day: 1, time: '09:30–10:30', title: 'Keynote: The Future of AI in India', type: 'keynote', room: 'Main Hall', speaker: 'Dr. Ananya Krishnan' },
@@ -14,7 +14,7 @@ export const schedule: ScheduleSlot[] = [
   { day: 1, time: '16:00–17:30', title: 'Panel: Ethical AI in Practice', type: 'panel', room: 'Main Hall' },
   { day: 1, time: '19:00–21:00', title: 'Welcome Reception & Cultural Evening', type: 'social', room: 'Banquet Hall' },
 
-  // Day 2 - October 16
+  // Day 2 - 16th October
   { day: 2, time: '09:00–10:00', title: 'Keynote: AI for Sustainable Development', type: 'keynote', room: 'Main Hall', speaker: 'Prof. Rajesh Mohanty' },
   { day: 2, time: '10:00–10:30', title: 'Coffee Break', type: 'break' },
   { day: 2, time: '10:30–12:00', title: 'Technical Session 3: NLP & Multilingual AI', type: 'panel', room: 'Hall A' },
@@ -27,7 +27,7 @@ export const schedule: ScheduleSlot[] = [
   { day: 2, time: '16:30–18:00', title: 'Hackathon - Ideation Presentations', type: 'workshop', room: 'Main Hall' },
   { day: 2, time: '19:00–21:30', title: 'Conference Banquet Dinner', type: 'social', room: 'Grand Ballroom' },
 
-  // Day 3 - October 17
+  // Day 3 - 17th October
   { day: 3, time: '09:00–10:00', title: 'Keynote: Reinforcement Learning at Scale', type: 'keynote', room: 'Main Hall', speaker: 'Dr. Siddharth Panda' },
   { day: 3, time: '10:00–10:30', title: 'Coffee Break', type: 'break' },
   { day: 3, time: '10:30–12:00', title: 'Technical Session 5: Ethics & Governance', type: 'panel', room: 'Hall A' },

@@ -140,7 +140,7 @@ export default function PatronsExhibitorsPage() {
               <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
                 {highlights.map(({ icon: Icon, title, text }) => (
                   <li key={title}>
-                    <Icon className="h-5 w-5 text-primary-800" aria-hidden />
+                    <span className="icon-badge"><Icon className="h-5 w-5" aria-hidden /></span>
                     <h3 className="mt-2 font-sans text-base font-semibold">{title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-gray-600">{text}</p>
                   </li>
@@ -157,7 +157,7 @@ export default function PatronsExhibitorsPage() {
           <SectionHeader eyebrow="Supported by" title="Our Partners" />
           <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {partners.map((p) => (
-              <li key={p.name} className="surface flex flex-col items-center gap-3 p-5">
+              <li key={p.name} className="surface surface-hover flex flex-col items-center gap-3 p-5">
                 <div className="flex h-24 w-full items-center justify-center">
                   <Image src={p.logo} alt={p.name} width={p.w} height={p.h} className="max-h-24 w-auto max-w-full object-contain" />
                 </div>
@@ -195,7 +195,7 @@ export default function PatronsExhibitorsPage() {
                 <div key={tier.name} className={`surface flex flex-col p-6 md:p-8 ${i === 0 ? 'border-t-[3px] border-t-brand-700' : ''}`}>
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="text-xl font-semibold md:text-2xl">{tier.name}</h3>
-                    <Icon className="h-6 w-6 shrink-0 text-primary-800" aria-hidden />
+                    <span className="icon-badge"><Icon className="h-5 w-5" aria-hidden /></span>
                   </div>
                   <p className="mt-2 text-sm text-gray-600">{tier.description}</p>
                   <p className="mt-6 border-y border-gray-200 py-4">

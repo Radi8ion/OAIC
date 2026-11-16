@@ -130,7 +130,7 @@ function CameraReady() {
     <Panel>
       <p className="leading-relaxed text-gray-700 md:text-lg">
         After acceptance, authors must prepare and submit the camera-ready version by{' '}
-        <strong className="text-primary-950">25 November 2026</strong>.
+        <strong className="text-primary-950">25th November 2026</strong>.
       </p>
       <CheckList
         items={[

@@ -49,7 +49,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-semibold md:text-3xl">Get in touch</h2>
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {contactCategories.map((cat) => (
-                <div key={cat.label} className="surface p-5">
+                <div key={cat.label} className="surface surface-hover border-t-[3px] border-t-primary-800 p-5">
                   <h3 className="font-sans text-base font-semibold">{cat.label}</h3>
                   <p className="mt-1 text-sm text-gray-600">{cat.desc}</p>
                   <a href={`mailto:${cat.email}`} className="mt-3 inline-flex items-center gap-2 break-all text-sm font-medium">
@@ -62,7 +62,7 @@ export default function ContactPage() {
 
             <h2 className="mt-12 text-2xl font-semibold md:text-3xl">Venue</h2>
             <div className="surface mt-6 flex items-start gap-4 p-5 md:p-6">
-              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary-800" aria-hidden />
+              <span className="icon-badge"><MapPin className="h-5 w-5" aria-hidden /></span>
               <address className="not-italic leading-relaxed text-gray-700">
                 <span className="block font-semibold text-gray-900">Siksha &apos;O&apos; Anusandhan</span>
                 <span className="block">{contactInfo.address.line1}</span>

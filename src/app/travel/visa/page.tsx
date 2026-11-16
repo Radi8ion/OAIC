@@ -106,7 +106,7 @@ export default function VisaPage() {
             </ul>
           </div>
 
-          <div className="mt-16">
+          <div className="mt-12">
             <SectionHeader
               align="left"
               title="Application guide"
@@ -124,7 +124,7 @@ export default function VisaPage() {
             </ol>
           </div>
 
-          <div className="mt-14 flex flex-col gap-3 border-t border-gray-200 pt-10 sm:flex-row">
+          <div className="mt-10 flex flex-col gap-3 border-t border-gray-200 pt-10 sm:flex-row">
             <Button as="a" href="https://indianvisaonline.gov.in" target="_blank" rel="noopener noreferrer" variant="primary">
               Indian e-Visa portal
               <ExternalLink className="h-4 w-4" aria-hidden />

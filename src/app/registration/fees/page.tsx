@@ -21,7 +21,7 @@ export default function RegistrationFeesPage() {
     <>
       <PageHeader
         title="Registration Fees"
-        description="Register early for the best rates. Early Bird closes September 15, 2026."
+        description="Register early for the best rates. Early Bird closes 15th September 2026."
         breadcrumbs={[{ label: 'Registration' }, { href: '/registration/fees', label: 'Registration Fees' }]}
       />
       <Section>

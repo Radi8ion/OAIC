@@ -7,6 +7,8 @@ export interface NavItem {
 export interface ImportantDate {
   event: string;
   date: string;
+  /** Last day of the event or deadline, YYYY-MM-DD; used to mark past dates. */
+  iso: string;
   status: 'open' | 'closed' | 'upcoming' | 'extended' | 'past';
 }
 

@@ -59,7 +59,7 @@ export default function CallForPostersPage() {
             </p>
           </div>
 
-          <div className="mt-12 md:mt-16">
+          <div className="mt-12 md:mt-12">
             <SectionHeader
               align="left"
               title="Submission Instructions"
@@ -67,8 +67,8 @@ export default function CallForPostersPage() {
             />
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
               {instructions.map(({ icon: Icon, title, body }) => (
-                <div key={title} className="surface flex gap-4 p-6">
-                  <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary-800" aria-hidden />
+                <div key={title} className="surface surface-hover flex gap-4 p-6">
+                  <span className="icon-badge"><Icon className="h-5 w-5" aria-hidden /></span>
                   <div>
                     <h3 className="font-sans text-base font-semibold">{title}</h3>
                     <p className="mt-1.5 text-[15px] leading-relaxed text-gray-600">{body}</p>
@@ -82,7 +82,7 @@ export default function CallForPostersPage() {
             <CalendarDays aria-hidden />
             <AlertTitle>Key date</AlertTitle>
             <AlertDescription>
-              Poster submission deadline: <strong className="text-primary-950">15 Nov 2026</strong>
+              Poster submission deadline: <strong className="text-primary-950">25th November 2026</strong>
             </AlertDescription>
           </Alert>
 

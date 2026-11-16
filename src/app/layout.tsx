@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     default: '1st Odisha AI Conference (OAIC) 2026',
   },
   description:
-    'The 2026 1st Odisha AI Conference (OAIC) is a premier platform for exchanging ideas and presenting research findings in AI. Join us in Bhubaneswar, India, December 19-20, 2026.',
+    'The 2026 1st Odisha AI Conference (OAIC) is a premier platform for exchanging ideas and presenting research findings in AI. Join us in Bhubaneswar, India, 19th–20th December 2026.',
   keywords: ['OAIC 2026', 'Odisha AI Conference', 'Artificial Intelligence', 'Bhubaneswar', 'SOA University'],
   authors: [{ name: "Siksha 'O' Anusandhan" }],
   openGraph: {
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     url: 'https://oaic2026.example.com/',
     siteName: 'OAIC 2026',
     title: '1st Odisha AI Conference (OAIC) 2026',
-    description: 'Premier AI conference hosted at SOA University, Bhubaneswar, India. December 19-20, 2026.',
+    description: 'Premier AI conference hosted at SOA University, Bhubaneswar, India. 19th–20th December 2026.',
     images: [{ url: '/images/hero-2.jpg' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: '1st Odisha AI Conference (OAIC) 2026',
-    description: 'Premier AI conference hosted at SOA University, Bhubaneswar, India. December 19-20, 2026.',
+    description: 'Premier AI conference hosted at SOA University, Bhubaneswar, India. 19th–20th December 2026.',
     images: ['/images/hero-2.jpg'],
   },
   robots: { index: true, follow: true },

@@ -24,7 +24,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative">
-      <div className="relative h-[42vh] min-h-64 w-full overflow-hidden sm:h-[55vh] md:h-[65vh]">
+      <div className="relative h-[38vh] min-h-60 w-full overflow-hidden sm:h-[50vh] md:h-[60vh]">
         <Splide
           hasTrack={false}
           aria-label="Conference highlights"
@@ -38,7 +38,7 @@ export default function HeroSection() {
               <SplideSlide key={src} className="h-full w-full">
                 <div className="relative h-full w-full">
                   <Image src={src} alt="" fill sizes="100vw" className="object-cover" priority={i === 0} />
-                  <div className="absolute inset-0 bg-primary-950/25" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-950/50 via-primary-950/10 to-transparent" />
                 </div>
               </SplideSlide>
             ))}
@@ -49,8 +49,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="container-wide relative z-20 -mt-16 sm:-mt-28 md:-mt-40">
-        <div className="bg-primary-950 px-6 py-8 text-white shadow-xl sm:px-10 sm:py-10 md:px-14 md:py-14">
+      <div className="container-wide relative z-20 -mt-12 sm:-mt-28 md:-mt-40">
+        <div className="bg-dots border-t-4 border-brand-700 bg-primary-950 px-6 py-7 text-white shadow-xl sm:px-10 sm:py-9 md:px-12 md:py-11">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">1st Odisha AI Conference</p>
           <h1 className="mt-3 text-4xl font-semibold text-white md:text-5xl lg:text-6xl">OAIC 2026</h1>
           <p className="mt-4 max-w-2xl font-serif text-lg text-white/90 md:text-xl">
@@ -61,7 +61,7 @@ export default function HeroSection() {
             <div className="flex items-center gap-2">
               <dt className="sr-only">Dates</dt>
               <CalendarDays className="h-4 w-4 shrink-0 text-white/60" aria-hidden />
-              <dd>19–20 December 2026</dd>
+              <dd>19th–20th December 2026</dd>
             </div>
             <div className="flex items-center gap-2">
               <dt className="sr-only">Venue</dt>
