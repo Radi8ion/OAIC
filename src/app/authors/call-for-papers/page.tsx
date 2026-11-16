@@ -28,8 +28,7 @@ export default function CallForPapersPage() {
         <div className="container-wide">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-7">
-              <span className="eyebrow">Invitation to authors</span>
-              <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Share your research at OAIC 2026</h2>
+              <h2 className="heading-rule text-2xl font-semibold md:text-3xl">Invitation to Authors</h2>
               <div className="mt-5 space-y-4 text-base leading-relaxed text-gray-700 md:text-[17px]">
                 <p>
                   The Organizing Committee of the <strong>2026 1st IEEE Odisha AI Conference (OAIC)</strong> invites researchers, academicians, industry professionals, and practitioners worldwide to submit original, unpublished contributions on Artificial Intelligence and applications (see tracks and focus below). OAIC 2026 is the inaugural edition of a regional conference dedicated to fostering excellence in AI research and its transformative applications across industry, governance, healthcare, energy, and society. The conference will serve as a premier forum for exchanging ideas, presenting research findings, and building interdisciplinary collaborations that address real-world challenges through AI-driven solutions, with a special emphasis on the development priorities of the state of Odisha and the broader Indian subcontinent.
@@ -81,7 +80,6 @@ export default function CallForPapersPage() {
       <Section className="border-t border-gray-200 bg-gray-50">
         <div className="container-wide">
           <SectionHeader
-            eyebrow="Scope"
             title="Conference Tracks"
             subtitle="Select a track to see its sub-tracks and topics, then submit to the area that best fits your work."
           />
@@ -91,7 +89,7 @@ export default function CallForPapersPage() {
 
       <Section>
         <div className="container-wide">
-          <SectionHeader eyebrow="Formats" title="Submission Types" subtitle="Choose the format that best fits your contribution." />
+          <SectionHeader title="Submission Types" subtitle="Choose the format that best fits your contribution." />
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
             {submissionTypes.map((type) => (
               <div key={type.type} className="surface surface-hover flex flex-col p-6">

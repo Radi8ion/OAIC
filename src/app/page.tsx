@@ -82,8 +82,7 @@ export default function HomePage() {
       <section className="section-padding border-t border-gray-200 bg-gray-50">
         <div className="container-wide grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-7">
-            <span className="eyebrow">Welcome</span>
-            <h2 className="mt-2 text-3xl font-semibold md:text-4xl">Welcome to OAIC 2026</h2>
+            <h2 className="text-3xl font-semibold md:text-4xl">Welcome to OAIC 2026</h2>
 
             <div className="callout mt-6">
               <p className="text-xs font-medium uppercase tracking-wider text-gray-500">Conference theme</p>

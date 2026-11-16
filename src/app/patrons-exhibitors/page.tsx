@@ -154,7 +154,7 @@ export default function PatronsExhibitorsPage() {
       {/* Partners */}
       <Section className="border-t border-gray-200">
         <div className="container-wide">
-          <SectionHeader eyebrow="Supported by" title="Our Partners" />
+          <SectionHeader title="Our Partners" />
           <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {partners.map((p) => (
               <li key={p.name} className="surface surface-hover flex flex-col items-center gap-3 p-5">
@@ -183,7 +183,6 @@ export default function PatronsExhibitorsPage() {
       <Section className="border-t border-gray-200 bg-gray-50">
         <div className="container-wide">
           <SectionHeader
-            eyebrow="Sponsorship"
             title="Sponsorship Opportunities"
             subtitle="We invite industries, research organizations, and academic institutions to join us as sponsors of OAIC 2026. This is a unique opportunity to build brand awareness, discover top talent, and interact with leading minds in AI."
           />

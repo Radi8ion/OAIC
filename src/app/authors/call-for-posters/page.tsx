@@ -53,8 +53,8 @@ export default function CallForPostersPage() {
       <Section>
         <div className="container-wide max-w-5xl">
           <div className="max-w-3xl">
-            <span className="eyebrow">About poster presentations</span>
-            <p className="mt-3 text-lg leading-relaxed text-gray-700 md:text-xl">
+            <h2 className="heading-rule text-2xl font-semibold md:text-3xl">About Poster Presentations</h2>
+            <p className="mt-4 text-lg leading-relaxed text-gray-700 md:text-xl">
               Poster presentations at OAIC 2026 offer an excellent opportunity to present early-stage or work-in-progress research to a diverse audience of AI researchers and practitioners. The interactive format encourages direct discussion and valuable feedback.
             </p>
           </div>

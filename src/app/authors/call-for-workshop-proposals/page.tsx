@@ -41,15 +41,13 @@ export default function WorkshopProposalsPage() {
         <div className="container-wide max-w-5xl">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
             <div>
-              <span className="eyebrow">Student workshops</span>
-              <h2 className="mt-2 text-2xl font-semibold">What is an OAIC workshop?</h2>
+              <h2 className="heading-rule text-2xl font-semibold">Student Workshops</h2>
               <p className="mt-3 leading-relaxed text-gray-700">
                 Workshops at OAIC 2026 are focused three-hour events co-located with the main conference. They provide a platform for in-depth discussion of emerging or specialised AI topics, bringing together researchers and practitioners with shared interests. Workshops are designed for <strong>students</strong> to engage in hands-on, collaborative learning.
               </p>
             </div>
             <div>
-              <span className="eyebrow">Faculty and researchers</span>
-              <h2 className="mt-2 text-2xl font-semibold">Tutorials</h2>
+              <h2 className="heading-rule text-2xl font-semibold">Tutorials for Faculty and Researchers</h2>
               <p className="mt-3 leading-relaxed text-gray-700">
                 In addition to student workshops, OAIC 2026 will feature dedicated <strong>tutorials for faculty and researchers</strong>. These sessions provide in-depth technical knowledge, emerging methodologies, and hands-on exposure to advanced AI topics, helping faculty and researchers stay at the forefront of AI and bring new insights back to their institutions.
               </p>

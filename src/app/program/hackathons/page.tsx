@@ -117,12 +117,11 @@ export default function HackathonsPage() {
         </div>
       </header>
 
-      <section>
+      <section id="about">
         <div className="hackathon-container">
           <div className="section-head">
             <div>
-              <div className="eyebrow">The Challenge</div>
-              <h2>From ideas to impact.</h2>
+              <h2>About the Hackathon</h2>
             </div>
             <p className="lead">
               The hackathon focuses on <strong>Applications of AI</strong>, with tracks spanning infrastructure, human well-being, future technologies and disruptive innovation.
@@ -153,12 +152,11 @@ export default function HackathonsPage() {
         </div>
       </section>
 
-      <section id="regions" style={{ paddingTop: '10px' }}>
+      <section id="regions" className="alt">
         <div className="hackathon-container">
           <div className="section-head">
             <div>
-              <div className="eyebrow">Across Odisha</div>
-              <h2>Four regions. One AI mission.</h2>
+              <h2>Regions</h2>
             </div>
             <p className="lead">Select your nodal centre based on the district in which your institute is located.</p>
           </div>
@@ -191,8 +189,7 @@ export default function HackathonsPage() {
         <div className="hackathon-container">
           <div className="section-head">
             <div>
-              <div className="eyebrow">Applications of AI</div>
-              <h2>Choose your frontier.</h2>
+              <h2>Themes</h2>
             </div>
             <p className="lead">Build at the intersection of AI, society, infrastructure and emerging technologies.</p>
           </div>
@@ -233,8 +230,7 @@ export default function HackathonsPage() {
         <div className="hackathon-container">
           <div className="section-head">
             <div>
-              <div className="eyebrow">Participation Journey</div>
-              <h2>How to apply.</h2>
+              <h2>How to Apply</h2>
             </div>
             <p className="lead">A simple regional pathway from application to the Odisha AI Conference 2026 finale.</p>
           </div>
@@ -269,11 +265,10 @@ export default function HackathonsPage() {
         </div>
       </section>
 
-      <section id="contacts" style={{ paddingTop: '10px' }}>
+      <section id="contacts" className="alt">
         <div className="hackathon-container contacts">
           <div className="contact-card">
-            <div className="eyebrow">Regional Chairs</div>
-            <h2 style={{ marginBottom: '18px' }}>Need regional guidance?</h2>
+            <h2 style={{ marginBottom: '18px' }}>Regional Chairs</h2>
             <div className="table-scroll">
             <table className="contact-table">
               <thead>
@@ -317,8 +312,7 @@ export default function HackathonsPage() {
             </div>
           </div>
           <div className="apply apply-requirements">
-            <div className="eyebrow">Submission Requirements</div>
-            <h2>What to submit.</h2>
+            <h2>Submission Requirements</h2>
             <ul className="requirements-list">
               <li>
                 <Presentation className="req-icon" aria-hidden />

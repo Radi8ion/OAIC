@@ -50,7 +50,7 @@ export default function HeroSection() {
       </div>
 
       <div className="container-wide relative z-20 -mt-12 sm:-mt-28 md:-mt-40">
-        <div className="bg-dots border-t-4 border-brand-700 bg-primary-950 px-6 py-7 text-white shadow-xl sm:px-10 sm:py-9 md:px-12 md:py-11">
+        <div className="border-t-4 border-brand-700 bg-primary-950 px-6 py-7 text-white shadow-xl sm:px-10 sm:py-9 md:px-12 md:py-11">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">1st Odisha AI Conference</p>
           <h1 className="mt-3 text-4xl font-semibold text-white md:text-5xl lg:text-6xl">OAIC 2026</h1>
           <p className="mt-4 max-w-2xl font-serif text-lg text-white/90 md:text-xl">

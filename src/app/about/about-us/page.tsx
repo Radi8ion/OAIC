@@ -85,8 +85,7 @@ export default function AboutUsPage() {
       <Section>
         <div className="container-wide grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-7">
-            <span className="eyebrow">Inaugural edition · OAIC 2026</span>
-            <h2 className="mt-2 text-3xl font-semibold md:text-4xl">The Premier Stage for AI Innovation in Eastern India</h2>
+            <h2 className="heading-rule text-3xl font-semibold md:text-4xl">About the Conference</h2>
             <p className="mt-5 text-lg leading-relaxed text-gray-800">
               The <strong className="font-semibold">2026 1st Odisha AI Conference (OAIC)</strong> serves as an international forum for exchanging ideas, presenting pioneering research findings, and forging partnerships that tackle real-world challenges through AI-driven breakthroughs.
             </p>
@@ -151,8 +150,7 @@ export default function AboutUsPage() {
       <Section className="border-t border-gray-200 bg-gray-50">
         <div className="container-wide">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            <span className="eyebrow">The movement behind OAIC</span>
-            <div className="mt-6 rounded-lg border border-gray-200 bg-white p-4">
+            <div className="rounded-lg border border-gray-200 bg-white p-4">
               <Image src="/images/logo.png" alt="Odisha AI logo" width={163} height={200} className="h-auto w-28 sm:w-32" />
             </div>
             <h2 className="mt-6 text-3xl font-semibold md:text-4xl">Odisha AI</h2>
@@ -199,8 +197,7 @@ export default function AboutUsPage() {
 
           <div className="mt-12 md:mt-10">
             <div className="mx-auto mb-10 max-w-2xl text-center">
-              <span className="eyebrow">Action plan</span>
-              <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Key Strategic Objectives</h2>
+              <h2 className="heading-rule text-2xl font-semibold md:text-3xl">Key Strategic Objectives</h2>
               <p className="mt-3 text-gray-600">Six foundational pillars driving tangible outcomes across the state and beyond.</p>
             </div>
 

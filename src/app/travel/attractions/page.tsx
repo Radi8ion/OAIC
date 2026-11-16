@@ -43,7 +43,6 @@ export default function AttractionsPage() {
         <div className="container-wide">
           <SectionHeader
             align="left"
-            eyebrow="Discover heritage"
             title="Explore Odisha"
             subtitle="World-class heritage sites and natural wonders, all within reach of Bhubaneswar, the Temple City."
           />
@@ -59,7 +58,6 @@ export default function AttractionsPage() {
         <div className="container-wide">
           <SectionHeader
             align="left"
-            eyebrow="Local cuisine"
             title="Taste of Odisha"
             subtitle="Signature local dishes that define the region's culinary heritage."
           />

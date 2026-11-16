@@ -14,8 +14,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, description, breadcrumbs }: PageHeaderProps) {
   return (
-    <div className="bg-dots relative overflow-hidden border-b-[3px] border-brand-700 bg-primary-950">
-      <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border-[40px] border-white/[0.04]" aria-hidden />
+    <div className="relative border-b-[3px] border-brand-700 bg-primary-950">
       <div className="container-wide relative py-7 md:py-10">
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center gap-1.5 text-sm text-white/60">

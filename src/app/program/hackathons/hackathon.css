@@ -229,6 +229,16 @@
 
 .hackathon-scope section {
   padding: 48px 0;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 140px;
+}
+
+.hackathon-scope section.alt {
+  background: var(--paper);
+}
+
+.hackathon-scope .hero {
+  scroll-margin-top: 140px;
 }
 
 .hackathon-scope .section-head {
@@ -237,14 +247,6 @@
   gap: 30px;
   align-items: flex-end;
   margin-bottom: 28px;
-}
-
-.hackathon-scope .eyebrow {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  font-weight: 600;
 }
 
 .hackathon-scope h2 {
@@ -331,10 +333,6 @@
 
 .hackathon-scope .themes h2 {
   color: #fff;
-}
-
-.hackathon-scope .themes .eyebrow {
-  color: rgba(255, 255, 255, 0.7);
 }
 
 .hackathon-scope .themes .lead {

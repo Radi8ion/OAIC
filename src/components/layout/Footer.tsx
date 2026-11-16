@@ -34,7 +34,7 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="bg-dots border-t-[3px] border-brand-700 bg-primary-950 text-gray-300">
+    <footer className="border-t-[3px] border-brand-700 bg-primary-950 text-gray-300">
       <div className="container-wide grid grid-cols-1 gap-8 py-10 sm:grid-cols-2 md:py-12 lg:grid-cols-5 lg:gap-8">
         <div className="sm:col-span-2">
           <Link href="/" className="inline-flex items-center gap-4" aria-label="OAIC 2026 home">
